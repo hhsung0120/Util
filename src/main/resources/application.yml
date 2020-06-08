@@ -34,7 +34,7 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
-      jdbc-url: jdbc:mysql://localhost:3308/util?characterEncoding=UTF-8&serverTimezone=UTC
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/util?characterEncoding=UTF-8&serverTimezone=UTC&
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: 1234
