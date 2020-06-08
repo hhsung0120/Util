@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>Onion 관리자</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/common.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/jquery.bpopup.min.js"></script>
+<script src="../js/common.js"></script>
+</head>
+<body>
+<!-- 로딩 -->
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<!-- 로딩 -->
+
+	
+<!-- wrapper -->
+<div id="wrapper">
+	<div id="header">
+        <div class="header_top">
+            <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
+            <div class="admin_box ">
+                <div class="admin_info">
+                    로그인 관련 메뉴들
+                </div>
+            </div>
+        </div>
+         <div id="gnb">
+            <ul class="depth_01">
+                <li class=""><a href="#">전시상품관리</a></li>
+                <li class=""><a href="#">메인관리</a></li>
+                <li class=""><a href="#">통계</a></li>
+                <li class=""><a href="#">정산</a></li>
+                <li class="active"><a href="#">고객지원(CS)</a></li>
+                <li class=""><a href="#">환경설정</a></li>
+             </ul>
+        </div>
+	</div>
+    
+	<div id="container">
+        <div id="lnb" class="side_menu open">
+            <div class="tit_box">
+                <h5>고객지원(CS)</h5>
+            </div>
+			 <!-- 전시상품 관리 lnb 
+            <ul class="depth_none">
+            	<li class="open">
+                    <a href="#">상품</a>
+                </li>
+			</ul>
+			<!-- //전시상품 관리 lnb -->
+				
+			<!-- 메인관리 lnb 
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">베너</a>
+                </li>
+			</ul>
+				<!-- //메인관리 lnb -->
+				
+				<!-- 통계 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">구매현황</a>
+                </li>
+			</ul>
+				<!-- //통계 lnb -->
+				
+				<!-- 정산 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">정산</a>
+                </li>
+			</ul>
+				<!-- //정산 lnb -->
+			
+			
+				<!-- 고객지원 lnb -->
+			<ul class="depth_none">
+				<li class="open">
+                    <a href="#">CS상담관리</a>
+                </li>
+				<li class="">
+                    <a href="#">상담이력관리</a>
+                </li>
+				<li class="">
+                    <a href="#">CS문자관리</a>
+                </li>
+			</ul>
+				<!-- //고객지원 lnb -->
+				
+				<!-- 환경설정 lnb --
+			<ul class="depth_02">
+				<li class="">
+                    <a href="#">시스템 환경설정</a>
+                    <ul class="depth_03">
+                        <li><a href="#">메뉴관리</a></li>
+						<li><a href="#">계정</a></li>
+						<li><a href="#">서비스 구분</a></li>
+						<li><a href="#">수신 API</a></li>
+						<li><a href="#">발신 API</a></li>
+						<li><a href="#">PG관리</a></li>
+                    </ul>
+                </li>
+				<li class="">
+                    <a href="#">서비스 환경설정</a>
+                    <ul class="depth_03">
+                        <li><a href="#">공지사항</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">카테고리</a></li>
+						<li><a href="#">약관관리</a></li>
+						<li><a href="#">동기화</a></li>
+						<li><a href="#">개인정보열람이력</a></li>
+						<li><a href="#">이력조회</a></li>
+                    </ul>
+                </li>
+			</ul>
+			<!-- //환경설정 lnb -->
+            <a class="left_btn" href="#">이동</a>
+        </div>
+        <div class="content open"> 
+            <ul id="nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">고객지원(CS)</a></li>
+				<li class="active"><a href="#">CS상담관리</a></li>
+            </ul>     
+            <h3 class="tit">CS상담관리 <span></span></h3>
+            <div class="sch_wrap">
+                <table>
+					<colgroup>
+						<col style="width:10%">
+						<col style="width:15%">
+						<col style="width:10%">
+						<col style="width:15%">
+						<col style="width:10%">
+						<col style="width:15%">
+						<col style="width:10%">
+						<col style="width:15%">
+					</colgroup>
+                    <tbody>
+                        <tr>
+                            <th>주문번호</th>
+                            <td>
+                            	<input type="text">
+                            </td>
+							<th>쿠폰번호</th>
+                            <td>
+                                <input type="text">
+                            </td>
+							<th>구매자 H.P</th>
+                            <td>
+                                <input type="text">
+                            </td>
+							<th>수신자 H.P</th>
+                            <td>
+                                <input type="text">
+                            </td>
+						</tr>
+						<tr>
+							
+							<th>구매자명</th>
+                            <td>
+                                <input type="text">
+                            </td>
+							<th>구매일자</th>
+							<td colspan="5" class="tal">
+							    <div class="datepicker_box mgr5">
+                                    <input class="datepicker w-sm" type="text">
+                                </div>
+                                <span class="fs16">~</span>
+                                <div class="datepicker_box mgl5">
+                                    <input class="w-sm datepicker" type="text">
+                                </div>
+								<div class="radio_wrap mgl5">
+                                    <div class="radio_box rect">
+                                        <input type="radio" name="ra3" id="ra3_1">
+                                        <label for="ra3_1">180일</label>
+                                    </div>
+                                    <div class="radio_box rect">
+                                        <input type="radio" name="ra3" id="ra3_2" checked="">
+                                        <label for="ra3_2">365일</label>
+                                    </div>
+                                </div>
+								
+							</td>
+						</tr>
+                        
+                    </tbody>
+                </table>
+                <div class="btn_wrap">
+                    <button class="btn-md">초기화</button>
+                    <button class="btn-md btn-yel">조회</button>
+                </div>
+            </div>
+            <div class="list_wrap">
+                <div class="list_info">
+                    <dl class="fl">
+						<dt><h5>쿠폰목록</h5></dt>
+                    </dl>
+                    <div class="fr">
+                    	<div class="select-box-h">
+							<label for="">선택</label>
+							<select>
+								<option selected="">선택</option>
+								<option>ooo</option>
+								<option>ooo</option>
+								<option>ooo</option>
+							</select>
+						</div>
+						<button class="btn-sm btn-dark" id="btn_add">등록</button>
+                    </div>
+                </div>
+                <table class="list">
+				    <thead>
+                        <tr>
+                            <th>주문번호</th>
+                            <th>쿠폰번호</th>
+                            <th>쿠폰명</th>
+                            <th>소비자가</th>
+                            <th>결제금액</th>
+                            <th>원수사 / 서비스사</th>
+                            <th>B2C / B2B</th>
+                            <th>구매자명</th>
+							<th>구매자 ID</th>
+							<th>구매자 H.P</th>
+							<th>수신자 H.P</th>
+							<th>구매일시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+						<tr>
+                            <td>2548411</td>
+							<td>35967258</td>
+                            <td class="tal">정액보험</td>
+                            <td class="tar">5,000원</td>
+							<td class="tar">5,000원</td>
+							<td>KB보험 / G마켓</td>
+							<td>B2C</td>
+							<td>홍**</td>
+							<td>abcedfg1181</td>
+							<td>010-1117-****</td>
+							<td>010-1417-****</td>
+                            <td>2020-12-01 09:22:13</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="paging_area">
+                    <nav>
+                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                        <button class="page prev" href="#" >이전으로 이동</button>
+                        <a href="#">1</a>
+                        <a href="#" class="on">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                        <a href="#">10</a>
+                        <button class="page next" href="#">다음으로 이동</button>
+                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                    </nav>
+                </div>
+            </div>
+			<div class="tab_wrap">
+					<ul class="tabs2">
+						<li class="active" rel="tab1">주문정보</li>
+						<li rel="tab2">쿠폰정보</li>
+                        <li rel="tab3">상담이력</li>
+						<button class="btn-sm ab_right btn-gray" id="btn_sms">문자발송</button>
+					</ul>
+					<div class="tab_container2">
+						<!-- //#tab1 --> 
+						<div id="tab1" class="tab_content2 tab1">
+                            <div class="top_list">
+								<div class="po_list">
+									<table class="line_1t">
+										<tbody>
+											<th>주문번호</th>
+											<td>2548411</td>
+											<th>결제수단</th>
+											<td>포인트</td>
+											<th>총수량</th>
+											<td>3</td>
+											<th>총결제금액</th>
+											<td class="tar">10,000</td>
+										</tbody>
+									</table>
+								</div>
+								<button class="btn_h40 btn-dark" id="btn_cancle">결제취소</button>
+								<div id="accodion_area" class="ab_right2">
+									<button class="btn_h40_2 btn-yel">강제처리</button>
+									<div>
+										<button class="btn-md" id="btn_cancle2">결제취소</button>
+									</div>
+								</div>
+							</div>
+							<div class="list_wrap mgt20">
+								<table class="list">
+									<thead>
+										<tr>
+											<th>쿠폰번호</th>
+											<th>쿠폰명</th>
+											<th>소비자가</th>
+											<th>결제금액</th>
+											<th>잔액</th>
+											<th>쿠폰유형</th>
+											<th>B2C / B2B</th>
+											<th>수신자 H.P</th>
+											<th>사용여부</th>
+											<th>쿠폰상태</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>35967258</td>
+											<td class="tal">정액보험</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td>정액형</td>
+											<td>B2C</td>
+											<td>010-1417-****</td>
+											<td class="tc_red">사용</td>
+											<td>환불요청</td>
+										</tr>
+										<tr>
+											<td>35967258</td>
+											<td class="tal">정액보험</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td>정액형</td>
+											<td>B2C</td>
+											<td>010-1417-****</td>
+											<td class="tc_red">사용</td>
+											<td>환불요청</td>
+										</tr>
+										<tr>
+											<td>35967258</td>
+											<td class="tal">정액보험</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td>정액형</td>
+											<td>B2C</td>
+											<td>010-1417-****</td>
+											<td>미사용</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>35967258</td>
+											<td class="tal">정액보험</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td>정액형</td>
+											<td>B2C</td>
+											<td>010-1417-****</td>
+											<td class="tc_red">사용</td>
+											<td>환불요청</td>
+										</tr>
+										<tr>
+											<td>35967258</td>
+											<td class="tal">정액보험</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td>정액형</td>
+											<td>B2C</td>
+											<td>010-1417-****</td>
+											<td>미사용</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>35967258</td>
+											<td class="tal">정액보험</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td>정액형</td>
+											<td>B2C</td>
+											<td>010-1417-****</td>
+											<td class="tc_red">사용</td>
+											<td>환불요청</td>
+										</tr>
+										<tr>
+											<td>35967258</td>
+											<td class="tal">정액보험</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td class="tar">5,000원</td>
+											<td>정액형</td>
+											<td>B2C</td>
+											<td>010-1417-****</td>
+											<td>미사용</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="paging_area">
+									<nav>
+										<button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+										<button class="page prev" href="#">이전으로 이동</button>
+										<a href="#">1</a>
+										<a href="#" class="on">2</a>
+										<a href="#">3</a>
+										<a href="#">4</a>
+										<a href="#">5</a>
+										<a href="#">6</a>
+										<a href="#">7</a>
+										<a href="#">8</a>
+										<a href="#">9</a>
+										<a href="#">10</a>
+										<button class="page next" href="#">다음으로 이동</button>
+										<button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+									</nav>
+								</div>
+							</div>
+                            
+						</div>
+						<!-- //#tab1 -->
+						<!-- #tab2 -->
+						<div id="tab2" class="tab_content2">
+                            <div class="top_list">
+								<button class="btn_h40_2 btn-gray" id="btn_changeDate">유효기간변경</button>
+								<button class="btn_h40_2 btn-gray mgl5" id="btn_resend">재발송</button>
+								<div id="accodion_area" class="ab_right2">
+									<button class="btn_h40_2 btn-yel">강제처리</button>
+									<div>
+										<button class="btn-md ">유효기간변경</button>
+										<button class="btn-md ">재발송</button>
+									</div>
+								</div>
+							</div>
+							<div class="mgt20">
+								<table class="info_table">
+									<colgroup>
+										<col style="width:10%">
+										<col style="width:15%">
+										<col style="width:10%">
+										<col style="width:15%">
+										<col style="width:10%">
+										<col style="width:15%">
+										<col style="width:10%">
+										<col style="width:15%">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>쿠폰번호</th>
+											<td>12512578</td>
+											<th>쿠폰상태</th>
+											<td>발급</td>
+											<th>구매일시</th>
+											<td>2020.06.30 18:30</td>
+											<th>소비자가</th>
+											<td class="tar">5,000원</td>
+										</tr>
+										<tr>
+											<th>잔액</th>
+											<td class="tar">5,000원</td>
+											<th>결제금액</th>
+											<td class="tar">5,000원</td>
+											<th>쿠폰명</th>
+											<td>정액보험</td>
+											<th>잔액환불 가능여부</th>
+											<td>불가능</td>
+										</tr>
+										<tr>
+											<th>원수사/서비스사</th>
+											<td>KB리브메이트/G마켓</td>
+											<th>발급일자</th>
+											<td>2020.06.30</td>
+											<th>B2C/B2B</th>
+											<td>B2C</td>
+											<th>캠페인명</th>
+											<td>회원가입 이벤트 2020년 2주년 요청서</td>
+										</tr>
+										<tr>
+											<th>쿠폰유형</th>
+											<td>정액형+금액형</td>
+											<th>사용일시</th>
+											<td>2020.06.30 15:00</td>
+											<th>유효기간</th>
+											<td>2020.09.30</td>
+											<th>사용여부</th>
+											<td>사용</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+                            
+                            
+						</div>
+						<!-- //#tab2 -->
+                        <div id="tab3" class="tab_content2">
+                            <div class="list_wrap mgt20">
+								<table class="list">
+									<colgroup>
+										<col style="width:50px">
+										<col style="width:70px">
+										<col style="width:80px">
+										<col style="width:80px">
+										<col style="width:150px">
+										<col style="width:auto">
+									</colgroup>
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>CS코드</th>
+											<th>CS유형</th>
+											<th>처리자</th>
+											<th>처리일시</th>
+											<th>메모</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a href="#">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>V102</td>
+											<td>재발송</td>
+											<td>홍*동</td>
+											<td>2020.09.30 15:00</td>
+											<td class="tal"><a class="memo_a">메모메모메모메모메모메모메모메모메모메모메모메모메모</a></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="paging_area">
+									<nav>
+										<button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+										<button class="page prev" href="#">이전으로 이동</button>
+										<a href="#">1</a>
+										<a href="#" class="on">2</a>
+										<a href="#">3</a>
+										<a href="#">4</a>
+										<a href="#">5</a>
+										<a href="#">6</a>
+										<a href="#">7</a>
+										<a href="#">8</a>
+										<a href="#">9</a>
+										<a href="#">10</a>
+										<button class="page next" href="#">다음으로 이동</button>
+										<button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+									</nav>
+								</div>
+							</div>
+                            
+                        </div><!-- tab3 END -->
+                        
+					</div>
+					<!-- .tab_container -->
+				</div>
+
+        </div>
+	</div>
+</div>
+<!-- 결제취소 POP -->
+	<div id="pop_cancle" class="popup sm">
+		<div class="pop_header">
+			<h3 class="tit">결제취소 <span class="tc_red">(일반)</span>
+				<button class="pop_close fr b-close">닫기</button>
+			</h3>
+		</div>
+		<div class="pop_contents">
+			<div class="tbl_wrap">
+				<table class="info_table">
+					<colgroup>
+						<col style="width:20%">
+						<col style="width:auto">
+					</colgroup>
+					
+					<tbody>
+						<tr>
+							<th>접수일자</th>
+							<td>2020.01.01</td>
+						</tr>
+						<tr>
+							<th>주문번호</th>
+							<td>2548411</td>
+						</tr>
+						<tr>
+							<th>쿠폰번호</th>
+							<td>35967258</td>
+						</tr>
+						<tr>
+							<th>구매자명</th>
+							<td>홍길동</td>
+						</tr>
+						<tr>
+							<th>구매자 H.P</th>
+							<td>010-1111-1234</td>
+						</tr>
+						<tr>
+							<th>결제금액</th>
+							<td>10,000원</td>
+						</tr>
+						<tr>
+							<th>결제수단</th>
+							<td>카드(9,000원) + 포인트(1,000원)</td>
+						</tr>
+						<tr>
+							<th>처리자명</th>
+							<td>김영희</td>
+						</tr>
+						<tr>
+							<th>메모</th>
+							<td><textarea class="memo"></textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="pop_footer">
+			<div class="btn_wrap">
+				<button class="btn-md btn-dark">결제취소</button>
+			</div>
+		</div>
+	</div>	
+	<!-- 결제취소 POP2 -->
+	<div id="pop_cancle2" class="popup sm">
+		<div class="pop_header">
+			<h3 class="tit">결제취소 <span class="tc_red">(강제)</span>
+				<button class="pop_close fr b-close">닫기</button>
+			</h3>
+		</div>
+		<div class="pop_contents">
+			<div class="tbl_wrap">
+				<table class="info_table">
+					<colgroup>
+						<col style="width:20%">
+						<col style="width:auto">
+					</colgroup>
+					
+					<tbody>
+						<tr>
+							<th>접수일자</th>
+							<td>2020.01.01</td>
+						</tr>
+						<tr>
+							<th>주문번호</th>
+							<td>2548411</td>
+						</tr>
+						<tr>
+							<th>쿠폰번호</th>
+							<td>35967258</td>
+						</tr>
+						<tr>
+							<th>구매자명</th>
+							<td>홍길동</td>
+						</tr>
+						<tr>
+							<th>구매자 H.P</th>
+							<td>010-1111-1234</td>
+						</tr>
+						<tr>
+							<th>결제금액</th>
+							<td>10,000원</td>
+						</tr>
+						<tr>
+							<th>결제수단</th>
+							<td>카드(9,000원) + 포인트(1,000원)</td>
+						</tr>
+						<tr>
+							<th>처리자명</th>
+							<td>김영희</td>
+						</tr>
+						<tr>
+							<th>메모</th>
+							<td><textarea class="memo"></textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="pop_footer">
+			<div class="btn_wrap">
+				<button class="btn-md btn-dark">결제취소</button>
+			</div>
+		</div>
+	</div>
+	<!-- 재발송 POP -->
+	<div id="pop_resend" class="popup sm">
+		<div class="pop_header">
+			<h3 class="tit">재발송
+				<button class="pop_close fr b-close">닫기</button>
+			</h3>
+		</div>
+		<div class="pop_contents">
+			<div>
+				<div class="radio_box">
+                	<input type="radio" name="ra1" id="ra1_1" checked="">
+                    <label for="ra1_1">LMS</label>
+                </div>
+                <div class="radio_box">
+                	<input type="radio" name="ra1" id="ra1_2">
+                    <label for="ra1_2">MMS</label>
+                </div>
+			</div>
+			<div class="tbl_wrap">
+				<table class="info_table">
+					<colgroup>
+						<col style="width:30%">
+						<col style="width:auto">
+					</colgroup>
+					
+					<tbody>
+						<tr>
+							<th>수신자 휴대폰번호</th>
+							<td>010-2587-2587</td>
+						</tr>
+						<tr>
+							<th><span class="point">메시지 내용</span></th>
+							<td>
+								<div class="sms_text"></div>
+							</td>
+						</tr>
+						<tr>
+							<th>메모</th>
+							<td><textarea class="memo"></textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="pop_footer">
+			<div class="btn_wrap">
+				<button class="btn-md btn-dark">재발송</button>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 유효기간 변경 POP -->
+	<div id="pop_changeDate" class="popup mid">
+		<div class="pop_header">
+			<h3 class="tit">유효기간 변경
+				<button class="pop_close fr b-close">닫기</button>
+			</h3>
+		</div>
+		<div class="pop_contents">
+			<div class="tbl_wrap">
+				<table class="info_table">
+					<colgroup>
+						<col style="width:25%">
+						<col style="width:auto">
+					</colgroup>
+					
+					<tbody>
+						<tr>
+							<th>현재 유효기간</th>
+							<td>20.10.20 ~ 20.12.31</td>
+						</tr>
+						<tr>
+							<th><span class="point">변경할 유효기간</span></th>
+							<td>
+                                <div class="datepicker_box mgr5">
+                                    <input class="datepicker w-sm" type="text" >
+                                </div>
+                                <span class="fs16">~</span>
+                                <div class="datepicker_box mgl5">
+                                    <input class="w-sm datepicker" type="text" >
+                                </div>
+                            </td>
+						</tr>
+						<tr>
+							<th>메모</th>
+							<td><textarea class="memo"></textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<div class="radio_box">
+                	<input type="radio" name="ra2" id="aa1_1" checked="">
+                    <label for="aa1_1">LMS</label>
+                </div>
+                <div class="radio_box">
+                	<input type="radio" name="ra2" id="aa1_2">
+                    <label for="aa1_2">MMS</label>
+                </div>
+				<div class="radio_box">
+                	<input type="radio" name="ra2" id="aa1_3">
+                    <label for="aa1_3">미발송</label>
+                </div>
+			</div>
+			<div class="tbl_wrap">
+				<table class="info_table">
+					<colgroup>
+						<col style="width:25%">
+						<col style="width:auto">
+					</colgroup>
+					
+					<tbody>
+						<tr>
+							<th><span class="point">메시지 내용</span></th>
+							<td>
+								<div class="sms_text"></div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="pop_footer">
+			<div class="btn_wrap">
+				<button class="btn-md btn-dark">변경</button>
+			</div>
+		</div>
+	</div>
+	<!-- memo POP -->
+	<div id="pop_memo" class="popup sm">
+		<div class="pop_header">
+			<h3 class="tit">메모
+				<button class="pop_close fr b-close">닫기</button>
+			</h3>
+		</div>
+		<div class="pop_contents">
+			<div class="tbl_wrap">
+				<table class="info_table">
+					<colgroup>
+						<col style="width:15%">
+						<col style="width:auto">
+					</colgroup>
+					
+					<tbody>
+						<tr>
+							<th><span class="point">메모</span></th>
+							<td>
+								<div class="memo2"> 메모내용</div>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="pop_footer">
+			<div class="btn_wrap">
+				<button class="btn-md btn-dark b-close">닫기</button>
+			</div>
+		</div>
+	</div>
+    <!-- SMS POP -->
+	<div id="pop_sms" class="popup sms">
+		<div class="sms_inp">
+            <h5>메시지 입력</h5>
+            <div class="in_text_sms">
+                <textarea></textarea>
+                <p>0/80 byte</p>
+            </div>
+        </div>
+		<div class="sms_inp">
+            <h5>메시지 선택</h5>
+            <div class="select-box-w">
+				<label for="">선택</label>
+				<select>
+				    <option selected="">선택</option>
+					<option>ooo</option>
+					<option>ooo</option>
+					<option>ooo</option>
+				</select>
+            </div>
+        </div>
+        <div class="sms_inp">
+            <h5>메시지 유형</h5>
+            <div>
+                <div class="radio_box">
+                    <input type="radio" name="rd1" id="rd1_1" checked="">
+                    <label for="rd1_1">SMS(80byte)</label>
+                </div>
+                <div class="radio_box">
+                    <input type="radio" name="rd1" id="rd1_2">
+                    <label for="rd1_2">LMS(2000byte)</label>
+                </div>
+            </div>
+        </div>
+        <div class="sms_inp">
+            <h5>받는사람<span>총 <em class="tc_yel">3</em>건</span></h5>
+            <div class="in_text_sms">
+                <div class="sm">
+                    <p>010-1234-1234</p>
+                    <p>010-1234-1234</p>
+                    <p>010-1234-1234</p>
+                </div>
+            </div>
+        </div>
+        <div class="sms_inp">
+            <h5>보내는 사람</h5>
+            <div class="in_text_sms">
+                <input type="text">
+            </div>
+        </div>
+		<div class="pop_footer">
+			<div class="btn_wrap">
+                <button class="btn-md btn-yel">닫기</button>
+				<button class="btn-md btn-dark b-close">닫기</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

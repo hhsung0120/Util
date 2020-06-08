@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>Onion 관리자</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/common.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/jquery.bpopup.min.js"></script>
+<script src="../js/common.js"></script>
+</head>
+<body>
+<!-- 로딩 -->
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<!-- 로딩 -->
+
+	
+<!-- wrapper -->
+<div id="wrapper">
+	<div id="header">
+        <div class="header_top">
+            <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
+            <div class="admin_box ">
+                <div class="admin_info">
+                    로그인 관련 메뉴들
+                </div>
+            </div>
+        </div>
+         <div id="gnb">
+            <ul class="depth_01">
+                <li class=""><a href="#">전시상품관리</a></li>
+                <li class=""><a href="#">메인관리</a></li>
+                <li class=""><a href="#">통계</a></li>
+                <li class=""><a href="#">정산</a></li>
+                <li class=""><a href="#">고객지원(CS)</a></li>
+                <li class="active"><a href="#">환경설정</a></li>
+             </ul>
+        </div>
+	</div>
+    
+	<div id="container">
+        <div id="lnb" class="side_menu open">
+            <div class="tit_box">
+                <h5>환경설정</h5>
+            </div>
+			 <!-- 전시상품 관리 lnb 
+            <ul class="depth_none">
+            	<li class="open">
+                    <a href="#">상품</a>
+                </li>
+			</ul>
+			<!-- //전시상품 관리 lnb -->
+				
+			<!-- 메인관리 lnb 
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">베너</a>
+                </li>
+			</ul>
+				<!-- //메인관리 lnb -->
+				
+				<!-- 통계 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">구매현황</a>
+                </li>
+			</ul>
+				<!-- //통계 lnb -->
+				
+				<!-- 정산 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">정산</a>
+                </li>
+			</ul>
+				<!-- //정산 lnb -->
+			
+			
+				<!-- 고객지원 lnb 
+			<ul class="depth_none">
+				<li class="">
+                    <a href="#">CS상담관리</a>
+                </li>
+				<li class="">
+                    <a href="#">상담이력관리</a>
+                </li>
+				<li class="open">
+                    <a href="#">CS문자관리</a>
+                </li>
+			</ul>
+				<!-- //고객지원 lnb -->
+				
+				<!-- 환경설정 lnb -->
+			<ul class="depth_02">
+				<li class="">
+                    <a href="#">시스템 환경설정</a>
+                    <ul class="depth_03">
+                        <li class=""><a href="#">메뉴관리</a></li>
+						<li class=""><a href="#">계정</a></li>
+						<li class=""><a href="#">DB설정</a></li>
+						<li class=""><a href="#">수신 API</a></li>
+						<li class=""><a href="#">발신 API</a></li>
+						<li class=""><a href="#">PG관리</a></li>
+                    </ul>
+                </li>
+				<li class="active open">
+                    <a href="#">서비스 환경설정</a>
+                    <ul class="depth_03">
+                        <li class=""><a href="#">서비스관리</a></li>
+                        <li class="active"><a href="#"  class="on">공지사항</a></li>
+						<li class=""><a href="#">FAQ</a></li>
+						<li class=""><a href="#">카테고리</a></li>
+						<li class=""><a href="#">약관관리</a></li>
+						<li class=""><a href="#">동기화</a></li>
+						<li class=""><a href="#">개인정보열람이력</a></li>
+						<li class=""><a href="#">이력조회</a></li>
+                    </ul>
+                </li>
+			</ul>
+			<!-- //환경설정 lnb -->
+            <a class="left_btn" href="#">이동</a>
+        </div>
+        <div class="content open"> 
+            <ul id="nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">환경설정</a></li>
+                <li><a href="#">서비스환경설정</a></li>
+				<li class="active"><a href="#">공지사항</a></li>
+            </ul>     
+            <h3 class="tit">공지사항<span>공지사항을 등록하고 관리합니다.</span></h3>
+            <div class="reg">
+                <table>
+					<colgroup>
+						<col style="width:15%">
+						<col style="width:35%">
+                        <col style="width:15%">
+						<col style="width:35%">
+					</colgroup>
+                    <tbody>
+                        <tr>
+                            <th>제목</th>
+                            <td><input type="text"></td>
+                            <th>노출여부</th>
+                            <td>
+                                <div class="select-box-w">
+                                    <label for="">10개</label>
+                                    <select>
+                                        <option selected="">10개</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn_wrap">
+                    <button class="btn-md">초기화</button>
+                    <button class="btn-md btn-yel">검색</button>
+                </div>
+            </div>
+            <div class="list_wrap">
+                <div class="list_info">
+                    <dl class="fl">
+                        <dt>판매채널 목록 </dt>
+                        <dd>총 30건</dd>
+                    </dl>
+                    <div class="fr">
+                    	<div class="select-box-b">
+							<label for="">10개</label>
+							<select>
+								<option selected="">10개</option>
+								<option>ooo</option>
+								<option>ooo</option>
+								<option>ooo</option>
+							</select>
+						</div>
+						<button class="btn-sm btn-dark">등록</button>
+                    </div>
+                </div>
+                <table class="list">
+                    <colgroup>
+						<col style="width:50px">
+						<col style="width:150px">
+						<col style="width:auto">
+						<col style="width:150px">
+                        <col style="width:150px">
+                        <col style="width:150px">
+                        <col style="width:50px">
+                        <col style="width:50px">
+					</colgroup>
+					<thead>
+                        <tr>
+                            <th>
+                                <span class="checkbox_s">
+								    <label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+									    <i class="check-icon"></i>  
+									</label>
+								</span>
+                            </th>
+                            <th>No</th>
+                            <th>제목</th>
+                            <th>등록자</th>
+                            <th>등록일시</th>
+                            <th colspan="2">노출여부</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="checkbox_s">
+								    <label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+									    <i class="check-icon"></i>  
+									</label>
+								</span>
+                            </td>
+                            <td>123</td>
+                            <td class="tal"><a href="#">KB리브메이트 이용악관 및 개인정보 취급방침 변경안내</a></td>
+                            <td>기OO (Ad***)</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>노출</td>
+                            <td><button class="btn-sm">변경</button></td>
+                        </tr>
+						<tr>
+                            <td>
+                                <span class="checkbox_s">
+								    <label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+									    <i class="check-icon"></i>  
+									</label>
+								</span>
+                            </td>
+                            <td>123</td>
+                            <td class="tal"><a href="#">KB리브메이트 이용악관 및 개인정보 취급방침 변경안내</a></td>
+                            <td>기OO (Ad***)</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td><span class="tc_red">비노출</span></td>
+                            <td><button class="btn-sm">변경</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="paging_area">
+                    <nav>
+                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                        <button class="page prev" href="#" >이전으로 이동</button>
+                        <a href="#">1</a>
+                        <a href="#" class="on">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                        <a href="#">10</a>
+                        <button class="page next" href="#">다음으로 이동</button>
+                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                    </nav>
+                </div>
+            </div>
+            
+		</div>
+	</div>
+</div>
+
+	
+</body>
+</html>

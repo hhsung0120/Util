@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head th:include="/common/fragment::head"></head>
+<body>
+<!-- 로딩 -->
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<!-- 로딩 -->
+<!-- wrapper -->
+<div id="wrapper">
+	<div id="header">
+		<div class="header_top">
+			<h1 class="logo_tx"><a href="#"><strong>Util</strong></a></h1>
+			<div class="admin_box ">
+				<div class="admin_info">
+
+				</div>
+			</div>
+		</div>
+		<div id="gnb">
+			<ul class="depth_01">
+				<li class="active"><a href="#">게시판</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="container">
+		<div id="lnb" class="side_menu open">
+			<div class="tit_box">
+				<h5>게시판</h5>
+			</div>
+			<ul class="depth_none">
+				<li class="open">
+					<a href="#">게시판</a>
+				</li>
+			</ul>
+			<a class="left_btn" href="#">이동</a>
+		</div>
+		<div class="content open">
+			<ul id="nav">
+				<li><a href="#">HOME</a></li>
+				<li><a href="#">게시판</a></li>
+				<li class="active"><a href="#">게시판</a></li>
+			</ul>
+			<h3 class="tit">게시판 <span>게시판을 등록하고 관리합니다.</span></h3>
+			<div class="sch_wrap">
+				<form id="dataForm" name="dataForm">
+					<table>
+						<colgroup>
+							<col style="width:15%">
+							<col style="width:35%">
+							<col style="width:15%">
+							<col style="width:35%">
+						</colgroup>
+						<tbody>
+						<tr>
+							<th><span class="point">제목</span></th>
+							<td colspan="3">
+								<input type="text" name="title">
+							</td>
+						</tr>
+						<tr>
+							<th><span class="point">내용</span></th>
+							<td colspan="3">
+								<textarea class="memo" name="contents"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>등록자</th>
+							<td>
+								전OO(powercbk)
+							</td>
+							<th>등록일시</th>
+							<td>
+								2020-09-25 13:00:13
+							</td>
+						</tr>
+						<tr>
+							<th>최종수정자</th>
+							<td>
+								김OO(KSK)
+							</td>
+							<th>최종수정일시</th>
+							<td>
+								2020-09-25 13:00:13
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="btn_wrap">
+						<button type="reset" class="btn-md">취소</button>
+						<button type="button" class="btn-md btn-yel" onclick="goSave();">등록</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var $dataForm = $("#dataForm");
+
+	goSave = function(){
+		$dataForm.ajaxSubmit({
+			type:"POST"
+			, dataType:'text'
+			, url:"/board/form"
+			, success : function(data){
+				alert(1);
+			},error:function(x,error){
+				alert("처리중 오류가 발생했습니다.");
+			}
+		});
+	}
+
+</script>
+</body>
+</html>

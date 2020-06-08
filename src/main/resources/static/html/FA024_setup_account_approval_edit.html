@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>Onion 관리자</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/jquery.treetable.css">
+<link rel="stylesheet" href="../css/common.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/jquery.bpopup.min.js"></script>
+<script src="../js/jquery.treetable.js"></script>  
+<script src="../js/common.js"></script>
+</head>
+<body>
+<!-- 로딩 -->
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<!-- 로딩 -->
+
+	
+<!-- wrapper -->
+<div id="wrapper">
+	<div id="header">
+        <div class="header_top">
+            <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
+            <div class="admin_box ">
+                <div class="admin_info">
+                    로그인 관련 메뉴들
+                </div>
+            </div>
+        </div>
+         <div id="gnb">
+            <ul class="depth_01">
+                <li class=""><a href="#">전시상품관리</a></li>
+                <li class=""><a href="#">메인관리</a></li>
+                <li class=""><a href="#">통계</a></li>
+                <li class=""><a href="#">정산</a></li>
+                <li class=""><a href="#">고객지원(CS)</a></li>
+                <li class="active"><a href="#">환경설정</a></li>
+             </ul>
+        </div>
+	</div>
+    
+	<div id="container">
+        <div id="lnb" class="side_menu open">
+            <div class="tit_box">
+                <h5>환경설정</h5>
+            </div>
+			 <!-- 전시상품 관리 lnb 
+            <ul class="depth_none">
+            	<li class="open">
+                    <a href="#">상품</a>
+                </li>
+			</ul>
+			<!-- //전시상품 관리 lnb -->
+				
+			<!-- 메인관리 lnb 
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">베너</a>
+                </li>
+			</ul>
+				<!-- //메인관리 lnb -->
+				
+				<!-- 통계 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">구매현황</a>
+                </li>
+			</ul>
+				<!-- //통계 lnb -->
+				
+				<!-- 정산 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">정산</a>
+                </li>
+			</ul>
+				<!-- //정산 lnb -->
+			
+			
+				<!-- 고객지원 lnb 
+			<ul class="depth_none">
+				<li class="">
+                    <a href="#">CS상담관리</a>
+                </li>
+				<li class="">
+                    <a href="#">상담이력관리</a>
+                </li>
+				<li class="open">
+                    <a href="#">CS문자관리</a>
+                </li>
+			</ul>
+				<!-- //고객지원 lnb -->
+				
+				<!-- 환경설정 lnb -->
+			<ul class="depth_02">
+				<li class="active open">
+                    <a href="#">시스템 환경설정</a>
+                    <ul class="depth_03">
+                        <li class=""><a href="#" class="on">메뉴관리</a></li>
+						<li class="active"><a href="#">계정</a></li>
+						<li class=""><a href="#">서비스 구분</a></li>
+						<li class=""><a href="#">수신 API</a></li>
+						<li class=""><a href="#">발신 API</a></li>
+						<li class=""><a href="#">PG관리</a></li>
+                    </ul>
+                </li>
+				<li class="">
+                    <a href="#">서비스 환경설정</a>
+                    <ul class="depth_03">
+                        <li><a href="#">공지사항</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">카테고리</a></li>
+						<li><a href="#">약관관리</a></li>
+						<li><a href="#">동기화</a></li>
+						<li><a href="#">개인정보열람이력</a></li>
+						<li><a href="#">이력조회</a></li>
+                    </ul>
+                </li>
+			</ul>
+			<!-- //환경설정 lnb -->
+            <a class="left_btn" href="#">이동</a>
+        </div>
+        <div class="content open"> 
+            <ul id="nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">환경설정</a></li>
+                <li><a href="#">시스템환경설정</a></li>
+				<li class="active"><a href="#">계정</a></li>
+            </ul>     
+            <h3 class="tit">관리자계정 수정</h3>
+            <div class="reg">
+                <table>
+					<colgroup>
+						<col style="width:15%">
+						<col style="width:35%">
+						<col style="width:15%">
+						<col style="width:35%">
+					</colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span class="point">관리자명</span></th>
+                            <td>
+                            	<input type="text" disabled="" value="김프론트">
+                            </td>
+							<th><span class="point">아이디</span></th>
+                            <td>
+                                <input type="text">
+                            </td>
+						</tr>
+						<tr>
+							<th>채널권한설정</th>
+                            <td>
+                                <input type="text" disabled="" class="w-md"><button class="sh">검색</button>
+                                <p>대한, KB, 아이엔지, 한화...</p>
+                            </td>
+							<th><span class="point">계정상태</span></th>
+                            <td>
+                                <div class="select-box-w">
+									<label for="">선택</label>
+									<select>
+										<option selected="">선택</option>
+										<option>ooo</option>
+										<option>ooo</option>
+										<option>ooo</option>
+									</select>
+								</div>
+                            </td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="list_wrap mgt20">
+                
+                <div class="list_info">
+                    <dl class="fl">
+						<dt><h5>권한</h5></dt>
+                    </dl>
+                    <div class="fr">
+						<button class="btn-sm btn-gray">펴기</button>
+                        <button class="btn-sm btn-dark">접기</button>
+					</div>
+                </div>
+                <table class="list tree">
+					<colgroup>
+						<col style="width:auto">
+						<col style="width:120px">
+						<col style="width:120px">
+						<col style="width:120px">
+						<col style="width:120px">
+						<col style="width:120px">
+						<col style="width:140px">
+					</colgroup>
+				    <thead>
+                        <tr>
+                            <th>메뉴명</th>
+                            <th class="tal">
+								<label class="checkbox-wrap_s">
+								    <input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+                                    <p class="txt">노출</p>
+                                </label>
+                            </th>
+                            <th class="tal">
+                                <label class="checkbox-wrap_s">
+								    <input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+                                    <p class="txt">조회</p>
+                                </label>
+							</th>
+                            <th class="tal">
+                                <label class="checkbox-wrap_s">
+								    <input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+                                    <p class="txt">등록</p>
+                                </label>
+							</th>
+                            <th class="tal">
+                                <label class="checkbox-wrap_s">
+								    <input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+                                    <p class="txt">수정</p>
+                                </label>
+							</th>
+                            <th class="tal">
+                                <label class="checkbox-wrap_s">
+								    <input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+                                    <p class="txt">삭제</p>
+                                </label>
+							</th>
+                            <th class="tal">
+                                <label class="checkbox-wrap_s">
+								    <input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+                                    <p class="txt">부가권한</p>
+                                </label>
+							</th>
+                         </tr>
+					</thead>
+					<tbody>
+
+						<tr data-tt-id='1'>
+							<td class="tal">
+								<span class="folder">전시상품관리</span>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+						</tr>
+
+
+						<tr data-tt-id='2'>
+							<td class="tal">
+								<span class="folder">메인관리</span>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+						</tr>
+
+
+						<tr data-tt-id='3'>
+							<td class="tal">
+								<span class="folder">통계</span>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+						</tr>
+
+
+						<tr data-tt-id='4'>
+							<td class="tal">
+								<span class="folder">정산</span>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+						</tr>
+
+
+						<tr data-tt-id='5'>
+							<td class="tal">
+								<span class="folder">고객지원(CS)</span>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+							</td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i>  
+								</label>
+								
+								<button class="btn_tg"></button>
+							</td>
+						</tr>
+						<tr class="sub_td" >
+                            <td></td>
+                            <td></td>
+							<td class="tal">
+								<label class="checkbox-wrap_s">
+									<input type="checkbox" name="" value="">
+									<i class="check-icon"></i> 
+									<em class="txt">조회</em> 
+								</label>
+				            </td>
+                            <td class="tal">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i> 
+										<em class="txt">엑셀다운</em> 
+									</label>
+				            </td>
+                            <td class="tal">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i> 
+										<em class="txt">결제취소</em> 
+									</label>
+				            </td>
+                            <td class="tal">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i> 
+										<em class="txt">재발송</em> 
+									</label>
+				            </td>
+                            <td class="tal">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i> 
+										<em class="txt">유효기간 연장</em> 
+									</label>
+							</td>
+                            
+						</tr>
+
+
+						<tr data-tt-id='7'>
+							<td class="tal">
+								<span class="folder">환경설정</span>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+						</tr>
+
+
+						<tr data-tt-id='7-1' data-tt-parent-id='7'>
+							<td class="tal">
+								<span class="folder">시스템환경설정</span>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+						</tr>
+
+
+						<tr data-tt-id='7-1-1' data-tt-parent-id='7-1'>
+							<td class="tal">
+								<span class="file">계정</span>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+						</tr>
+
+
+						<tr data-tt-id='7-1-2' data-tt-parent-id='7'>
+							<td class="tal">
+								<span class="folder">권한</span>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+							<td class="tal">
+								<div class="checkbox_s">
+									<label class="checkbox-wrap_s">
+										<input type="checkbox" name="" value="">
+										<i class="check-icon"></i>  
+									</label>
+								</div>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+                <table class="list noBd">
+					<tbody>
+						<tr>
+							<th>등록자</th>
+							<td>홍길동(CHC)</td>
+							<th>등록일시</th>
+							<td>2020-09-27 23:40:08</td>
+						</tr>
+						<tr>
+							<th>최종수정자</th>
+							<td>홍길동(CHC)</td>
+							<th>최종수정일시</th>
+							<td>2020-09-31 12:40:08</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="btn_wrap">
+					<button class="btn-md">취소</button>
+					<button class="btn-md btn-yel">승인</button>
+				</div>
+            </div>
+                
+				
+            
+		</div>
+	</div>
+</div>
+
+	<!-- memo POP -->
+	<div id="pop_memo" class="popup sm">
+		<div class="pop_header">
+			<h3 class="tit">메모
+				<button class="pop_close fr b-close">닫기</button>
+			</h3>
+		</div>
+		<div class="pop_contents">
+			<div class="tbl_wrap">
+				<table class="info_table">
+					<colgroup>
+						<col style="width:15%">
+						<col style="width:auto">
+					</colgroup>
+					
+					<tbody>
+						<tr>
+							<th><span class="point">메모</span></th>
+							<td>
+								<div class="memo2"> 메모내용</div>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="pop_footer">
+			<div class="btn_wrap">
+				<button class="btn-md btn-dark b-close">닫기</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function(){
+			$("table.tree").treetable({ expandable: true});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>어니언 서비스 관리자</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/common.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/jquery.bpopup.min.js"></script>
+<script src="../js/common.js"></script>
+<!--20200529 자동완성기능 -->
+<script src="../js/autoComplete.js"></script>
+    
+</head>
+<body>
+<!-- 로딩 -->
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<!-- 로딩 -->
+
+	
+<!-- wrapper -->
+<div id="wrapper">
+	<div id="header">
+        <div class="header_top">
+            <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
+            <div class="admin_box ">
+                <div class="admin_info">
+                    <div class="selectbox">
+						<select>
+						    <option selected="">선택</option>
+                            <optgroup label="KB">
+                                <option>- 리브메이트</option>
+                                <option>- 리브APP</option>
+                            </optgroup>
+                            <optgroup label="농협">
+                                <option>- 농협퍼니프라이스</option>
+                                <option>- 리브APP</option>
+                            </optgroup>
+				        </select>
+				    </div>
+                    <p>홍길동님 안녕하세요</p>
+                    <button class="btn-sm btn-dark">로그아웃</button>
+                </div>
+            </div>
+        </div>
+         <div id="gnb">
+            <ul class="depth_01">
+                <li class="active"><a href="#">전시상품관리</a></li>
+                <li class=""><a href="#">메인관리</a></li>
+                <li class=""><a href="#">통계</a></li>
+                <li class=""><a href="#">정산</a></li>
+                <li class=""><a href="#">고객지원(CS)</a></li>
+                <li class=""><a href="#">환경설정</a></li>
+             </ul>
+        </div>
+	</div>
+    
+	<div id="container">
+        <div id="lnb" class="side_menu open">
+            <div class="tit_box">
+                <h5>전시상품관리</h5>
+            </div>
+			 <!-- 전시상품 관리 lnb -->
+            <ul class="depth_none">
+            	<li class="open">
+                    <a href="#">상품</a>
+                </li>
+			</ul>
+			<!-- //전시상품 관리 lnb -->
+				
+			<!-- 메인관리 lnb 
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">베너</a>
+                </li>
+			</ul>
+				<!-- //메인관리 lnb -->
+				
+				<!-- 통계 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">구매현황</a>
+                </li>
+			</ul>
+				<!-- //통계 lnb -->
+				
+				<!-- 정산 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">정산</a>
+                </li>
+			</ul>
+				<!-- //정산 lnb -->
+			
+			
+				<!-- 고객지원 lnb --
+			<ul class="depth_02">
+				<li class="">
+                    <a href="#">CS상담관리</a>
+                </li>
+				<li class="">
+                    <a href="#">상담이력관리</a>
+                </li>
+			</ul>
+				<!-- //고객지원 lnb --
+				
+				<!-- 환경설정 lnb --
+			<ul class="depth_02">
+				<li class="">
+                    <a href="#">시스템 환경설정</a>
+                    <ul class="depth_03">
+                        <li><a href="#">메뉴관리</a></li>
+						<li><a href="#">계정</a></li>
+						<li><a href="#">서비스 구분</a></li>
+						<li><a href="#">수신 API</a></li>
+						<li><a href="#">발신 API</a></li>
+						<li><a href="#">PG관리</a></li>
+                    </ul>
+                </li>
+				<li class="">
+                    <a href="#">서비스 환경설정</a>
+                    <ul class="depth_03">
+                        <li><a href="#">공지사항</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">카테고리</a></li>
+						<li><a href="#">약관관리</a></li>
+						<li><a href="#">동기화</a></li>
+						<li><a href="#">개인정보열람이력</a></li>
+						<li><a href="#">이력조회</a></li>
+                    </ul>
+                </li>
+			</ul>
+			<!-- //환경설정 lnb -->
+            <a class="left_btn" href="#">이동</a>
+        </div>
+        <div class="content open"> 
+            <ul id="nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">전시상품관리</a></li>
+				<li class="active"><a href="#">상품</a></li>
+            </ul>     
+            <h3 class="tit">상품 <span>상품을 등록하고 관리합니다.</span></h3>
+            <div class="sch_wrap">
+                <table>
+					<colgroup>
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						<col style="width:10%">
+						
+					</colgroup>
+                    <tbody>
+                        <tr>
+                            <th>상품명</th>
+                            <td>
+                                <!-- 자동완성 INPUT -->
+                            	<form name="address_frm" class="auto_text">
+                                    <div class="auto_inner">
+                                        <div class="inp_in">
+                                            <input type="text" name="sug_country"  disabled />
+                                        </div>
+                                        <div class="auto_inp">
+                                            <input autocomplete="off" type="text" name="country" onfocus="getCountry()" onkeyup="getCountry()" />
+                                        </div>
+                                        <div id="sug_btn" class="auto_btn"> <a href="#" onclick="setCountry()"><img src="../images/icon_auto.png" width="28" height="28" border="0" align="textbottom" alt=""></a> </div>
+                                    </div>
+                                </form>
+                                <!-- //자동완성 INPUT -->
+                            </td>
+							<th>원수사</th>
+                            <td>
+                                <div class="select-box-w">
+									<label for="">전체</label>
+									<select>
+										<option selected="">전체</option>
+										<option>ooo</option>
+										<option>ooo</option>
+										<option>ooo</option>
+									</select>
+								</div>
+                            </td>
+							<th>상품가격</th>
+                            <td>
+                                <input type="number">
+                            </td>
+							<th>게시여부</th>
+                            <td>
+                                <div class="select-box-w">
+									<label for="">선택</label>
+									<select>
+										<option selected="">선택</option>
+										<option>ooo</option>
+										<option>ooo</option>
+										<option>ooo</option>
+									</select>
+								</div>
+                            </td>
+							<th>이미지등록여부</th>
+                            <td>
+                                <div class="select-box-w">
+									<label for="">선택</label>
+									<select>
+										<option selected="">선택</option>
+										<option>ooo</option>
+										<option>ooo</option>
+										<option>ooo</option>
+									</select>
+								</div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <div class="btn_wrap">
+                    <button class="btn-md">초기화</button>
+                    <button class="btn-md btn-yel">검색</button>
+                </div>
+            </div>
+            <div class="list_wrap">
+                <div class="list_info">
+                    <dl class="fl">
+                        <dt>전체 상품관리 목록</dt>
+                        <dd>(전체 2,000개)</dd>
+                    </dl>
+                    <div class="fr">
+                    	<div class="select-box-t">
+							<label for="">선택</label>
+							<select>
+								<option selected="">선택</option>
+								<option>ooo</option>
+								<option>ooo</option>
+								<option>ooo</option>
+							</select>
+						</div>
+						<button class="btn-sm btn-dark" id="btn_add">등록</button>
+                    </div>
+                </div>
+                <table class="list">
+					
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>상품명</th>
+                            <th>원수사</th>
+                            <th>상품가격</th>
+                            <th>등록일시</th>
+                            <th>게시여부</th>
+                            <th>이미지등록여부</th>
+                            <th>삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG on">
+    								<button class="toggleFG active"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+						<tr>
+                            <td>128</td>
+                            <td class="tal"><a href="#">좋은날 보험</a></td>
+                            <td>KB</td>
+                            <td class="tar">25,000</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td>
+								<div class="toggleBG">
+    								<button class="toggleFG"></button>
+								</div>
+							</td>
+                            <td>등록</td>
+                            <td><button class="btn-xs btn-gray">삭제</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="paging_area">
+                    <nav>
+                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                        <button class="page prev" href="#" >이전으로 이동</button>
+                        <a href="#">1</a>
+                        <a href="#" class="on">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                        <a href="#">10</a>
+                        <button class="page next" href="#">다음으로 이동</button>
+                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+	</div>
+</div>
+
+</body>
+</html>

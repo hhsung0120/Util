@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>Onion 관리자</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/font.css">
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/common.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/jquery.bpopup.min.js"></script>
+<script src="../js/common.js"></script>
+</head>
+<body>
+<!-- 로딩 -->
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<!-- 로딩 -->
+<!-- wrapper -->
+<div id="wrapper">
+	<div id="header">
+        <div class="header_top">
+            <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
+            <div class="admin_box ">
+                <div class="admin_info">
+                    로그인 관련 메뉴들
+                </div>
+            </div>
+        </div>
+         <div id="gnb">
+            <ul class="depth_01">
+                <li class=""><a href="#">전시상품관리</a></li>
+                <li class=""><a href="#">메인관리</a></li>
+                <li class=""><a href="#">통계</a></li>
+                <li class=""><a href="#">정산</a></li>
+                <li class="active"><a href="#">고객지원(CS)</a></li>
+                <li class=""><a href="#">환경설정</a></li>
+             </ul>
+        </div>
+	</div>
+    
+	<div id="container">
+        <div id="lnb" class="side_menu open">
+            <div class="tit_box">
+                <h5>고객지원(CS)</h5>
+            </div>
+			 <!-- 전시상품 관리 lnb -
+            <ul class="depth_none">
+            	<li class="open">
+                    <a href="#">상품</a>
+                </li>
+			</ul>
+			<!-- //전시상품 관리 lnb -->
+				
+			<!-- 메인관리 lnb 
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">베너</a>
+                </li>
+			</ul>
+				<!-- //메인관리 lnb -->
+				
+				<!-- 통계 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">구매현황</a>
+                </li>
+			</ul>
+				<!-- //통계 lnb -->
+				
+				<!-- 정산 lnb --
+			<ul class="depth_none">
+                <li class="">
+                    <a href="#">정산</a>
+                </li>
+			</ul>
+				<!-- //정산 lnb -->
+			
+			
+				<!-- 고객지원 lnb -->
+			<ul class="depth_none">
+				<li class="">
+                    <a href="#">CS상담관리</a>
+                </li>
+				<li class="">
+                    <a href="#">상담이력관리</a>
+                </li>
+				<li class="open">
+                    <a href="#">CS문자관리</a>
+                </li>
+			</ul>
+				<!-- //고객지원 lnb -->
+				
+				<!-- 환경설정 lnb --
+			<ul class="depth_02">
+				<li class="">
+                    <a href="#">시스템 환경설정</a>
+                    <ul class="depth_03">
+                        <li><a href="#">메뉴관리</a></li>
+						<li><a href="#">계정</a></li>
+						<li><a href="#">서비스 구분</a></li>
+						<li><a href="#">수신 API</a></li>
+						<li><a href="#">발신 API</a></li>
+						<li><a href="#">PG관리</a></li>
+                    </ul>
+                </li>
+				<li class="">
+                    <a href="#">서비스 환경설정</a>
+                    <ul class="depth_03">
+                        <li><a href="#">공지사항</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">카테고리</a></li>
+						<li><a href="#">약관관리</a></li>
+						<li><a href="#">동기화</a></li>
+						<li><a href="#">개인정보열람이력</a></li>
+						<li><a href="#">이력조회</a></li>
+                    </ul>
+                </li>
+			</ul>
+			<!-- //환경설정 lnb -->
+            <a class="left_btn" href="#">이동</a>
+        </div>
+        <div class="content open"> 
+             <ul id="nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">고객지원(CS)</a></li>
+				<li class="active"><a href="#">CS상담관리</a></li>
+            </ul>     
+            <h3 class="tit">CS문자등록</h3>
+            <div class="reg">
+                <table>
+					<colgroup>
+						<col style="width:15%">
+						<col style="width:35%">
+						<col style="width:15%">
+						<col style="width:35%">
+					</colgroup>
+                    <tbody>
+                        <tr>
+                            <th>사용여부</th>
+                            <td>
+                            	<div class="radio_box">
+                                    <input type="radio" name="ra1" id="ra1_1" checked/>
+                                    <label for="ra1_1">사용</label>
+                                </div>
+                                <div class="radio_box">
+                                    <input type="radio" name="ra1" id="ra1_2"/>
+                                    <label for="ra1_2">미사용</label>
+                                </div>
+                            </td>
+							<th>메시지유형</th>
+                            <td>
+                                <div class="select-box-t">
+									<label for="">SMS</label>
+									<select>
+										<option selected="">SMS</option>
+										<option>ooo</option>
+										<option>ooo</option>
+										<option>ooo</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="point">제목</span></th>
+                            <td colspan="3">
+                                <input type="text">
+                            </td>
+							
+						</tr>
+						<tr>
+							<th><span class="point">자동문구<br><em>(80 byte)</em></span></th>
+                            <td colspan="3">
+                                <textarea class="memo3"></textarea>
+                            </td>
+							
+						</tr>
+					</tbody>
+                </table>
+                <div class="btn_wrap">
+                    <button class="btn-md">취소</button>
+                    <button class="btn-md btn-yel">등록</button>
+                </div>
+            </div>
+            
+
+        </div>
+	</div>
+</div>
+
+</body>
+</html>
