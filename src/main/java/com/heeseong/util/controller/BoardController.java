@@ -18,12 +18,12 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("/list")
-    public ModelAndView list(){
+    public ModelAndView list(@ModelAttribute Board board){
         ModelAndView mav = new ModelAndView("/board/list");
+        board.setListCount(boardService.getBoardListCount(board));
+
         return mav;
     }
-
-
 
     @GetMapping("/form")
     public ModelAndView form(){

@@ -104,13 +104,16 @@
 			, dataType:'text'
 			, url:"/board/form"
 			, success : function(data){
-				alert(1);
+				if(data == 'true'){
+					alert('성공');
+				}else{
+					alert('실패');
+				}
 			},error:function(x,error){
 				alert("처리중 오류가 발생했습니다.");
 			}
 		});
 	}
-
 </script>
 </body>
 </html>

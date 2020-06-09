@@ -2,24 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heeseong.util.mapper.BoardMapper">
 
-<insert id="insertBoard" parameterType="Board" useGeneratedKeys="true" keyProperty="idx">
-    INSERT INTO testBoard (
-        board_type
-        , contents
-        , title
-        , registrant
-        , modifier
-        , reg_date
-        , mod_date
-    ) VALUES (
-        '1'
-        , #{contents}
-        , #{title}
-        , #{registrant}
-        , #{modifier}
-        , #{regDate}
-        , #{modDate}
-    )
-</insert>
+    <insert id="insertBoard" parameterType="Board" useGeneratedKeys="true" keyProperty="idx">
+        INSERT INTO board (
+            board_type
+            , contents
+            , title
+            , registrant
+            , modifier
+            , reg_date
+            , mod_date
+        ) VALUES (
+            '1'
+            , #{contents}
+            , #{title}
+            , #{registrant}
+            , #{modifier}
+            , #{regDate}
+            , #{modDate}
+        )
+    </insert>
+
+    <select id="selectBoardListCount" parameterType="String" resultType="int">
+       SELECT COUNT(*)
+         FROM board
+        <where>
+            <if test="title != null and title != ''">
+             AND title like CONCAT('%', #{title}, '%')
+            </if>
+        </where>
+    </select>
 
 </mapper>

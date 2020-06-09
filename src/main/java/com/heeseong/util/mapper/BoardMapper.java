@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 public interface BoardMapper {
 
     Integer insertBoard(Board board);
+
+    int selectBoardListCount(Board board);
 }
 
 

@@ -5,9 +5,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter @Setter @ToString
-public class Board {
+public class Board extends PageNavigator {
     Integer idx;
     String boardType;
     String title;
@@ -16,6 +17,6 @@ public class Board {
     String registrant;
     //수정자
     String modifier;
-    LocalDate regDate;
-    LocalDate modDate;
+    LocalDateTime regDate;
+    LocalDateTime modDate;
 }

@@ -5,7 +5,7 @@ import com.heeseong.util.model.Board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Service
@@ -32,15 +32,16 @@ public class BoardService {
     }
 
     private Integer insertBoard(Board board) {
-        LocalDate currentDate = LocalDate.now();
-        System.out.println(board.toString());
+        LocalDateTime currentDate = LocalDateTime.now();
         board.setRegistrant("하니성");
         board.setModifier(board.getRegistrant());
         board.setRegDate(currentDate);
         board.setModDate(board.getRegDate());
-
         return boardMapper.insertBoard(board);
     }
 
 
+    public int getBoardListCount(Board board) {
+        return boardMapper.selectBoardListCount(board);
+    }
 }
