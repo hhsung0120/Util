@@ -3,6 +3,7 @@
 <mapper namespace="com.heeseong.util.mapper.BoardMapper">
 
     <insert id="insertBoard" parameterType="Board" useGeneratedKeys="true" keyProperty="idx">
+    /* BoardMapper.insertBoard */
         INSERT INTO board (
             board_type
             , contents
