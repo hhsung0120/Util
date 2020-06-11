@@ -37,7 +37,7 @@ public class BoardController {
     @ResponseBody
     @PostMapping("/form")
     public boolean form(@ModelAttribute Board board
-                       ,@RequestParam("file") List<MultipartFile> fileList){
+                       ,@RequestParam("file") List<MultipartFile> fileList) throws Exception{
         return boardService.saveBoard(board, fileList);
     }
 }

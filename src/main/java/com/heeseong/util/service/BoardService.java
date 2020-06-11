@@ -4,8 +4,10 @@ import com.heeseong.util.mapper.BoardMapper;
 import com.heeseong.util.model.Board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.beans.Transient;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,11 +21,14 @@ public class BoardService {
     /**
      * 게시판 저장
      * idx > 0 수정
-     * idx == 0 저장
+     * idx == null 저장
      * @param board
+     * @param fileList
      * @return boolean
+     * @throws Exception
      */
-    public boolean saveBoard(Board board, List<MultipartFile> fileList) {
+    @Transactional
+    public boolean saveBoard(Board board, List<MultipartFile> fileList) throws Exception {
         if(board.getIdx() == null){
             this.insertBoard(board);
             if(board.getIdx() > 0){
@@ -56,6 +61,14 @@ public class BoardService {
     }
 
 
-    private void fileSave(Integer idx, List<MultipartFile> fileList) {
+    /**
+     * 드라이브 파일 저장 및 DB 파일 정보 저장
+     * @param idx
+     * @param fileList
+     * @throws Exception
+     */
+    private void fileSave(Integer idx, List<MultipartFile> fileList) throws Exception{
+        for(MultipartFile file : fileList){
+        }
     }
 }
