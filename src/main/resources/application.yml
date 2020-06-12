@@ -52,7 +52,7 @@ logging:
 file:
   path: D:${file.separator}log${file.separator}
 
-upload-path: D:${file.separator}upload${file.separator}
+default-upload-path: D:${file.separator}upload${file.separator}
 
 --- #dev
 

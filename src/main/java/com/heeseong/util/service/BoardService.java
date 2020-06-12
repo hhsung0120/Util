@@ -2,18 +2,24 @@ package com.heeseong.util.service;
 
 import com.heeseong.util.mapper.BoardMapper;
 import com.heeseong.util.model.Board;
+import com.heeseong.util.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.beans.Transient;
+import java.sql.SQLSyntaxErrorException;
 import java.time.LocalDateTime;
 import java.util.List;
 
 
 @Service
 public class BoardService {
+
+    @Value("${default-upload-path}")
+    private String defaultUploadPath;
 
     @Autowired
     private BoardMapper boardMapper;
@@ -32,7 +38,7 @@ public class BoardService {
         if(board.getIdx() == null){
             this.insertBoard(board);
             if(board.getIdx() > 0){
-                this.fileSave(board.getIdx(), fileList);
+                this.fileSave(board.getIdx(), fileList, defaultUploadPath);
             }
         }else{
 
@@ -63,12 +69,14 @@ public class BoardService {
 
     /**
      * 드라이브 파일 저장 및 DB 파일 정보 저장
-     * @param idx
-     * @param fileList
+     * @param idx 보드 IDX
+     * @param fileList 파일 리스트
+     * @param uploadPath 업로드패스
      * @throws Exception
      */
-    private void fileSave(Integer idx, List<MultipartFile> fileList) throws Exception{
+    private void fileSave(Integer idx, List<MultipartFile> fileList, String uploadPath) throws Exception{
         for(MultipartFile file : fileList){
+            FileUtil.fileUploadExecute(file, uploadPath);
         }
     }
 }
