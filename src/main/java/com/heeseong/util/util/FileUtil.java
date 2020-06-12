@@ -37,6 +37,12 @@ public class FileUtil {
         return UUID.randomUUID().toString().replace("-", "")+"."+extension;
     }
 
+    /**
+     * 파일 업로드 실행메서드
+     * @param file 파일
+     * @param uploadPath 업로드 디렉토리(풀경롤)
+     * @throws Exception
+     */
     public static void fileUploadExecute(MultipartFile file, String uploadPath) throws Exception{
         try {
             FileUtil.makeUploadPathDirectory(uploadPath);
