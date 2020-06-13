@@ -3,20 +3,24 @@ package com.heeseong.util.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter @Setter @ToString
 public class Board extends PageNavigator {
-    Integer idx;
-    String boardType;
-    String title;
-    String contents;
+
+    private Integer idx;
+    private String boardType;
+    private String title;
+    private String contents;
     //등록자
-    String registrant;
+    private String registrant;
     //수정자
-    String modifier;
-    LocalDateTime regDate;
-    LocalDateTime modDate;
+    private String modifier;
+    private LocalDateTime regDate;
+    private LocalDateTime modDate;
+    private List<MultipartFile> fileList;
 }

@@ -33,4 +33,29 @@
         </where>
     </select>
 
+    <insert id="insertFileInfo" parameterType="CommonFile">
+    /* BoardMapper.insertBoard */
+        INSERT INTO file (
+            board_idx
+            , uuid
+            , upload_path
+            , original_file_name
+            , extension
+            , registrant
+            , regDate
+            , modifier
+            , modDate
+        ) VALUES (
+             #{boardIdx}
+            , #{uuid}
+            , #{uploadPath}
+            , #{originalFileName}
+            , #{extension}
+            , #{registrant}
+            , NOW()
+            , #{registrant}
+            , NOW()
+        )
+    </insert>
+
 </mapper>

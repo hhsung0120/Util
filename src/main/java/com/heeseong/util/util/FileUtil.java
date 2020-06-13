@@ -1,9 +1,11 @@
 package com.heeseong.util.util;
 
+import com.heeseong.util.model.CommonFile;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.UUID;
 
 public class FileUtil {
@@ -33,23 +35,36 @@ public class FileUtil {
      * @return UUID + 확장자
      */
     public static String getUuidFileName(String fileName){
-        String extension = getFileExtension(fileName);
-        return UUID.randomUUID().toString().replace("-", "")+"."+extension;
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
     /**
      * 파일 업로드 실행메서드
-     * @param file 파일
-     * @param uploadPath 업로드 디렉토리(풀경롤)
-     * @throws Exception
+     * @param file multipartFile data
+     * @param uploadPath 업로드 디렉토리(풀경롤 default + custom)
+     * @return CommonFile
      */
-    public static void fileUploadExecute(MultipartFile file, String uploadPath) throws Exception{
+    public static CommonFile fileUploadExecute(MultipartFile file, String uploadPath){
         try {
+            CommonFile commonFile = new CommonFile();
+
             FileUtil.makeUploadPathDirectory(uploadPath);
 
+            //파일 정보 set
+            commonFile.setUploadPath(uploadPath);
+            commonFile.setOriginalFileName(file.getOriginalFilename());
+            commonFile.setUuid(getUuidFileName(file.getOriginalFilename()));
+            commonFile.setExtension(getFileExtension(commonFile.getOriginalFileName()));
 
+            String result = commonFile.getUploadPath() + commonFile.getUuid() + "." + commonFile.getExtension();
+
+            File destination = new File(result);
+            file.transferTo(destination);
+
+            return commonFile;
         }catch (Exception e){
             e.getMessage();
         }
+        return null;
     }
 }
