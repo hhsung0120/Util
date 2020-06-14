@@ -2,6 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heeseong.util.mapper.BoardMapper">
 
+    <sql id="searchOption">
+        <where>
+            <if test="searchTitle != null and searchTitle != ''">
+                AND title like CONCAT('%', #{searchTitle}, '%')
+            </if>
+            <if test="searchContents != null and searchContents != ''">
+                AND contents like CONCAT('%', #{searchContents}, '%')
+            </if>
+        </where>
+    </sql>
     <insert id="insertBoard" parameterType="Board" useGeneratedKeys="true" keyProperty="idx">
     /* BoardMapper.insertBoard */
         INSERT INTO board (
@@ -26,11 +36,16 @@
     <select id="selectBoardListCount" parameterType="String" resultType="int">
        SELECT COUNT(*)
          FROM board
-        <where>
-            <if test="title != null and title != ''">
-             AND title like CONCAT('%', #{title}, '%')
-            </if>
-        </where>
+         <include refid="searchOption"/>
+    </select>
+
+    <select id="selectBoardList" parameterType="String" resultType="int">
+    /* BoardMapper.insertBoard */
+        SELECT *
+        FROM board
+        <include refid="searchOption"/>
+        ORDER BY reg_date DESC
+        LIMIT #{startPage}, #{pageSize}
     </select>
 
     <insert id="insertFileInfo" parameterType="CommonFile">

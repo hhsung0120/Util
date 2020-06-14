@@ -1,5 +1,9 @@
 package com.heeseong.util.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter @Getter
 public class PageNavigator {
     /** 한 페이지당 게시글 수 **/
     private int pageSize = 10;
@@ -38,7 +42,7 @@ public class PageNavigator {
     private int nextPage;
 
     /** 페이징 처리 **/
-    public void setListCount(int totalCount) {
+    public void setTotalCount(int totalCount) {
         /** 총 게시물 수 **/
         this.totalCount = totalCount;
 

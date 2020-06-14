@@ -5,6 +5,8 @@ import com.heeseong.util.model.CommonFile;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Mapper
 public interface BoardMapper {
 
@@ -13,6 +15,8 @@ public interface BoardMapper {
     int selectBoardListCount(Board board);
 
     void insertFileInfo(CommonFile commonFile);
+
+    List<Board> selectBoardList(Board board);
 }
 
 

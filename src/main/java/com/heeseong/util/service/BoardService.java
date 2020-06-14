@@ -82,4 +82,13 @@ public class BoardService {
             }
         }
     }
+
+    /**
+     * 보드 리스트
+     * @param board
+     * @return List<Board>
+     */
+    public List<Board> getBoardList(Board board) {
+        return boardMapper.selectBoardList(board);
+    }
 }

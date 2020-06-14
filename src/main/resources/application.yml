@@ -47,7 +47,7 @@ logging:
     jdbc.sqltiming : info
     jdbc.audit: off
     jdbc.resultset: off
-    jdbc.resultsettable : debug
+    jdbc.resultsettable : off
     jdbc.connection: off
 file:
   path: D:${file.separator}log${file.separator}

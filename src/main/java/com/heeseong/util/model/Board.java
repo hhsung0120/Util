@@ -23,4 +23,6 @@ public class Board extends PageNavigator {
     private LocalDateTime regDate;
     private LocalDateTime modDate;
     private List<MultipartFile> fileList;
+    private String searchTitle;
+    private String searchContents;
 }

@@ -23,7 +23,13 @@ public class BoardController {
     @GetMapping("/list")
     public ModelAndView list(@ModelAttribute Board board){
         ModelAndView mav = new ModelAndView("/board/list");
-        board.setListCount(boardService.getBoardListCount(board));
+
+        System.out.println(board.toString());
+        board.setTotalCount(boardService.getBoardListCount(board));
+
+        if(board.getTotalCount() > 0){
+            List<Board> boardList = boardService.getBoardList(board);
+        }
 
         return mav;
     }
