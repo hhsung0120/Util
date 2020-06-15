@@ -33,19 +33,19 @@
         )
     </insert>
 
-    <select id="selectBoardListCount" parameterType="String" resultType="int">
+    <select id="selectBoardListCount" parameterType="Board" resultType="int">
        SELECT COUNT(*)
          FROM board
          <include refid="searchOption"/>
     </select>
 
-    <select id="selectBoardList" parameterType="String" resultType="int">
+    <select id="selectBoardList" parameterType="Board" resultType="Board">
     /* BoardMapper.insertBoard */
         SELECT *
         FROM board
         <include refid="searchOption"/>
         ORDER BY reg_date DESC
-        LIMIT #{startPage}, #{pageSize}
+        LIMIT #{startIndex}, #{pageSize}
     </select>
 
     <insert id="insertFileInfo" parameterType="CommonFile">
@@ -72,5 +72,11 @@
             , NOW()
         )
     </insert>
+
+    <select id="selectBoard" parameterType="Integer" resultType="Board">
+        SELECT *
+          FROM board
+         WHERE idx = #{idx}
+    </select>
 
 </mapper>

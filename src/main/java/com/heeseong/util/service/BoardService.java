@@ -91,4 +91,8 @@ public class BoardService {
     public List<Board> getBoardList(Board board) {
         return boardMapper.selectBoardList(board);
     }
+
+    public Board getBoard(Integer idx) {
+        return boardMapper.selectBoard(idx);
+    }
 }

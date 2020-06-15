@@ -43,6 +43,7 @@
 			<h3 class="tit">게시판 <span>게시판을 등록하고 관리합니다.</span></h3>
 			<div class="sch_wrap">
 				<form id="dataForm" name="dataForm" enctype="multipart/form-data">
+					<input type="hidden" name="idx" th:value="${board.idx}"/>
 					<table>
 						<colgroup>
 							<col style="width:15%">

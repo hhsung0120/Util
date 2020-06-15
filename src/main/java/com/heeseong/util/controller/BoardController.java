@@ -24,19 +24,25 @@ public class BoardController {
     public ModelAndView list(@ModelAttribute Board board){
         ModelAndView mav = new ModelAndView("/board/list");
 
-        System.out.println(board.toString());
         board.setTotalCount(boardService.getBoardListCount(board));
 
         if(board.getTotalCount() > 0){
             List<Board> boardList = boardService.getBoardList(board);
+            mav.addObject("boardList", boardList);
+            mav.addObject("paging", board);
         }
 
         return mav;
     }
 
     @GetMapping("/form")
-    public ModelAndView form(){
+    public ModelAndView form(@RequestParam(value="idx", required = false, defaultValue = "0")Integer idx){
         ModelAndView mav = new ModelAndView("/board/form");
+
+        if(idx > 0){
+            Board board = boardService.getBoard(idx);
+            mav.addObject("board", board);
+        }
         return mav;
     }
 

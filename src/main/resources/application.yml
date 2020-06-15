@@ -44,7 +44,7 @@ logging:
     org.springframework.web: info
     com.heeseong: info
     jdbc.sqlonly : off
-    jdbc.sqltiming : info
+    jdbc.sqltiming : off
     jdbc.audit: off
     jdbc.resultset: off
     jdbc.resultsettable : off

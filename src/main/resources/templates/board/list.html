@@ -85,17 +85,16 @@
 			<div class="list_wrap">
 				<div class="list_info">
 					<dl class="fl">
-						<dt>전체 상품관리 목록</dt>
-						<dd>(전체 2,000개)</dd>
+						<dd th:text="|전체 ${paging.totalCount}개|"></dd>
 					</dl>
+
 					<div class="fr">
 						<div class="select-box-t">
-							<label for="">선택</label>
-							<select>
-								<option selected="">선택</option>
-								<option>ooo</option>
-								<option>ooo</option>
-								<option>ooo</option>
+							<label for="" th:text="${paging.pageSize}"></label>
+							<select th:onchange="setChangePageSize(this)" th:field="${paging.pageSize}">
+								<option value="10">10</option>
+								<option value="20">20</option>
+								<option value="30">30</option>
 							</select>
 						</div>
 						<button type="button" class="btn-sm btn-dark" id="btn_add">등록</button>
@@ -105,55 +104,34 @@
 
 					<thead>
 					<tr>
-						<th>No</th>
-						<th>상품명</th>
-						<th>원수사</th>
-						<th>상품가격</th>
+						<th>idx</th>
+						<th>제목</th>
+						<th>내용</th>
+						<th>작성자</th>
 						<th>등록일시</th>
-						<th>게시여부</th>
-						<th>이미지등록여부</th>
-						<th>삭제</th>
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>128</td>
-						<td class="tal"><a href="#">좋은날 보험</a></td>
-						<td>KB</td>
-						<td class="tar">25,000</td>
-						<td>2020-12-01 09:22:13</td>
-						<td>
-							<div class="toggleBG on">
-								<button class="toggleFG active"></button>
-							</div>
-						</td>
-						<td>등록</td>
-						<td><button class="btn-xs btn-gray">삭제</button></td>
+					<tr th:each="item:${boardList}">
+						<td th:text="${item.idx}"></td>
+						<td><a th:href="|javascript:goEdit(${item.idx})|" th:text="${item.title}"></a></td>
+						<td th:text="${item.contents}"></td>
+						<td th:text="${item.registrant}"></td>
+						<td th:text="${item.regDate}"></td>
 					</tr>
 					</tbody>
 				</table>
-				<div class="paging_area">
-					<nav>
-						<button class="page first" href="#" disabled="">맨 앞으로 이동</button>
-						<button class="page prev" href="#" >이전으로 이동</button>
-						<a href="#">1</a>
-						<a href="#" class="on">2</a>
-						<a href="#">3</a>
-						<a href="#">4</a>
-						<a href="#">5</a>
-						<a href="#">6</a>
-						<a href="#">7</a>
-						<a href="#">8</a>
-						<a href="#">9</a>
-						<a href="#">10</a>
-						<button class="page next" href="#">다음으로 이동</button>
-						<button class="page last" href="#" disabled="">맨 뒤로 이동</button>
-					</nav>
-				</div>
+				<!-- 페이징 -->
+				<div th:include="/common/fragment::paging" class="paging_area" th:if="${paging.totalCount > 0}"></div>
 			</div>
 		</div>
 	</div>
 </div>
+<form id="dataForm">
+	<input hidden="hidden" name="currentPage" th:value="${paging.currentPage}"/>
+	<input hidden="hidden" name="pageSize" th:value="${paging.pageSize}"/>
+	<input hidden="hidden" name="idx" value=""/>
+</form>
 <script type="text/javascript">
 	$(function(){
 		var $dataForm = $("#dataForm");
@@ -173,26 +151,33 @@
 			location.href="/board/form";
 		});
 
-
-
 		// 검색 초기화
 		searchClear = function() {
 			$searchForm.find("input[type=text]").val("");
 			$searchForm.find(".select_box").find("option:eq(0)").prop("selected",true);
 			goSearch();
 		};
-
 		// 페이지 이동
-		goPage = function (ov) {
-			$dataForm.find("input[name='curPage']").val(ov);
-			$dataForm.attr({"action":"/demo/demoLT","target":"_self","method":"post"}).submit();
+		goPage = function (page) {
+			$dataForm.find("input[name='currentPage']").val(page);
+			$dataForm.attr({"action":"/board/list","target":"_self","method":"get"}).submit();
+		};
+		// 상세
+		goEdit = function (idx) {
+			$dataForm.find("input[name='pageSize']").val(10);
+			$dataForm.find("input[name='currentPage']").val(1);
+			$dataForm.find("input[name='idx']").val(idx);
+			$dataForm.attr({"action": "/board/form", "target":"_self", "method":"get"}).submit();
 		};
 
-		// 상세
-		goEdit = function (ov) {
-			$dataForm.find("input[name='demoSeqNo']").val(ov);
-			$dataForm.attr({"action": "/demo/demoFM", "target":"_self", "method":"post"}).submit();
-		};
+		//페이지 사이즈 셋팅
+		setChangePageSize = function(obj){
+			var pageSize = $(obj).val();
+			if(pageSize != ''){
+				$dataForm.find("input[name='pageSize']").val(pageSize);
+				goPage(1);
+			}
+		}
 	});
 </script>
 </body>

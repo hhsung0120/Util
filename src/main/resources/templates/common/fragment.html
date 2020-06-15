@@ -17,18 +17,16 @@
     <script src="/js/jquery.bpopup.min.js"></script>
     <script src="/js/common.js"></script>
     <script src="/js/jquery.validate.min.js"></script>
-
 </head>
 <body>
 
 <div th:fragment="paging">
-    <nav th:if="${paging.listCnt > 0}">
-    <a href="#" th:if="${paging.startPage} > 1" th:onclick="|goPage('1'); return false;|"><span class="first">맨 앞으로 이동</span></a>
-    <a href="#" th:if="${paging.startPage} > ${paging.rangeSize}" th:onclick="|goPage(${paging.startPage - paging.rangeSize}); return false;|"><span class="prev">이전으로 이동</span></a>
-    <a href="#" th:each="i:${#numbers.sequence(paging.startPage,paging.endPage)}"
-        th:class="${paging.curPage==i} ? 'on'" th:text="${i}" th:onclick="|goPage(${i}); return false;|"></a>
-    <a href="#" th:if="${paging.endPage} < ${paging.pageCnt}" th:onclick="|goPage(${paging.startPage + paging.rangeSize}); return false;|"><span class="next">다음으로 이동</span></a>
-    <a href="#" th:if="${paging.pageCnt} > ${paging.endPage}" th:onclick="|goPage(${paging.pageCnt}); return false;|"><span class="last">맨 뒤로 이동</span></a>
+    <nav>
+        <button type="button" class="page first" th:if="${paging.startPage} > 1" th:onclick="|goPage('1'); return false;|">맨 앞으로 이동</button>
+        <button type="button" class="page prev" th:if="${paging.startPage} > ${paging.blockSize}" th:onclick="|goPage(${paging.startPage - paging.blockSize}); return false;|">이전으로 이동</button>
+        <a href="#" th:each="i:${#numbers.sequence(paging.startPage,paging.endPage)}" th:class="${paging.currentPage==i} ? 'on'" th:text="${i}" th:onclick="|goPage(${i}); return false;|"></a>
+        <button type="button" class="page next" th:if="${paging.totalPageCount} < ${paging.totalPageCount}" th:onclick="|goPage(${paging.startPage + paging.blockSize}); return false;|">다음으로 이동</button>
+        <button type="button" class="page last" th:if="${paging.totalPageCount} > ${paging.totalPageCount}" th:onclick="|goPage(${paging.totalPageCount}); return false;|">맨 뒤로 이동</button>
     </nav>
 </div>
 

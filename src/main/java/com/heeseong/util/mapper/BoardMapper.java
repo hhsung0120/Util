@@ -17,6 +17,8 @@ public interface BoardMapper {
     void insertFileInfo(CommonFile commonFile);
 
     List<Board> selectBoardList(Board board);
+
+    Board selectBoard(Integer idx);
 }
 
 
