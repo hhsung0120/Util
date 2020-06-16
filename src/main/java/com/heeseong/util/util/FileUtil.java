@@ -71,6 +71,14 @@ public class FileUtil {
         return null;
     }
 
+    /**
+     * 파일 다운로드
+     * @param fileName
+     * @param uploadPath
+     * @param request
+     * @param response
+     * @return
+     */
     public static FileSystemResource executeFileDownload(String fileName
                                                         , String uploadPath
                                                         , HttpServletRequest request
