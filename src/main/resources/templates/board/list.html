@@ -148,7 +148,8 @@
 		};
 
 		$('#btn_add').click(function () {
-			location.href="/board/form";
+			$dataForm.find("input[name='idx']").val(0);
+			$dataForm.attr({"action": "/board/form", "target":"_self", "method":"get"}).submit();
 		});
 
 		// 검색 초기화

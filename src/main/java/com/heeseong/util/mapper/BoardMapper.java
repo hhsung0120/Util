@@ -19,6 +19,8 @@ public interface BoardMapper {
     List<Board> selectBoardList(Board board);
 
     Board selectBoard(Integer idx);
+
+    List<CommonFile> selectCommonFileList(Integer idx);
 }
 
 

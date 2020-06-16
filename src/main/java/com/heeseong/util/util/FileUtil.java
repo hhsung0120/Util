@@ -1,11 +1,14 @@
 package com.heeseong.util.util;
 
 import com.heeseong.util.model.CommonFile;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.nio.file.FileAlreadyExistsException;
+import java.net.URLEncoder;
 import java.util.UUID;
 
 public class FileUtil {
@@ -44,7 +47,7 @@ public class FileUtil {
      * @param uploadPath 업로드 디렉토리(풀경롤 default + custom)
      * @return CommonFile
      */
-    public static CommonFile fileUploadExecute(MultipartFile file, String uploadPath){
+    public static CommonFile executeFileUpload(MultipartFile file, String uploadPath){
         try {
             CommonFile commonFile = new CommonFile();
 
@@ -67,4 +70,33 @@ public class FileUtil {
         }
         return null;
     }
+
+    public static FileSystemResource executeFileDownload(String fileName
+                                                        , String uploadPath
+                                                        , HttpServletRequest request
+                                                        , HttpServletResponse response){
+        try{
+            File file = new File(uploadPath+fileName);
+
+            if(file.exists()){
+                String downloadFileName = fileName;
+
+                String browser = request.getHeader("User-Agent");
+                //파일 인코딩
+                if (browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")) {
+                    downloadFileName = URLEncoder.encode(downloadFileName, "UTF-8").replaceAll("\\+", "%20");
+                } else {
+                    downloadFileName = new String(downloadFileName.getBytes("UTF-8"), "ISO-8859-1");
+                }
+                response.setHeader("Content-Disposition","attachment; filename="+downloadFileName);
+                return new FileSystemResource(file);
+            }
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
+        return null;
+    }
+
+
 }

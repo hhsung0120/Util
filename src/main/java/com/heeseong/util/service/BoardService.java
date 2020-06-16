@@ -32,11 +32,11 @@ public class BoardService {
      * @throws Exception
      */
     @Transactional
-    public boolean saveBoard(Board board) throws Exception {
+    public boolean saveBoard(Board board, List<MultipartFile> fileList) throws Exception {
         if(board.getIdx() == null){
             this.insertBoard(board);
             if(board.getIdx() > 0){
-                this.fileSave(board.getIdx(), board.getFileList(), defaultUploadPath);
+                this.fileSave(board.getIdx(), fileList, defaultUploadPath);
             }
         }else{
 
@@ -74,7 +74,7 @@ public class BoardService {
      */
     private void fileSave(Integer boardIdx, List<MultipartFile> fileList, String uploadPath) throws Exception{
         for(MultipartFile file : fileList){
-            CommonFile commonFile = FileUtil.fileUploadExecute(file, uploadPath);
+            CommonFile commonFile = FileUtil.executeFileUpload(file, uploadPath);
             if(commonFile != null){
                 commonFile.setBoardIdx(boardIdx);
                 commonFile.setRegistrant("하니성");
@@ -84,7 +84,7 @@ public class BoardService {
     }
 
     /**
-     * 보드 리스트
+     * 리스트
      * @param board
      * @return List<Board>
      */
@@ -92,7 +92,16 @@ public class BoardService {
         return boardMapper.selectBoardList(board);
     }
 
+    /**
+     * 게시판 상세
+     * @param idx
+     * @return
+     */
     public Board getBoard(Integer idx) {
-        return boardMapper.selectBoard(idx);
+        Board board = boardMapper.selectBoard(idx);
+        if(board != null){
+            board.setFileList(boardMapper.selectCommonFileList(board.getIdx()));
+        }
+        return board;
     }
 }

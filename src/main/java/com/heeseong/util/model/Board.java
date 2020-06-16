@@ -22,7 +22,7 @@ public class Board extends PageNavigator {
     private String modifier;
     private LocalDateTime regDate;
     private LocalDateTime modDate;
-    private List<MultipartFile> fileList;
     private String searchTitle;
     private String searchContents;
+    private List<CommonFile> fileList;
 }

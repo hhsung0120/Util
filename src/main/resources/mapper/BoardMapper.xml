@@ -79,4 +79,9 @@
          WHERE idx = #{idx}
     </select>
 
+    <select id="selectCommonFileList" parameterType="Integer" resultType="CommonFile">
+        SELECT *
+          FROM file
+	     WHERE board_idx = #{idx}
+    </select>
 </mapper>

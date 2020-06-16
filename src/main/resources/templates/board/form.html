@@ -1,4 +1,5 @@
 <!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="ko">
 <head th:include="/common/fragment::head"></head>
 <body>
@@ -55,7 +56,7 @@
 						<tr>
 							<th><span class="point">제목</span></th>
 							<td colspan="3">
-								<input type="text" name="title"
+								<input type="text" name="title" th:value="${board.title}"
 								   data-rule-required="true" data-msg-required="제목을 입력해주세요"
 								   data-rule-maxlength="50" data-msg-maxlength="50자 이하로 입력해주세요"/>
 							</td>
@@ -63,7 +64,7 @@
 						<tr>
 							<th><span class="point">내용</span></th>
 							<td colspan="3">
-								<textarea class="memo" name="contents" id="contents"></textarea>
+								<textarea class="memo" name="contents" id="contents" th:text="${board.contents}"></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -73,23 +74,11 @@
 							</td>
 						</tr>
 						<tr>
-							<th>등록자</th>
-							<td>
-								전OO(powercbk)
-							</td>
-							<th>등록일시</th>
-							<td>
-								2020-09-25 13:00:13
-							</td>
-						</tr>
-						<tr>
-							<th>최종수정자</th>
-							<td>
-								김OO(KSK)
-							</td>
-							<th>최종수정일시</th>
-							<td>
-								2020-09-25 13:00:13
+							<th><span class="point">첨부파일</span></th>
+							<td colspan="3">
+								<div th:each="row:${board.getFileList()}">
+									<a href="javascript:void(0)" th:attr="fileName=${row.uuid}+'.'+${row.extension}" th:text="${row.getOriginalFileName()}" onclick="goFileDownload(this); return false;"></a>
+								</div>
 							</td>
 						</tr>
 						</tbody>
@@ -106,8 +95,13 @@
 <!-- 에디터 설정 -->
 <div th:include="/common/fragment::editor(content='contents')"></div>
 
+<form id="fileForm">
+	<input type="hidden" name="fileName" value=""/>
+</form>
+
 <script>
 	var $dataForm = $("#dataForm");
+	var $fileForm = $("#fileForm");
 
 	// 폼체크
 	$dataForm.validate({
@@ -148,6 +142,12 @@
 				}
 			});
 		}
+	}
+
+	goFileDownload = function(obj){
+		var fileName = $(obj).attr('fileName');
+		$fileForm.find("input[name='fileName']").val(fileName);
+		$fileForm.attr({"action": "/board/fileDownload", "target":"_self", "method":"post"}).submit();
 	}
 </script>
 </body>
