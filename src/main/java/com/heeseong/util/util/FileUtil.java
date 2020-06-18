@@ -107,4 +107,22 @@ public class FileUtil {
     }
 
 
+    /**
+     * 파일삭제
+     * @param filePath
+     * @param fileName
+     * @return boolean
+     */
+    public static boolean executeFileDelete(String filePath, String fileName){
+        boolean result = false;
+        try{
+            File file = new File(filePath+fileName);
+            if(file.exists()){
+                result = file.delete();
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return result;
+    }
 }

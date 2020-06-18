@@ -51,8 +51,10 @@ a {text-decoration:none; color:inherit;}
 .mgr5 {margin-right: 5px;}
 .mgr10 {margin-right: 10px;}
 .mgr20 {margin-right: 20px;}
+
 .mgb0 {margin-bottom: 0px !important;}
 .mgb30 {margin-bottom: 30px !important;}
+.mgt0{margin-top: 0px;}
 .mgt10{margin-top: 10px;}
 .mgt20{margin-top: 20px;}
 
@@ -93,6 +95,7 @@ ol:after,ul:after,dl:after {
 	box-sizing: border-box;
 }
 
+.bg_gray {background-color: #f9f9f9;}
 .toggleBG{background: #CCCCCC; width: 70px; height: 30px; border: 1px solid #CCCCCC; border-radius: 15px; margin: 0 auto; text-align: left; box-sizing: content-box;}
 .toggleFG{background: #FFFFFF; width: 30px; height: 30px; border: none; border-radius: 15px; position: relative; left: 0px; line-height: 0;}
 .toggleBG.on .toggleFG{left: 40px;}
@@ -488,7 +491,7 @@ input[type="radio"]:checked + label {
 }
 .datepicker_box {position: relative;  display: inline-block;}
 .ui-datepicker-trigger {margin-top: 2px; margin-left: 5px;}
-.ui-datepicker-calendar td {height: auto;}
+.ui-datepicker-calendar td {height: auto; padding:0;}
 .ui-datepicker-title {font-size:14px;}
 
 /* 셀렉트박스 */

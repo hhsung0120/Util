@@ -71,4 +71,11 @@ public class BoardController {
                                          , HttpServletResponse response){
         return FileUtil.executeFileDownload(fileName,defaultUploadPath,request,response);
     }
+
+    @ResponseBody
+    @PostMapping("/fileDelete")
+    public String fileDelete(@RequestParam(value="fileName", required = false, defaultValue = "")String fileName){
+        FileUtil.executeFileDelete(defaultUploadPath, fileName);
+        return "성공";
+    }
 }

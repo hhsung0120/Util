@@ -8,11 +8,13 @@
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../css/font.css">
 <link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/jquery.treetable.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/jquery.min.js"></script>
 <script src="../js/jquery-ui.js"></script>
 <script src="../js/jquery.bpopup.min.js"></script>
+<script src="../js/jquery.treetable.js"></script>  
 <script src="../js/common.js"></script>
 <script src="../js/jstree.js"></script>
 
@@ -137,109 +139,151 @@
 				<div class="col-2-left">
 					<!--tree menu-->
                     <nav class="tree-menu">
-                        <button class="btn-md">열기</button>
-                        <button class="btn-md">닫기</button>
+                        <button class="btn-md" onclick="tree_open_all();">열기</button>
+                        <button class="btn-md" onclick="tree_close_all()">닫기</button>
                         <button class="btn-md btn-dark" id="">1차메뉴 등록</button>
                     </nav>
                     <!--//tree menu-->
 				    <div class="menu_setup">
-                        <div class="tit_line">
-                            <div class="menu">메뉴</div>
-                            <div class="add">등록</div>
-                            <div class="del">삭제</div>
-                        </div>
-                        <ul class="dep_01">
-                            <li>
-                                <div class="inner_td">
-                                    <div class="menu">전시상품관리</div>
-                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                </div>
-                                <ul class="dep_02">
-                                   <li>
-                                       <div class="inner_td">
-                                            <div class="menu">전시상품관리_01010</div>
-                                            <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                            <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                       </div>
-                                       <ul  class="dep_03">
-                                            <li>
-                                               <div class="inner_td">
-                                                    <div class="menu">전시상품관리_01010</div>
-                                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                               </div>
-                                            </li>
-                                        </ul>
-                                    </li> 
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="inner_td">
-                                    <div class="menu">전시상품관리</div>
-                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                </div>
-                                <ul class="dep_02">
-                                   <li>
-                                       <div class="inner_td">
-                                            <div class="menu">전시상품관리_01010</div>
-                                            <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                            <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                       </div>
-                                       <ul  class="dep_03">
-                                            <li>
-                                               <div class="inner_td">
-                                                    <div class="menu">전시상품관리_01010</div>
-                                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                               </div>
-                                            </li>
-                                        </ul>
-                                    </li> 
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="inner_td">
-                                    <div class="menu">전시상품관리</div>
-                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                </div>
-                                
-                            </li>
-                            <li>
-                                <div class="inner_td">
-                                    <div class="menu">전시상품관리</div>
-                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                </div>
-                                <ul class="dep_02">
-                                   <li>
-                                       <div class="inner_td">
-                                            <div class="menu">전시상품관리_01010</div>
-                                            <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                            <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                       </div>
-                                       <ul  class="dep_03">
-                                            <li>
-                                               <div class="inner_td">
-                                                    <div class="menu">전시상품관리_01010</div>
-                                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                               </div>
-                                            </li>
-                                           <li>
-                                               <div class="inner_td">
-                                                    <div class="menu">전시상품관리_01010</div>
-                                                    <div class="add"><button><img src="../images/icon_plus.png" alt=""/></button></div>
-                                                    <div class="del"><button><img src="../images/icon_min.png" alt=""/></button></div>
-                                               </div>
-                                            </li>
-                                        </ul>
-                                    </li> 
-                                </ul>
-                            </li>
-                        </ul>
+                        <table class="tree mgt0">
+                            <colgroup>
+                                <col style="width: auto;">
+                                <col style="width: 30px;">
+                                <col style="width: 30px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="tal">메뉴</th>
+                                    <th>등록</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-tt-id='1'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='1-1' data-tt-parent-id='1'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리_01010</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='1-1-1' data-tt-parent-id='1-1'>
+                                    <td class="tal">
+                                        <span class="file">전시상품관리_01010</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+
+                                <tr data-tt-id='2'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='2-1' data-tt-parent-id='2'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리_01010</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='2-2-1' data-tt-parent-id='2-1'>
+                                    <td class="tal">
+                                        <span class="file">전시상품관리_01010</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+
+                                <tr data-tt-id='3'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='4'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='4-1' data-tt-parent-id='4'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='4-4-1' data-tt-parent-id='4-1'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                                <tr data-tt-id='4-4-2' data-tt-parent-id='4-1'>
+                                    <td class="tal">
+                                        <span class="folder">전시상품관리</span> 
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_plus.png" alt=""/></button>
+                                    </td>
+                                    <td>
+                                        <button class="noBd"><img src="../images/icon_min.png" alt=""/></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 				</div>
 				<div class="col-2-right">
@@ -302,6 +346,20 @@
         </div>
 	</div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("table.tree").treetable({ expandable: true });
+        
+    });
+    
+    function tree_open_all(){
+        $("table.tree").treetable("expandAll");
+    }
+    function tree_close_all(){
+        $("table.tree").treetable("collapseAll");
+    }
+</script>
 
 </body>
 </html>

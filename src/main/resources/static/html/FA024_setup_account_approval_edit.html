@@ -182,8 +182,8 @@
 						<dt><h5>권한</h5></dt>
                     </dl>
                     <div class="fr">
-						<button class="btn-sm btn-gray">펴기</button>
-                        <button class="btn-sm btn-dark">접기</button>
+						<button class="btn-sm btn-gray" onclick="tree_open_all();">펴기</button>
+                        <button class="btn-sm btn-dark" onclick="tree_close_all();">접기</button>
 					</div>
                 </div>
                 <table class="list tree">
@@ -791,6 +791,12 @@
 		$(document).ready(function(){
 			$("table.tree").treetable({ expandable: true});
 		});
+		function tree_open_all(){
+			$("table.tree").treetable("expandAll");
+		}
+		function tree_close_all(){
+			$("table.tree").treetable("collapseAll");
+		}
 	</script>
 </body>
 </html>
