@@ -15,6 +15,7 @@ public class FileUtil {
 
     /**
      * 업로드 경로에 폴더 존재하지 않을 시 폴더생성
+     * @param uploadPath 폴더 경로
      */
     public static void makeUploadPathDirectory(String uploadPath) {
         File destPath = new File(uploadPath);
@@ -73,8 +74,8 @@ public class FileUtil {
 
     /**
      * 파일 다운로드
-     * @param fileName
-     * @param uploadPath
+     * @param fileName   파일이름
+     * @param uploadPath 파일경로
      * @param request
      * @param response
      * @return
@@ -109,8 +110,8 @@ public class FileUtil {
 
     /**
      * 파일삭제
-     * @param filePath
-     * @param fileName
+     * @param filePath 파일경로
+     * @param fileName 파일이름
      * @return boolean
      */
     public static boolean executeFileDelete(String filePath, String fileName){
