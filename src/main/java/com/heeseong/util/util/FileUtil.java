@@ -65,6 +65,11 @@ public class FileUtil {
             File destination = new File(result);
             file.transferTo(destination);
 
+            /*destination.createNewFile();
+            FileOutputStream fos = new FileOutputStream(dest);
+            fos.write(bf.getBytes());
+            fos.close();*/
+
             return commonFile;
         }catch (Exception e){
             e.getMessage();
