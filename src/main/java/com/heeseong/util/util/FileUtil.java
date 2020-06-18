@@ -66,7 +66,7 @@ public class FileUtil {
             file.transferTo(destination);
 
             /*destination.createNewFile();
-            FileOutputStream fos = new FileOutputStream(dest);
+            FileOutputStream fos = new FileOutputStream(destination);
             fos.write(bf.getBytes());
             fos.close();*/
 
