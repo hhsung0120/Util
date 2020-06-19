@@ -18,9 +18,9 @@ public class FileUtil {
      * @param uploadPath 폴더 경로
      */
     public static void makeUploadPathDirectory(String uploadPath) {
-        File destPath = new File(uploadPath);
-        if (!destPath.exists()) {
-            destPath.mkdirs();
+        File directory = new File(uploadPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
         }
     }
 
@@ -83,7 +83,7 @@ public class FileUtil {
      * @param uploadPath 파일경로
      * @param request
      * @param response
-     * @return
+     * @return FileSystemResource
      */
     public static FileSystemResource executeFileDownload(String fileName
                                                         , String uploadPath
@@ -114,7 +114,7 @@ public class FileUtil {
 
 
     /**
-     * 파일삭제
+     * 파일삭제 실행 메서드
      * @param filePath 파일경로
      * @param fileName 파일이름
      * @return boolean
@@ -131,4 +131,62 @@ public class FileUtil {
         }
         return result;
     }
+
+    /**
+     * 피일 이동(원본 보존 X)
+     * @param sorucePath 원본파일
+     * @param targetPath 파일이 이동할 곳
+     * @param fileName 파일 이름
+     * @return boolean
+     */
+    public static boolean executeFileMove(String sorucePath, String targetPath, String fileName){
+        boolean result = false;
+        try{
+            File sourcefile = new File(sorucePath+fileName);
+            if(sourcefile.exists()){
+                String moveDirectory = targetPath+"move"+File.separator;
+
+                makeUploadPathDirectory(moveDirectory);
+
+                File targetFile = new File(moveDirectory+fileName);
+
+                result = sourcefile.renameTo(targetFile);
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return result;
+    }
+
+    /**
+     * 피일 이름 변경(원본 보존 X)
+     * targetPath에 같은 파일이(이름) 존재하면 false
+     * @param sorucePath 원본파일
+     * @param targetPath 이동할 경로
+     * @param fileName 원본파일이름
+     * @param reName 변경할 파일이름
+     * @return boolean
+     */
+    public static boolean executeFileReName(String sorucePath, String targetPath, String fileName, String reName){
+        boolean result = false;
+        try{
+            File sourcefile = new File(sorucePath+fileName);
+            if(sourcefile.exists()){
+                String moveDirectory = targetPath+"move"+File.separator;
+
+                makeUploadPathDirectory(moveDirectory);
+
+                File targetFile = new File(moveDirectory+reName);
+
+                result = sourcefile.renameTo(targetFile);
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return result;
+    }
+
+    //폴더 이동 및 해당 폴더 내부의 파일을 전부 확인하느 함수 생략
+    //폴더 삭제 시 해당 폴더 내부에 파일이 하나라도 존재하면 삭제 불가능
+    //파일 모두 읽어서 삭제처리 후 삭제 해야함
 }

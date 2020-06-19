@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.net.URLEncoder;
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -76,6 +77,14 @@ public class BoardController {
     @PostMapping("/fileDelete")
     public String fileDelete(@RequestParam(value="fileName", required = false, defaultValue = "")String fileName){
         FileUtil.executeFileDelete(defaultUploadPath, fileName);
+        return "성공";
+    }
+
+    @ResponseBody
+    @GetMapping("/fileTest")
+    public String fileTest(@RequestParam(value="fileName", required = false, defaultValue = "")String fileName){
+        System.out.println("들어왔음");
+        FileUtil.executeFileReName(defaultUploadPath, defaultUploadPath, fileName, fileName);
         return "성공";
     }
 }
