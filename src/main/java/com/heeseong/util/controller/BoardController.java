@@ -3,6 +3,7 @@ package com.heeseong.util.controller;
 
 import com.heeseong.util.model.Board;
 import com.heeseong.util.service.BoardService;
+import com.heeseong.util.util.DateUtil;
 import com.heeseong.util.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
