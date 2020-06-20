@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 /**
  * 자바 8부터 localDate, localDateTime, localTime 을 사용하도록 하자
+ * java.time 패키지 활용
  */
 public class DateUtil {
 
