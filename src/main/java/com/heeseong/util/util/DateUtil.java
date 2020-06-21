@@ -1,12 +1,14 @@
 package com.heeseong.util.util;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
- * 자바 8부터 localDate, localDateTime, localTime 을 사용하도록 하자
- * java.time 패키지 활용
+ * 자바 8부터 java.time 패키지 활용
+ * localDate : 날짜 정보만 필요할때
+ * localDateTime : 날짜와 시간 모두 필요할때
+ * localtime : 시간 정보만 필요할때
  */
 public class DateUtil {
 
@@ -17,6 +19,15 @@ public class DateUtil {
     private static LocalDate localDate(){
         return LocalDate.now();
     }
+
+    /**
+     * LocalDateTime 객체 반환
+     * @return LocalDateTime
+     */
+    private static LocalDateTime localDateTime(){
+        return LocalDateTime.now();
+    }
+
     /**
      * 현재 년도
      * @return int
@@ -25,21 +36,59 @@ public class DateUtil {
         return localDate().getYear();
     }
 
-/*    *//**
-     *
-     * @return 현재 월
-     *//*
+    /**
+     * 현재 월
+     * @return int
+     */
     public static int getCurrentMonth(){
-        return calendar().get(Calendar.MONTH)+1;
+        return localDate().getMonthValue();
     }
 
-    *//**
-     *
-     * @return 현재 일
-     *//*
+    /**
+     * 현재 일
+     * @return int
+     */
     public static int getCurrentDay(){
-        return calendar().get(Calendar.DATE);
+        return localDate().getDayOfMonth();
     }
+
+    /**
+     * 운년 여부
+     * @return boolean
+     */
+    public static boolean isLeapYear(){
+        return localDate().isLeapYear();
+    }
+    /**
+     * 오늘 날짜 : 년-월-일
+     * BASIC_ISO_DATE : 20200621 리턴
+     * @param delimiter 년원일 사이 구분자
+     * @return String
+     */
+    public static String getToday(String delimiter)throws Exception{
+        String result = "";
+        if(StringUtil.isEmpty(delimiter)){
+            result = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+        }else{
+            result = localDate().now().format(DateTimeFormatter.ofPattern("yyyy"+delimiter+"MM"+delimiter+"dd"));
+        }
+        return result;
+    }
+
+    /**
+     * 오늘 날짜 : 년-월-일 시분초
+     * @param delimiter 년원일 사이 구분자
+     * @param isMillisecond 밀리 세컨드 여부
+     *                      true : 시분초밀리세컨트
+     *                      false : 시분초
+     * @return
+     */
+    public static String getTodayAndNowTime(String delimiter, boolean isMillisecond){
+        return localDateTime().toString();
+    }
+
+/*
+
 
     *//**
      * 1. MethodName    : getTime

@@ -3,6 +3,7 @@ package com.heeseong.util.controller;
 
 import com.heeseong.util.model.Board;
 import com.heeseong.util.service.BoardService;
+import com.heeseong.util.util.DateUtil;
 import com.heeseong.util.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,12 @@ public class TestController {
     @GetMapping("/date")
     public String date(@ModelAttribute Board board){
         String result = "실패";
-
-        if(true){
-            return "localdate, localtime, localdatetime 테스트 컨트롤러 입니다.";
+        try{
+            Object value = DateUtil.getToday("&*");
+            return value.toString();
+        }catch (Exception e){
+            return e.getMessage();
         }
-        return result;
     }
 
 }
