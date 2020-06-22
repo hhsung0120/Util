@@ -65,12 +65,13 @@ public class DateUtil {
      * @param delimiter 년원일 사이 구분자
      * @return String
      */
-    public static String getToday(String delimiter)throws Exception{
+    public static String getToday(String delimiter){
         String result = "";
+        String pattern = "yyyy"+delimiter+"MM"+delimiter+"dd";
         if(StringUtil.isEmpty(delimiter)){
-            result = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+            result = localDate().format(DateTimeFormatter.BASIC_ISO_DATE);
         }else{
-            result = localDate().now().format(DateTimeFormatter.ofPattern("yyyy"+delimiter+"MM"+delimiter+"dd"));
+            result = localDate().format(DateTimeFormatter.ofPattern(pattern));
         }
         return result;
     }
@@ -84,7 +85,8 @@ public class DateUtil {
      * @return
      */
     public static String getTodayAndNowTime(String delimiter, boolean isMillisecond){
-        return localDateTime().toString();
+        String pattern = "yyyy"+delimiter+"MM"+delimiter+"dd"+" HH:mm:ss"+(isMillisecond ? ".SSS" : "");
+        return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
     }
 
 /*
