@@ -3,6 +3,7 @@ package com.heeseong.util.util;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * 자바 8부터 java.time 패키지 활용
@@ -21,11 +22,29 @@ public class DateUtil {
     }
 
     /**
+     * LocalDate.parse 객체 반환
+     * @param target yyyy-MM-dd
+     * @return LocalDate.parse(tartget);
+     */
+    private static LocalDate parseLocalDate(String target){
+        return LocalDate.parse(target);
+    }
+
+    /**
      * LocalDateTime 객체 반환
      * @return LocalDateTime
      */
     private static LocalDateTime localDateTime(){
         return LocalDateTime.now();
+    }
+
+    /**
+     * LocalDateTime.parse 객체 반환
+     * @param target yyyy-MM-dd HH:mm:ss
+     * @return LocalDateTime.parse(tartget);
+     */
+    private static LocalDateTime parseLocalDateTime(String target){
+        return LocalDateTime.parse(target);
     }
 
     /**
@@ -80,8 +99,6 @@ public class DateUtil {
      * 오늘 날짜 : 년-월-일 시분초
      * @param delimiter 년원일 사이 구분자
      * @param isMillisecond 밀리 세컨드 여부
-     *                      true : 시분초밀리세컨트
-     *                      false : 시분초
      * @return
      */
     public static String getTodayAndNowTime(String delimiter, boolean isMillisecond){
@@ -89,252 +106,94 @@ public class DateUtil {
         return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
     }
 
+    /**
+     * 날짜만 계산 년-월-일 형태로 넘겨줘야함(안그럼 예외)
+     * 해당월에 존재하지 않는 일을 넘겨도 예외
+     * 빼기는 음수를 붙여서 넘기면 된다.
+     * ex : -1 = 빼기 1
+     * @param targetDate 계산할 년-월-일
+     * @param year 계산할 년
+     * @param month 계산할 월
+     * @param day 계산할 일
+     * @return String
+     * @throws DateTimeParseException
+     */
+    public static String getCalculatorDate(String targetDate, int year, int month, int day) throws DateTimeParseException {
+        LocalDate localDate = parseLocalDate(targetDate);
+        localDate = localDate.plusYears(year);
+        localDate = localDate.plusMonths(month);
+        localDate = localDate.plusDays(day);
+        return localDate.toString();
+    }
+
+    /**
+     * 년도만 계산
+     * 빼기는 음수를 붙여서 넘기면 된다.
+     * @param targetDate 계산할 년-월-일
+     * @param year 계산할 년
+     * @return String
+     * @throws DateTimeParseException
+     */
+    public static String getCalculatorDateForYear(String targetDate, int year) throws DateTimeParseException {
+        return getCalculatorDate(parseLocalDate(targetDate).toString(), year, 0, 0);
+    }
+
+    /**
+     * 월만 계산
+     * 빼기는 음수를 붙여서 넘기면 된다.
+     * @param targetDate 계산할 년-월-일
+     * @param month 계산할 월
+     * @return String
+     * @throws DateTimeParseException
+     */
+    public static String getCalculatorDateForMonth(String targetDate, int month) throws DateTimeParseException {
+        return getCalculatorDate(parseLocalDate(targetDate).toString(), 0, month, 0);
+    }
+
+    /**
+     * 일만 계산
+     * 빼기는 음수를 붙여서 넘기면 된다.
+     * @param targetDate 계산할 년-월-일
+     * @param day 계산할 일
+     * @return String
+     * @throws DateTimeParseException
+     */
+    public static String getCalculatorDateForDay(String targetDate, int day) throws DateTimeParseException {
+        return getCalculatorDate(parseLocalDate(targetDate).toString(), 0, 0, day);
+    }
+
+    /**
+     * 날짜&시간 계산 년-월-일THH:mm:ss 형태(안그럼 예외)
+     * 2020-06-22T23:20:32 ISO 시간 표기법에 따라 'T'를 꼭 붙여야 함.
+     * 빼기는 음수를 붙여서 ex : -1 = 빼기 1
+     * @param targetDate 계산할 년-월-일 시:분:초
+     * @param year 계산할 년
+     * @param month 계산할 월
+     * @param day 계산할 일
+     * @param hour 계산할 시간
+     * @param minute 계산할 분
+     * @param second 계산할 초
+     * @return
+     * @throws DateTimeParseException
+     */
+    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour, int minute, int second) throws DateTimeParseException{
+       LocalDateTime localDateTime = parseLocalDateTime(targetDate);
+       localDateTime = localDateTime.plusYears(year);
+       localDateTime = localDateTime.plusMonths(month);
+       localDateTime = localDateTime.plusDays(day);
+       localDateTime = localDateTime.plusHours(hour);
+       localDateTime = localDateTime.plusMinutes(minute);
+       localDateTime = localDateTime.plusSeconds(second);
+       return localDateTime.toString();
+    }
+
+
+
+
 /*
 
 
-    *//**
-     * 1. MethodName    : getTime
-     * 2. ClassName     : DateHelper
-     * 3. Commnet       : 현재 시스템의 시간을 반환한다.
-     * 4. 작성자           : coop
-     * 5. 작성일           : 2017. 05. 22.
-     * @return int
-     * @return
-     *//*
-    public static String getTime() {
-        return StringUtil.fillLeft(String.valueOf(calendar().get(Calendar.HOUR_OF_DAY)), 2, "0") + StringUtil.fillLeft(String.valueOf(calendar().get(Calendar.MINUTE)), 2, "0") + StringUtil.fillLeft(String.valueOf(calendar().get(Calendar.SECOND)), 2, "0");
-    }
 
-    *//**
-     * 현재(한국기준) 날짜정보를 얻는다.
-     * 표기법은 yyyy-mm-dd
-     * @return  String      yyyymmdd형태의 현재 한국시간
-     *//*
-    public static String getToday(){
-        return getCurrentDate("");
-    }
-
-    *//**
-     * 현재(한국기준) 날짜정보를 얻는다.
-     * 표기법은 yyyy-mm-dd
-     * @param ch 구분자
-     * @return  String 구분자에 따라 변환된 문자열
-     *//*
-    public static String getToday(String ch){
-        return FormatUtil.formatDate(getCurrentDate(""), ch);
-    }
-
-    *//**
-     * 현재(한국기준) 날짜정보를 얻는다.
-     * 표기법은 yyyy-mm-dd
-     * @return  String      yyyymmdd형태의 현재 한국시간
-     *//*
-    public static String getCurrentDate(String dateType) {
-        int year = calendar().get(Calendar.YEAR);
-        int month = calendar().get(Calendar.MONTH) + 1;
-        int date = calendar().get(Calendar.DATE);
-        String strDate = Integer.toString(year) +
-                ((month<10) ? "0" + Integer.toString(month) : Integer.toString(month)) +
-                ((date<10) ? "0" + Integer.toString(date) : Integer.toString(date));
-
-        if(!"".equals(dateType)) strDate = convertDate(strDate, "yyyyMMdd", dateType);
-
-        return  strDate;
-    }
-
-    *//**
-     * 날짜형태의 String의 날짜 포맷만을 변경해 주는 메서드
-     * @param sDate 날짜
-     * @param sTime 시간
-     * @param sFormatStr 포멧 스트링 문자열
-     * @return 지정한 날짜/시간을 지정한 포맷으로 출력
-     * @See Letter  Date or Time Component  Presentation  Examples
-    G  Era designator  Text  AD
-    y  Year  Year  1996; 96
-    M  Month in year  Month  July; Jul; 07
-    w  Week in year  Number  27
-    W  Week in month  Number  2
-    D  Day in year  Number  189
-    d  Day in month  Number  10
-    F  Day of week in month  Number  2
-    E  Day in week  Text  Tuesday; Tue
-    a  Am/pm marker  Text  PM
-    H  Hour in day (0-23)  Number  0
-    k  Hour in day (1-24)  Number  24
-    K  Hour in am/pm (0-11)  Number  0
-    h  Hour in am/pm (1-12)  Number  12
-    m  Minute in hour  Number  30
-    s  Second in minute  Number  55
-    S  Millisecond  Number  978
-    z  Time zone  General time zone  Pacific Standard Time; PST; GMT-08:00
-    Z  Time zone  RFC 822 time zone  -0800
-
-    Date and Time Pattern  Result
-    "yyyy.MM.dd G 'at' HH:mm:ss z"  2001.07.04 AD at 12:08:56 PDT
-    "EEE, MMM d, ''yy"  Wed, Jul 4, '01
-    "h:mm a"  12:08 PM
-    "hh 'o''clock' a, zzzz"  12 o'clock PM, Pacific Daylight Time
-    "K:mm a, z"  0:08 PM, PDT
-    "yyyyy.MMMMM.dd GGG hh:mm aaa"  02001.July.04 AD 12:08 PM
-    "EEE, d MMM yyyy HH:mm:ss Z"  Wed, 4 Jul 2001 12:08:56 -0700
-    "yyMMddHHmmssZ"  010704120856-0700
-
-     *//*
-    public static String convertDate(String sDate, String sTime, String sFormatStr) {
-        String dateStr = validChkDate(sDate);
-        String timeStr = validChkTime(sTime);
-
-        Calendar cal = null;
-        cal = Calendar.getInstance() ;
-
-        cal.set(Calendar.YEAR        , Integer.parseInt(dateStr.substring(0,4)));
-        cal.set(Calendar.MONTH       , Integer.parseInt(dateStr.substring(4,6))-1 );
-        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dateStr.substring(6,8)));
-        cal.set(Calendar.HOUR_OF_DAY , Integer.parseInt(timeStr.substring(0,2)));
-        cal.set(Calendar.MINUTE      , Integer.parseInt(timeStr.substring(2,4)));
-
-        SimpleDateFormat sdf = new SimpleDateFormat(sFormatStr,Locale.ENGLISH);
-
-        return sdf.format(cal.getTime());
-    }
-
-    *//**
-     * <p>yyyyMMdd 혹은 yyyy-MM-dd 형식의 날짜 문자열을 입력 받아 년, 월, 일을
-     * 증감한다. 년, 월, 일은 가감할 수를 의미하며, 음수를 입력할 경우 감한다.</p>
-     *
-     * <pre>
-     * DateUtil.addYearMonthDay("19810828", 0, 0, 19)  = "19810916"
-     * DateUtil.addYearMonthDay("20060228", 0, 0, -10) = "20060218"
-     * DateUtil.addYearMonthDay("20060228", 0, 0, 10)  = "20060310"
-     * DateUtil.addYearMonthDay("20060228", 0, 0, 32)  = "20060401"
-     * DateUtil.addYearMonthDay("20050331", 0, -1, 0)  = "20050228"
-     * DateUtil.addYearMonthDay("20050301", 0, 2, 30)  = "20050531"
-     * DateUtil.addYearMonthDay("20050301", 1, 2, 30)  = "20060531"
-     * DateUtil.addYearMonthDay("20040301", 2, 0, 0)   = "20060301"
-     * DateUtil.addYearMonthDay("20040229", 2, 0, 0)   = "20060228"
-     * DateUtil.addYearMonthDay("20040229", 2, 0, 1)   = "20060301"
-     * </pre>
-     *
-     * @param  dateStr 날짜 문자열(yyyyMMdd, yyyy-MM-dd의 형식)
-     * @param  year 가감할 년. 0이 입력될 경우 가감이 없다
-     * @param  month 가감할 월. 0이 입력될 경우 가감이 없다
-     * @param  day 가감할 일. 0이 입력될 경우 가감이 없다
-     * @return  yyyyMMdd 형식의 날짜 문자열
-     * @throws IllegalArgumentException 날짜 포맷이 정해진 바와 다를 경우.
-     *         입력 값이 <code>null</code>인 경우.
-     *//*
-    public static String addYearMonthDay(String sDate, int year, int month, int day) {
-
-        String dateStr = validChkDate(sDate);
-
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
-        try {
-            cal.setTime(sdf.parse(dateStr));
-        } catch (ParseException e) {
-            throw new IllegalArgumentException("Invalid date format: " + dateStr);
-        }
-
-        if (year != 0)
-            cal.add(Calendar.YEAR, year);
-        if (month != 0)
-            cal.add(Calendar.MONTH, month);
-        if (day != 0)
-            cal.add(Calendar.DATE, day);
-        return sdf.format(cal.getTime());
-    }
-
-    *//**
-     * <p>yyyyMMdd 혹은 yyyy-MM-dd 형식의 날짜 문자열을 입력 받아 년을
-     * 증감한다. <code>year</code>는 가감할 수를 의미하며, 음수를 입력할 경우 감한다.</p>
-     *
-     * <pre>
-     * DateUtil.addYear("20000201", 62)  = "20620201"
-     * DateUtil.addYear("20620201", -62) = "20000201"
-     * DateUtil.addYear("20040229", 2)   = "20060228"
-     * DateUtil.addYear("20060228", -2)  = "20040228"
-     * DateUtil.addYear("19000101", 200) = "21000101"
-     * </pre>
-     *
-     * @param  dateStr 날짜 문자열(yyyyMMdd, yyyy-MM-dd의 형식)
-     * @param  year 가감할 년. 0이 입력될 경우 가감이 없다
-     * @return  yyyyMMdd 형식의 날짜 문자열
-     * @throws IllegalArgumentException 날짜 포맷이 정해진 바와 다를 경우.
-     *         입력 값이 <code>null</code>인 경우.
-     *//*
-    public static String addYear(String dateStr, int year) {
-        return addYearMonthDay(dateStr, year, 0, 0);
-    }
-
-    *//**
-     * <p>yyyyMMdd 혹은 yyyy-MM-dd 형식의 날짜 문자열을 입력 받아 월을
-     * 증감한다. <code>month</code>는 가감할 수를 의미하며, 음수를 입력할 경우 감한다.</p>
-     *
-     * <pre>
-     * DateUtil.addMonth("20010201", 12)  = "20020201"
-     * DateUtil.addMonth("19800229", 12)  = "19810228"
-     * DateUtil.addMonth("20040229", 12)  = "20050228"
-     * DateUtil.addMonth("20050228", -12) = "20040228"
-     * DateUtil.addMonth("20060131", 1)   = "20060228"
-     * DateUtil.addMonth("20060228", -1)  = "20060128"
-     * </pre>
-     *
-     * @param  dateStr 날짜 문자열(yyyyMMdd, yyyy-MM-dd의 형식)
-     * @param  month 가감할 월. 0이 입력될 경우 가감이 없다
-     * @return  yyyyMMdd 형식의 날짜 문자열
-     * @throws IllegalArgumentException 날짜 포맷이 정해진 바와 다를 경우.
-     *         입력 값이 <code>null</code>인 경우.
-     *//*
-    public static String addMonth(String dateStr, int month) {
-        return addYearMonthDay(dateStr, 0, month, 0);
-    }
-
-    *//**
-     * <p>yyyyMMdd 혹은 yyyy-MM-dd 형식의 날짜 문자열을 입력 받아 일(day)를
-     * 증감한다. <code>day</code>는 가감할 수를 의미하며, 음수를 입력할 경우 감한다.
-     * <br/><br/>
-     * 위에 정의된 addDays 메서드는 사용자가 ParseException을 반드시 처리해야 하는 불편함이
-     * 있기 때문에 추가된 메서드이다.</p>
-     *
-     * <pre>
-     * DateUtil.addDay("19991201", 62) = "20000201"
-     * DateUtil.addDay("20000201", -62) = "19991201"
-     * DateUtil.addDay("20050831", 3) = "20050903"
-     * DateUtil.addDay("20050831", 3) = "20050903"
-     * // 2006년 6월 31일은 실제로 존재하지 않는 날짜이다 -> 20060701로 간주된다
-     * DateUtil.addDay("20060631", 1) = "20060702"
-     * </pre>
-     *
-     * @param  dateStr 날짜 문자열(yyyyMMdd, yyyy-MM-dd의 형식)
-     * @param  day 가감할 일. 0이 입력될 경우 가감이 없다
-     * @return  yyyyMMdd 형식의 날짜 문자열
-     * @throws IllegalArgumentException 날짜 포맷이 정해진 바와 다를 경우.
-     *         입력 값이 <code>null</code>인 경우.
-     *//*
-    public static String addDay(String dateStr, int day) {
-        return addYearMonthDay(dateStr, 0, 0, day);
-    }
-
-    *//**
-     * <p>yyyyMMdd 혹은 yyyy-MM-dd 형식의 날짜 문자열 <code>dateStr1</code>과 <code>
-     * dateStr2</code> 사이의 일 수를 구한다.<br>
-     * <code>dateStr2</code>가 <code>dateStr1</code> 보다 과거 날짜일 경우에는
-     * 음수를 반환한다. 동일한 경우에는 0을 반환한다.</p>
-     *
-     * <pre>
-     * DateUtil.getDaysDiff("20060228","20060310") = 10
-     * DateUtil.getDaysDiff("20060101","20070101") = 365
-     * DateUtil.getDaysDiff("19990228","19990131") = -28
-     * DateUtil.getDaysDiff("20060801","20060802") = 1
-     * DateUtil.getDaysDiff("20060801","20060801") = 0
-     * </pre>
-     *
-     * @param  dateStr1 날짜 문자열(yyyyMMdd, yyyy-MM-dd의 형식)
-     * @param  dateStr2 날짜 문자열(yyyyMMdd, yyyy-MM-dd의 형식)
-     * @return  일 수 차이.
-     * @throws IllegalArgumentException 날짜 포맷이 정해진 바와 다를 경우.
-     *         입력 값이 <code>null</code>인 경우.
-     *//*
     public static int getDaysDiff(String sDate1, String sDate2) {
         String dateStr1 = validChkDate(sDate1);
         String dateStr2 = validChkDate(sDate2);

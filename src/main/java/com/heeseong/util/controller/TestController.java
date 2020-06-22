@@ -28,9 +28,10 @@ public class TestController {
     public String date(@ModelAttribute Board board){
         String result = "실패";
         try{
-            Object value = DateUtil.getTodayAndNowTime("-", true);
+            Object value = DateUtil.getCalculatorDateAndTime("2020-06-22T22:20:33",-1,0,50000,0,0,0);
             return value.toString();
         }catch (Exception e){
+            e.printStackTrace();
             return e.getMessage();
         }
     }
