@@ -98,6 +98,7 @@
 							</select>
 						</div>
 						<button type="button" class="btn-sm btn-dark" id="btn_add">등록</button>
+						<button type="button" class="btn-sm btn-dark" id="btn_excel">엑셀다운</button>
 					</div>
 				</div>
 				<table class="list">
@@ -152,6 +153,9 @@
 			$dataForm.attr({"action": "/board/form", "target":"_self", "method":"get"}).submit();
 		});
 
+		$('#btn_excel').click(function () {
+			$dataForm.attr({"action": "/board/excel", "target":"_self", "method":"get"}).submit();
+		});
 		// 검색 초기화
 		searchClear = function() {
 			$searchForm.find("input[type=text]").val("");

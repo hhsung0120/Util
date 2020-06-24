@@ -16,8 +16,7 @@ public class DateUtil {
 
     /**
      * LocalDate 객체 반환
-     *
-     * @return
+     * @return LocalDate
      * @throws Exception
      */
     private static LocalDate localDate() throws Exception {
@@ -26,7 +25,6 @@ public class DateUtil {
 
     /**
      * LocalDate.parse 객체 반환
-     *
      * @param target yyyy-MM-dd
      * @return LocalDate.parse(tartget);
      * @throws Exception
@@ -37,17 +35,15 @@ public class DateUtil {
 
     /**
      * LocalDateTime 객체 반환
-     *
      * @return LocalDateTime
      * @throws Exception
      */
-    private static LocalDateTime localDateTime() throws Exception {
+    private static LocalDateTime localDateTime() {
         return LocalDateTime.now();
     }
 
     /**
      * LocalDateTime.parse 객체 반환
-     *
      * @param target yyyy-MM-dd HH:mm:ss
      * @return LocalDateTime.parse(tartget);
      * @throws Exception
@@ -58,7 +54,6 @@ public class DateUtil {
 
     /**
      * 현재 년도
-     *
      * @return int
      * @throws Exception
      */
@@ -68,7 +63,6 @@ public class DateUtil {
 
     /**
      * 현재 월
-     *
      * @return int
      * @throws Exception
      */
@@ -78,7 +72,6 @@ public class DateUtil {
 
     /**
      * 현재 일
-     *
      * @return int
      * @throws Exception
      */
@@ -88,7 +81,6 @@ public class DateUtil {
 
     /**
      * 운년 여부
-     *
      * @return boolean
      * @throws Exception
      */
@@ -99,7 +91,6 @@ public class DateUtil {
     /**
      * 오늘 날짜 : 년-월-일
      * BASIC_ISO_DATE : 20200621 리턴
-     *
      * @param delimiter 년원일 사이 구분자
      * @return String
      * @throws Exception
@@ -117,7 +108,6 @@ public class DateUtil {
 
     /**
      * 오늘 날짜 : 년-월-일 시분초
-     *
      * @param delimiter     년원일 사이 구분자
      * @param isMillisecond 밀리 세컨드 여부
      * @return String
@@ -129,12 +119,27 @@ public class DateUtil {
     }
 
     /**
+     * 오늘 날짜 : 년-월-일 시분초
+     * @param userFormat 사용자가 원하는 포멧
+     * @return String
+     */
+    public static String getTodayAndNowTime(String userFormat)  {
+        String pattern = "yyyy-MM-dd HH:mm:ss";
+        try{
+            if(!StringUtil.isEmpty(userFormat)){
+                pattern = userFormat;
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
+    }
+    /**
      * 년 월 일 계산
      * 날짜만 계산 년-월-일 형태로 넘겨줘야함(안그럼 예외)
      * 해당월에 존재하지 않는 일을 넘겨도 예외
      * 빼기는 음수를 붙여서 넘기면 된다.
      * ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일
      * @param year       계산할 년
      * @param month      계산할 월
@@ -156,7 +161,6 @@ public class DateUtil {
      * 해당월에 존재하지 않는 일을 넘겨도 예외
      * 빼기는 음수를 붙여서 넘기면 된다.
      * ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일
      * @param year       계산할 년
      * @param month      계산할 월
@@ -173,7 +177,6 @@ public class DateUtil {
      * 해당월에 존재하지 않는 일을 넘겨도 예외
      * 빼기는 음수를 붙여서 넘기면 된다.
      * ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일
      * @param year       계산할 년
      * @return String
@@ -187,7 +190,6 @@ public class DateUtil {
      * 날짜&시간 계산 년-월-일THH:mm:ss 형태(안그럼 예외)
      * 2020-06-22T23:20:32 ISO 시간 표기법에 따라 'T'를 꼭 붙여야 함.
      * 빼기는 음수를 붙여서 ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일T시:분:초
      * @param year       계산할 년
      * @param month      계산할 월
@@ -214,7 +216,6 @@ public class DateUtil {
      * 날짜&시간 계산 년-월-일THH:mm:ss 형태(안그럼 예외)
      * 2020-06-22T23:20:32 ISO 시간 표기법에 따라 'T'를 꼭 붙여야 함.
      * 빼기는 음수를 붙여서 ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일T시:분:초
      * @param year       계산할 년
      * @param month      계산할 월
@@ -232,7 +233,6 @@ public class DateUtil {
      * 년 월 일 시 계산
      * 2020-06-22T23:20:32 ISO 시간 표기법에 따라 'T'를 꼭 붙여야 함.
      * 빼기는 음수를 붙여서 ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일T시:분:초
      * @param year       계산할 년
      * @param month      계산할 월
@@ -249,7 +249,6 @@ public class DateUtil {
      * 년 월 일 계산
      * 2020-06-22T23:20:32 ISO 시간 표기법에 따라 'T'를 꼭 붙여야 함.
      * 빼기는 음수를 붙여서 ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일T시:분:초
      * @param year       계산할 년
      * @param month      계산할 월
@@ -265,7 +264,6 @@ public class DateUtil {
      * 년 월 계산
      * 2020-06-22T23:20:32 ISO 시간 표기법에 따라 'T'를 꼭 붙여야 함.
      * 빼기는 음수를 붙여서 ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일T시:분:초
      * @param year       계산할 년
      * @param month      계산할 월
@@ -280,7 +278,6 @@ public class DateUtil {
      * 년 계산
      * 2020-06-22T23:20:32 ISO 시간 표기법에 따라 'T'를 꼭 붙여야 함.
      * 빼기는 음수를 붙여서 ex : -1 = 빼기 1
-     *
      * @param targetDate 계산할 년-월-일T시:분:초
      * @param year       계산할 년
      * @return String
@@ -296,7 +293,6 @@ public class DateUtil {
      * sourceDate < compareDate = true
      * sourceDate > compareDate = false
      * sourceDate == compareDate = false
-     *
      * @param sourceDate  시작 년-월-일
      * @param compareDate 비교 년-월-일
      * @return boolean
@@ -313,7 +309,6 @@ public class DateUtil {
      * sourceDate > compareDate = true
      * sourceDate < compareDate = false
      * sourceDate == compareDate = false
-     *
      * @param sourceDate  시작 년-월-일
      * @param compareDate 비교 년-월-일
      * @return boolean
@@ -330,7 +325,6 @@ public class DateUtil {
      * sourceDate < compareDate = true
      * sourceDate > compareDate = false
      * sourceDate == compareDate = false
-     *
      * @param sourceDate  시작 년월일
      * @param compareDate 비교 년월일
      * @return boolean
@@ -347,7 +341,6 @@ public class DateUtil {
      * sourceDate > compareDate = true
      * sourceDate < compareDate = false
      * sourceDate == compareDate = false
-     *
      * @param sourceDate  시작 년월일
      * @param compareDate 비교 년월일
      * @return boolean
