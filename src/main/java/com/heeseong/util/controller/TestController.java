@@ -28,7 +28,7 @@ public class TestController {
     public String date(@ModelAttribute Board board){
         String result = "실패";
         try{
-            Object value = DateUtil.getDateDiffPeriodForLocalDateTime("2020-07-23T23:59:58","2020-07-24T23:59:59" );
+            Object value = DateUtil.getCalculatorDateAndTime("2020-0d7-23T23:59:58",1,1,1,1,1,1 );
             return value.toString();
         }catch (Exception e){
             e.printStackTrace();

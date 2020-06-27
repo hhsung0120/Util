@@ -19,7 +19,7 @@ public class DateUtil {
      * @return LocalDate
      * @throws Exception
      */
-    private static LocalDate localDate() throws Exception {
+    private static LocalDate localDate() {
         return LocalDate.now();
     }
 
@@ -29,7 +29,7 @@ public class DateUtil {
      * @return LocalDate.parse(tartget);
      * @throws Exception
      */
-    private static LocalDate parseLocalDate(String target) throws Exception {
+    private static LocalDate parseLocalDate(String target){
         return LocalDate.parse(target);
     }
 
@@ -48,7 +48,7 @@ public class DateUtil {
      * @return LocalDateTime.parse(tartget);
      * @throws Exception
      */
-    private static LocalDateTime parseLocalDateTime(String target) throws Exception {
+    private static LocalDateTime parseLocalDateTime(String target) {
         return LocalDateTime.parse(target);
     }
 
@@ -57,7 +57,7 @@ public class DateUtil {
      * @return int
      * @throws Exception
      */
-    public static int getCurrentYear() throws Exception {
+    public static int getCurrentYear(){
         return localDate().getYear();
     }
 
@@ -66,7 +66,7 @@ public class DateUtil {
      * @return int
      * @throws Exception
      */
-    public static int getCurrentMonth() throws Exception {
+    public static int getCurrentMonth(){
         return localDate().getMonthValue();
     }
 
@@ -75,7 +75,7 @@ public class DateUtil {
      * @return int
      * @throws Exception
      */
-    public static int getCurrentDay() throws Exception {
+    public static int getCurrentDay(){
         return localDate().getDayOfMonth();
     }
 
@@ -84,7 +84,7 @@ public class DateUtil {
      * @return boolean
      * @throws Exception
      */
-    public static boolean isLeapYear() throws Exception {
+    public static boolean isLeapYear(){
         return localDate().isLeapYear();
     }
 
@@ -123,15 +123,13 @@ public class DateUtil {
      * @param userFormat 사용자가 원하는 포멧
      * @return String
      */
-    public static String getTodayAndNowTime(String userFormat)  {
+    public static String getTodayAndNowTime(String userFormat) throws Exception {
         String pattern = "yyyy-MM-dd HH:mm:ss";
-        try{
-            if(!StringUtil.isEmpty(userFormat)){
-                pattern = userFormat;
-            }
-        }catch (Exception e){
-            e.getMessage();
+
+        if(!StringUtil.isEmpty(userFormat)){
+            pattern = userFormat;
         }
+
         return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
     }
     /**
