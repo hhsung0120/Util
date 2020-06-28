@@ -24,4 +24,16 @@ public class DatabaseUtilController {
         databaseService.getPrintObjectFromTableCoulumList("","board", "private");
         return "콘솔 확인!!!";
     }
+
+    @ResponseBody
+    @GetMapping("autoInsertIncludeAutoincrement")
+    public String autoInsertIncludeAutoincrement(){
+        databaseService.autoInsertIncludeAutoincrement();
+        return "콘솔 확인!!!";
+    }
+
+
+
+
+
 }

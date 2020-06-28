@@ -57,4 +57,11 @@ public class DatabaseService {
         System.out.println(printString);
         System.out.println("####################### end of ["+tableName+"] #######################");
     }
+
+    /**
+     *
+     */
+    public void autoInsertIncludeAutoincrement() {
+        //makeInsertConstruction
+    }
 }
