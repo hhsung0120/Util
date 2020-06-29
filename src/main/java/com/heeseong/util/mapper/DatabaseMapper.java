@@ -1,5 +1,7 @@
 package com.heeseong.util.mapper;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -15,6 +17,10 @@ public interface DatabaseMapper {
 
     @Select("SELECT *  FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=#{tableName} AND table_schema = #{tableSchema} ORDER BY ORDINAL_POSITION")
     List<Map<String, String>> selectTableCoulumListOfTableSchema(@Param("tableSchema")String tableSchema, @Param("tableName")String tableName);
+
+    @Options(useGeneratedKeys = true, keyProperty = "autoIncrementKey")
+    @Insert("INSERT INTO ${tableName}(${insertColumn})VALUES(${insertValue})")
+    int insertTableAndGetAutoIncrementKey(Object o);
 }
 
 

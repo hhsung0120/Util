@@ -19,7 +19,7 @@ public class DateUtil {
      * @return LocalDate
      * @throws Exception
      */
-    private static LocalDate localDate() {
+    public static LocalDate localDate() {
         return LocalDate.now();
     }
 
@@ -29,7 +29,7 @@ public class DateUtil {
      * @return LocalDate.parse(tartget);
      * @throws Exception
      */
-    private static LocalDate parseLocalDate(String target){
+    public static LocalDate parseLocalDate(String target){
         return LocalDate.parse(target);
     }
 
@@ -38,7 +38,7 @@ public class DateUtil {
      * @return LocalDateTime
      * @throws Exception
      */
-    private static LocalDateTime localDateTime() {
+    public static LocalDateTime localDateTime() {
         return LocalDateTime.now();
     }
 
@@ -48,7 +48,7 @@ public class DateUtil {
      * @return LocalDateTime.parse(tartget);
      * @throws Exception
      */
-    private static LocalDateTime parseLocalDateTime(String target) {
+    public static LocalDateTime parseLocalDateTime(String target) {
         return LocalDateTime.parse(target);
     }
 
@@ -91,6 +91,15 @@ public class DateUtil {
     /**
      * 오늘 날짜 : 년-월-일
      * BASIC_ISO_DATE : 20200621 리턴
+     * @return LocalDate
+     */
+    public static LocalDate getToday(){
+        return localDate();
+    }
+
+    /**
+     * 오늘 날짜 : 년-월-일
+     * BASIC_ISO_DATE : 20200621 리턴
      * @param delimiter 년원일 사이 구분자
      * @return String
      * @throws Exception
@@ -108,14 +117,27 @@ public class DateUtil {
 
     /**
      * 오늘 날짜 : 년-월-일 시분초
+     * @return LocalDate
+     */
+    public static LocalDateTime getTodayAndNowTime(){
+        return localDateTime();
+    }
+
+    /**
+     * 오늘 날짜 : 년-월-일 시분초
      * @param delimiter     년원일 사이 구분자
      * @param isMillisecond 밀리 세컨드 여부
      * @return String
      * @throws Exception
      */
-    public static String getTodayAndNowTime(String delimiter, boolean isMillisecond) throws Exception {
-        String pattern = "yyyy" + delimiter + "MM" + delimiter + "dd" + " HH:mm:ss" + (isMillisecond ? ".SSS" : "");
-        return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
+    public static String getTodayAndNowTime(String delimiter, boolean isMillisecond){
+        try{
+            String pattern = "yyyy" + delimiter + "MM" + delimiter + "dd" + " HH:mm:ss" + (isMillisecond ? ".SSS" : "");
+            return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return "";
     }
 
     /**
@@ -123,14 +145,18 @@ public class DateUtil {
      * @param userFormat 사용자가 원하는 포멧
      * @return String
      */
-    public static String getTodayAndNowTime(String userFormat) throws Exception {
-        String pattern = "yyyy-MM-dd HH:mm:ss";
+    public static String getTodayAndNowTime(String userFormat){
+        try{
+            String pattern = "yyyy-MM-dd HH:mm:ss";
 
-        if(!StringUtil.isEmpty(userFormat)){
-            pattern = userFormat;
+            if(!StringUtil.isEmpty(userFormat)){
+                pattern = userFormat;
+            }
+            return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
+        }catch (Exception e){
+            e.getMessage();
         }
-
-        return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
+        return "";
     }
     /**
      * 년 월 일 계산

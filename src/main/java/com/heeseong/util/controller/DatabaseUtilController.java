@@ -1,7 +1,9 @@
 package com.heeseong.util.controller;
 
 
+import com.heeseong.util.model.Board;
 import com.heeseong.util.service.DatabaseService;
+import com.heeseong.util.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,8 +29,18 @@ public class DatabaseUtilController {
 
     @ResponseBody
     @GetMapping("autoInsertIncludeAutoincrement")
-    public String autoInsertIncludeAutoincrement(){
-        databaseService.autoInsertIncludeAutoincrement();
+    public String autoInsertIncludeAutoincrement() {
+        Board board = new Board();
+        board.setBoardType("1");
+        board.setContents("asd");
+        board.setTitle("sdfsdf");
+        board.setRegistrant("시스템");
+        board.setModifier(board.getRegistrant());
+        board.setRegDate(DateUtil.getTodayAndNowTime());
+        board.setModDate(board.getRegDate());
+
+        int count = databaseService.autoInsertIncludeAutoincrement("","board", board);
+        System.out.println(count);
         return "콘솔 확인!!!";
     }
 
