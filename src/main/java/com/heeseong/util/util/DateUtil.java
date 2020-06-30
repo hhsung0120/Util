@@ -104,14 +104,20 @@ public class DateUtil {
      * @return String
      * @throws Exception
      */
-    public static String getToday(String delimiter) throws Exception {
+    public static String getToday(String delimiter){
         String result = "";
         String pattern = "yyyy" + delimiter + "MM" + delimiter + "dd";
-        if (StringUtil.isEmpty(delimiter)) {
-            result = localDate().format(DateTimeFormatter.BASIC_ISO_DATE);
-        } else {
-            result = localDate().format(DateTimeFormatter.ofPattern(pattern));
+
+        try{
+            if (StringUtil.isEmpty(delimiter)) {
+                result = localDate().format(DateTimeFormatter.BASIC_ISO_DATE);
+            } else {
+                result = localDate().format(DateTimeFormatter.ofPattern(pattern));
+            }
+        }catch (Exception e){
+            e.getMessage();
         }
+
         return result;
     }
 
@@ -131,13 +137,15 @@ public class DateUtil {
      * @throws Exception
      */
     public static String getTodayAndNowTime(String delimiter, boolean isMillisecond){
+        String pattern = "";
+
         try{
-            String pattern = "yyyy" + delimiter + "MM" + delimiter + "dd" + " HH:mm:ss" + (isMillisecond ? ".SSS" : "");
-            return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
+            pattern = "yyyy" + delimiter + "MM" + delimiter + "dd" + " HH:mm:ss" + (isMillisecond ? ".SSS" : "");
         }catch (Exception e){
             e.getMessage();
         }
-        return "";
+
+        return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
     }
 
     /**
@@ -146,17 +154,20 @@ public class DateUtil {
      * @return String
      */
     public static String getTodayAndNowTime(String userFormat){
+        String pattern = "";
+
         try{
-            String pattern = "yyyy-MM-dd HH:mm:ss";
+            pattern = "yyyy-MM-dd HH:mm:ss";
 
             if(!StringUtil.isEmpty(userFormat)){
                 pattern = userFormat;
             }
-            return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
+
         }catch (Exception e){
             e.getMessage();
         }
-        return "";
+
+        return localDateTime().format(DateTimeFormatter.ofPattern(pattern));
     }
     /**
      * 년 월 일 계산

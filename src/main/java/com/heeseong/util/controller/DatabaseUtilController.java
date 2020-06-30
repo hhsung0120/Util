@@ -24,6 +24,7 @@ public class DatabaseUtilController {
     @GetMapping("getTableCoulumList")
     public String getColums(@RequestParam(value="tableName",required = false, defaultValue = "")String tableName){
         databaseService.getPrintObjectFromTableCoulumList("","board", "private");
+        String test = DateUtil.getToday("-");
         return "콘솔 확인!!!";
     }
 

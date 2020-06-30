@@ -1,6 +1,7 @@
 package com.heeseong.util.util;
 
 import com.heeseong.util.model.CommonFile;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +12,8 @@ import java.io.File;
 import java.net.URLEncoder;
 import java.util.UUID;
 
-public class FileUtil {
+@Slf4j
+public class FileUtil{
 
     /**
      * 업로드 경로에 폴더 존재하지 않을 시 폴더생성

@@ -47,7 +47,7 @@ public class DatabaseService {
             } else if("DOUBLE".equalsIgnoreCase(dbDataType)) {
                 dataType = "double";
             } else if("TIMESTAMP".equalsIgnoreCase(dbDataType) || "DATETIME".equalsIgnoreCase(dbDataType)  || "DATE".equalsIgnoreCase(dbDataType)) {
-                dataType = "Date";
+                dataType = "LocalDateTime";
             } else {
                 dataType = "String";
             }
