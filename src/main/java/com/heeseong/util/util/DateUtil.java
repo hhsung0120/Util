@@ -158,11 +158,9 @@ public class DateUtil {
 
         try{
             pattern = "yyyy-MM-dd HH:mm:ss";
-
             if(!StringUtil.isEmpty(userFormat)){
                 pattern = userFormat;
             }
-
         }catch (Exception e){
             e.getMessage();
         }
@@ -182,12 +180,20 @@ public class DateUtil {
      * @return String
      * @throws Exception
      */
-    public static String getCalculatorDate(String targetDate, int year, int month, int day) throws Exception {
-        LocalDate localDate = parseLocalDate(targetDate);
-        localDate = localDate.plusYears(year);
-        localDate = localDate.plusMonths(month);
-        localDate = localDate.plusDays(day);
-        return localDate.toString();
+    public static String getCalculatorDate(String targetDate, int year, int month, int day) {
+        String result = "";
+
+        try{
+            LocalDate localDate = parseLocalDate(targetDate);
+            localDate = localDate.plusYears(year);
+            localDate = localDate.plusMonths(month);
+            localDate = localDate.plusDays(day);
+            result =  localDate.toString();
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 
     /**
@@ -236,14 +242,22 @@ public class DateUtil {
      * @throws Exception
      */
     public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour, int minute, int second) throws Exception {
-        LocalDateTime localDateTime = parseLocalDateTime(targetDate);
-        localDateTime = localDateTime.plusYears(year);
-        localDateTime = localDateTime.plusMonths(month);
-        localDateTime = localDateTime.plusDays(day);
-        localDateTime = localDateTime.plusHours(hour);
-        localDateTime = localDateTime.plusMinutes(minute);
-        localDateTime = localDateTime.plusSeconds(second);
-        return localDateTime.toString();
+        String result = "";
+
+        try{
+            LocalDateTime localDateTime = parseLocalDateTime(targetDate);
+            localDateTime = localDateTime.plusYears(year);
+            localDateTime = localDateTime.plusMonths(month);
+            localDateTime = localDateTime.plusDays(day);
+            localDateTime = localDateTime.plusHours(hour);
+            localDateTime = localDateTime.plusMinutes(minute);
+            localDateTime = localDateTime.plusSeconds(second);
+            result = localDateTime.toString();
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 
     /**
@@ -333,9 +347,17 @@ public class DateUtil {
      * @return boolean
      * @throws Exception
      */
-    public static boolean isBeforeLocalDate(String sourceDate, String compareDate) throws Exception {
-        LocalDate source = parseLocalDate(sourceDate);
-        return source.isBefore(parseLocalDate(compareDate));
+    public static boolean isBeforeLocalDate(String sourceDate, String compareDate){
+        boolean result = false;
+
+        try{
+            LocalDate source = parseLocalDate(sourceDate);
+            result = source.isBefore(parseLocalDate(compareDate));
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 
     /**
@@ -349,9 +371,17 @@ public class DateUtil {
      * @return boolean
      * @throws Exception
      */
-    public static boolean isAfterLocalDate(String sourceDate, String compareDate) throws Exception {
-        LocalDate source = parseLocalDate(sourceDate);
-        return source.isAfter(parseLocalDate(compareDate));
+    public static boolean isAfterLocalDate(String sourceDate, String compareDate){
+        boolean result = false;
+
+        try{
+            LocalDate source = parseLocalDate(sourceDate);
+            result = source.isAfter(parseLocalDate(compareDate));
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 
     /**
@@ -365,9 +395,17 @@ public class DateUtil {
      * @return boolean
      * @throws Exception
      */
-    public static boolean isBeforeLocalDateTime(String sourceDate, String compareDate) throws Exception {
-        LocalDateTime source = parseLocalDateTime(sourceDate);
-        return source.isBefore(parseLocalDateTime(compareDate));
+    public static boolean isBeforeLocalDateTime(String sourceDate, String compareDate) {
+        boolean result = false;
+
+        try{
+            LocalDateTime source = parseLocalDateTime(sourceDate);
+            result =  source.isBefore(parseLocalDateTime(compareDate));
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 
     /**
@@ -381,9 +419,17 @@ public class DateUtil {
      * @return boolean
      * @throws Exception
      */
-    public static boolean isAfterLocalDateTime(String sourceDate, String compareDate) throws Exception {
-        LocalDateTime source = parseLocalDateTime(sourceDate);
-        return source.isAfter(parseLocalDateTime(compareDate));
+    public static boolean isAfterLocalDateTime(String sourceDate, String compareDate){
+        boolean result = false;
+
+        try{
+            LocalDateTime source = parseLocalDateTime(sourceDate);
+            result = source.isAfter(parseLocalDateTime(compareDate));
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 
     /**
@@ -396,9 +442,17 @@ public class DateUtil {
      * @return
      * @throws Exception
      */
-    public static int getDateDiffPeriodForLocalDate(String startDate, String endDate) throws Exception {
-        LocalDate source = parseLocalDate(endDate);
-        return (int)ChronoUnit.DAYS.between(source, parseLocalDate(startDate));
+    public static int getDateDiffPeriodForLocalDate(String startDate, String endDate){
+        int result = 0;
+
+        try{
+            LocalDate source = parseLocalDate(endDate);
+            result = (int)ChronoUnit.DAYS.between(source, parseLocalDate(startDate));
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 
     /**
@@ -412,8 +466,16 @@ public class DateUtil {
      * @return
      * @throws Exception
      */
-    public static int getDateDiffPeriodForLocalDateTime(String startDate, String endDate) throws Exception {
-        LocalDateTime source = parseLocalDateTime(endDate);
-        return (int)ChronoUnit.DAYS.between(source, parseLocalDateTime(startDate));
+    public static int getDateDiffPeriodForLocalDateTime(String startDate, String endDate){
+        int result = 0;
+
+        try{
+            LocalDateTime source = parseLocalDateTime(endDate);
+            result = (int)ChronoUnit.DAYS.between(source, parseLocalDateTime(startDate));
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        return result;
     }
 }    
