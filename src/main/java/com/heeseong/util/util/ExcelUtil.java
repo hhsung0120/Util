@@ -20,6 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ExcelUtil {
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @param rowTitle 컬럼 제목
+     * @param dataList 데이터
+     * @param dataName 컬럼 이름
+     * @param fileName 다운로드 파일 이름
+     * @param password 비밀번호 == "" 비번 없음
+     */
     public static void executeExcelDownload (HttpServletRequest request, HttpServletResponse response, String[] rowTitle, List<Map<String, Object>> dataList, String[] dataName, String fileName, String password) {
         try {
             // Excel Write
