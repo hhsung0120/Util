@@ -44,7 +44,7 @@
         SELECT *
         FROM board
         <include refid="searchOption"/>
-        ORDER BY reg_date DESC
+        ORDER BY regDate DESC
         LIMIT #{startIndex}, #{pageSize}
     </select>
 

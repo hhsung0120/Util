@@ -154,7 +154,7 @@
 		});
 
 		$('#btn_excel').click(function () {
-			$dataForm.attr({"action": "/board/excel", "target":"_self", "method":"get"}).submit();
+			$dataForm.attr({"action": "/excel/download", "target":"_self", "method":"get"}).submit();
 		});
 		// 검색 초기화
 		searchClear = function() {

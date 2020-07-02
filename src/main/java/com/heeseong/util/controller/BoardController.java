@@ -90,23 +90,5 @@ public class BoardController {
         return "성공";
     }
 
-    @GetMapping("/excel")
-    public void excel(@ModelAttribute Board board, HttpServletRequest request, HttpServletResponse response){
-        List<Board> boardList = boardService.getBoardList(board);
-        List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
 
-        for(int i=0; i<boardList.size(); i++){
-            Map<String, Object> data = new HashMap<String, Object>();
-            data.put("boardType", boardList.get(i).getBoardType());
-            data.put("contents", boardList.get(i).getContents());
-            data.put("title", boardList.get(i).getTitle());
-            data.put("registrant", boardList.get(i).getRegistrant());
-            dataList.add(data);
-        }
-
-        String [] rowTitle = {"타입","내용","제목","등록자"};
-        String [] dataName = {"boardType","contents","title","registrant"};
-        String fileName = "게시판엑셀"+DateUtil.getTodayAndNowTime("yyyy_MM_dd_HH_mm_ss");
-        ExcelUtil.executeExcelDownload(request,response,rowTitle,dataList,dataName,fileName,"123");
-    }
 }
