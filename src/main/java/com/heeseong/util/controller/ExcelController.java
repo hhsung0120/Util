@@ -6,6 +6,7 @@ import com.heeseong.util.service.BoardService;
 import com.heeseong.util.util.DateUtil;
 import com.heeseong.util.util.ExcelUtil;
 import com.heeseong.util.util.FileUtil;
+import com.heeseong.util.util.XExcelFileReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +27,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/excel")
 public class ExcelController {
+
+    @Value("${default-upload-path}")
+    private String defaultUploadPath;
 
     @Autowired
     private BoardService boardService;
@@ -49,11 +53,16 @@ public class ExcelController {
         String [] rowTitle = {"타입","내용","제목","등록자"};
         String [] dataName = {"boardType","contents","title","registrant"};
         String fileName = "게시판엑셀"+DateUtil.getTodayAndNowTime("yyyy_MM_dd_HH_mm_ss");
-        ExcelUtil.executeExcelDownload(request,response,rowTitle,dataList,dataName,fileName,"123");
+        ExcelUtil.executeExcelDownload(request,response,rowTitle,dataList,dataName,fileName,"");
     }
 
+    @ResponseBody
     @GetMapping("/read")
-    public void read(@ModelAttribute Board board, HttpServletRequest request, HttpServletResponse response){
-
+    public String read() throws Throwable {
+        String path = defaultUploadPath+"test2.xlsx";
+        System.out.println(path);
+        XExcelFileReader re = new XExcelFileReader(path);
+        System.out.println(re.readRows());
+        return "sdfsdfdf";
     }
 }
