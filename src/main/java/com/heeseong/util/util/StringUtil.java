@@ -36,7 +36,6 @@ public class StringUtil {
         return result.toString();
     }
 
-
     /**
      *
      * @param input 입력 문자열
@@ -100,5 +99,31 @@ public class StringUtil {
             randomNumber += String.valueOf(((int)(Math.random() * 9) + 1 ));
         }
         return randomNumber;
+    }
+
+    /**
+     * 클라이언트 IP 호출
+     * @param request
+     * @return String
+     */
+    public static String getClientIpAddress(HttpServletRequest request){
+        String ip = request.getHeader("X-FORWARDED-FOR");
+
+        if (ip == null) {
+            ip = request.getHeader("PROXY-CLIENT-IP");
+        }
+        if (ip == null) {
+            ip = request.getHeader("WL-PROXY-CLIENT-IP");
+        }
+        if (ip == null) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (ip == null) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (ip == null) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
     }
 }
