@@ -1,8 +1,8 @@
 package com.heeseong.util.util;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 public class StringUtil {
 
