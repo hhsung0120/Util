@@ -5,16 +5,15 @@ import com.heeseong.util.model.Board;
 import com.heeseong.util.service.BoardService;
 import com.heeseong.util.util.DateUtil;
 import com.heeseong.util.util.ExcelUtil;
-import com.heeseong.util.util.FileUtil;
 import com.heeseong.util.util.XExcelFileReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -61,8 +60,14 @@ public class ExcelController {
     public String read() throws Throwable {
         String path = defaultUploadPath+"test2.xlsx";
         System.out.println(path);
-        XExcelFileReader re = new XExcelFileReader(path);
-        System.out.println(re.readRows());
-        return "sdfsdfdf";
+        XExcelFileReader excelRead = new XExcelFileReader(path);
+
+        List<Map<String, Object>> result = excelRead.readRows();
+
+        for(Map<String, Object> map : result){
+            System.out.println(map.get("1"));
+        }
+
+        return "엑셀 읽었다 캬캬";
     }
 }

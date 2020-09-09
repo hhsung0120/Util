@@ -3,8 +3,6 @@ package com.heeseong.util.controller;
 
 import com.heeseong.util.model.Board;
 import com.heeseong.util.service.BoardService;
-import com.heeseong.util.util.DateUtil;
-import com.heeseong.util.util.ExcelUtil;
 import com.heeseong.util.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Controller
