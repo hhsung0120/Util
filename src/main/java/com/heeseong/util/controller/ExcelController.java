@@ -65,9 +65,14 @@ public class ExcelController {
         List<Map<String, Object>> result = excelRead.readRows();
 
         for(Map<String, Object> map : result){
-            System.out.println(map.get("1"));
+            System.out.println(map.get("0"));
         }
+        System.out.println("중복");
 
+        //중복제거 후 row 수 반환
+        //중복이 없다면 리스트size와 동일
+        System.out.println(result.stream().map(row -> row.get("0")).distinct().count());
+        System.out.println(result.size());
         return "엑셀 읽었다 캬캬";
     }
 }
