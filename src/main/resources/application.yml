@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   profiles:
@@ -49,8 +49,11 @@ logging:
     jdbc.resultset: off
     jdbc.resultsettable : off
     jdbc.connection: off
-file:
-  path: D:${file.separator}log${file.separator}
+  file:
+    path: D:${file.separator}upload${file.separator}logs${file.separator}
+    max-history: 1
+    max-size: 100MB
+
 
 default-upload-path: D:${file.separator}upload${file.separator}
 

@@ -38,6 +38,7 @@ public class BoardController {
             List<Board> boardList = boardService.getBoardList(board);
             mav.addObject("boardList", boardList);
             mav.addObject("paging", board);
+            log.info("sdfsdfsdf {}", boardList);
         }
 
         return mav;
