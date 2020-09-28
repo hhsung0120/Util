@@ -50,7 +50,7 @@ logging:
     jdbc.resultsettable : off
     jdbc.connection: off
   file:
-    path: D:${file.separator}upload${file.separator}logs${file.separator}
+    name: D:${file.separator}logs${file.separator}util${file.separator}util.log
     max-history: 1
     max-size: 100MB
 
