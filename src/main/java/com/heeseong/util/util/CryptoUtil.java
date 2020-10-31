@@ -6,7 +6,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class CryptoUtil {
     private static final String TRANSFORM = "AES/CBC/PKCS5Padding";
-    private static final String STATIC_KEY = "coopmarketingmod"; // must be 16bytes
+    private static final String STATIC_KEY = " 16bytes"; // must be 16bytes
 
     /*
      * 암호화 (양방향)
