@@ -241,7 +241,7 @@ public class DateUtil {
      * @return String
      * @throws Exception
      */
-    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour, int minute, int second) throws Exception {
+    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour, int minute, int second) {
         String result = "";
 
         try{
@@ -272,9 +272,8 @@ public class DateUtil {
      * @param hour       계산할 시간
      * @param minute     계산할 분
      * @return String
-     * @throws Exception
      */
-    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour, int minute) throws Exception {
+    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour, int minute) {
         return getCalculatorDateAndTime(targetDate, year, month, day, hour, minute, 0);
     }
 
@@ -288,9 +287,8 @@ public class DateUtil {
      * @param day        계산할 일
      * @param hour       계산할 시간
      * @return String
-     * @throws Exception
      */
-    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour) throws Exception {
+    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day, int hour) {
         return getCalculatorDateAndTime(targetDate, year, month, day, hour, 0, 0);
     }
 
@@ -303,9 +301,8 @@ public class DateUtil {
      * @param month      계산할 월
      * @param day        계산할 일
      * @return String
-     * @throws Exception
      */
-    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day) throws Exception {
+    public static String getCalculatorDateAndTime(String targetDate, int year, int month, int day) {
         return getCalculatorDateAndTime(targetDate, year, month, day, 0, 0, 0);
     }
 
@@ -317,9 +314,8 @@ public class DateUtil {
      * @param year       계산할 년
      * @param month      계산할 월
      * @return String
-     * @throws Exception
      */
-    public static String getCalculatorDateAndTime(String targetDate, int year, int month) throws Exception {
+    public static String getCalculatorDateAndTime(String targetDate, int year, int month) {
         return getCalculatorDateAndTime(targetDate, year, month, 0, 0, 0, 0);
     }
 
@@ -330,9 +326,8 @@ public class DateUtil {
      * @param targetDate 계산할 년-월-일T시:분:초
      * @param year       계산할 년
      * @return String
-     * @throws Exception
      */
-    public static String getCalculatorDateAndTime(String targetDate, int year) throws Exception {
+    public static String getCalculatorDateAndTime(String targetDate, int year) {
         return getCalculatorDateAndTime(targetDate, year, 0, 0, 0, 0, 0);
     }
 
@@ -345,7 +340,6 @@ public class DateUtil {
      * @param sourceDate  시작 년-월-일
      * @param compareDate 비교 년-월-일
      * @return boolean
-     * @throws Exception
      */
     public static boolean isBeforeLocalDate(String sourceDate, String compareDate){
         boolean result = false;
@@ -369,7 +363,6 @@ public class DateUtil {
      * @param sourceDate  시작 년-월-일
      * @param compareDate 비교 년-월-일
      * @return boolean
-     * @throws Exception
      */
     public static boolean isAfterLocalDate(String sourceDate, String compareDate){
         boolean result = false;
@@ -393,7 +386,6 @@ public class DateUtil {
      * @param sourceDate  시작 년월일
      * @param compareDate 비교 년월일
      * @return boolean
-     * @throws Exception
      */
     public static boolean isBeforeLocalDateTime(String sourceDate, String compareDate) {
         boolean result = false;
@@ -417,7 +409,6 @@ public class DateUtil {
      * @param sourceDate  시작 년월일
      * @param compareDate 비교 년월일
      * @return boolean
-     * @throws Exception
      */
     public static boolean isAfterLocalDateTime(String sourceDate, String compareDate){
         boolean result = false;
@@ -440,7 +431,6 @@ public class DateUtil {
      * @param startDate
      * @param endDate
      * @return
-     * @throws Exception
      */
     public static int getDateDiffPeriodForLocalDate(String startDate, String endDate){
         int result = 0;
