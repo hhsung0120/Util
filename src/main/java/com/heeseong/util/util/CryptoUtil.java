@@ -87,7 +87,7 @@ public class CryptoUtil {
     /*
      * 입력 패스워드 값 암호화 (단방향)
      */
-    public static String encryptPassword(String enteredPW){
+    public static String encryptPassword(String enteredPW) {
         ConfigurablePasswordEncryptor passwordEncryptor = new ConfigurablePasswordEncryptor();
         passwordEncryptor.setAlgorithm("SHA-512");
         String encryptedPassword = passwordEncryptor.encryptPassword(enteredPW);
@@ -99,7 +99,7 @@ public class CryptoUtil {
      * submittedPassword : 입력 패스워드 값
      * encryptedPassword : DB에 저장된 패스워드 값
      */
-    public static boolean checkPassword(String submittedPassword, String encryptedPassword){
+    public static boolean checkPassword(String submittedPassword, String encryptedPassword) {
         ConfigurablePasswordEncryptor passwordEncryptor = new ConfigurablePasswordEncryptor();
         passwordEncryptor.setAlgorithm("SHA-512");
         return passwordEncryptor.checkPassword(submittedPassword, encryptedPassword);

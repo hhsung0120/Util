@@ -1,429 +1,434 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<title>어니언 서비스 관리자</title>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../css/font.css">
-<link rel="stylesheet" href="../css/jquery-ui.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/jquery.bpopup.min.js"></script>
-<script src="../js/common.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>어니언 서비스 관리자</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery.bpopup.min.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 <body>
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
-	
+
 <button class="btn-sm btn-dark" id="btn_add">등록</button>
 <!-- 상품등록리스트 팝업 -->
-	<div id="pop_p_list" class="popup xl">
-		<div class="pop_header">
-			<h3 class="tit">상품일괄등록
-				<button class="pop_close fr b-close">닫기</button>
-			</h3>
-		</div>
-		<div class="pop_contents">
-			<h4>어니언 상품리스트</h4>
-			<div class="sch_wrap">
-				<table>
-					<colgroup>
-						<col style="width:15%">
-						<col style="width:35%">
-						<col style="width:15%">
-						<col style="width:35%">
-					</colgroup>
-                    <tbody>
-                        <tr>
-                            <th>상품명</th>
-                            <td>
-                            	<input type="text">
-                            </td>
-							<th>원수사</th>
-                            <td>
-                                <div class="select-box-w">
-									<label for="">전체</label>
-									<select>
-										<option selected="">전체</option>
-										<option>ooo</option>
-										<option>ooo</option>
-										<option>ooo</option>
-									</select>
-								</div>
-                            </td>
-						</tr>
-                        
-                    </tbody>
-                </table>
-                <div class="btn_wrap">
-                    <button class="btn-md">초기화</button>
-                    <button class="btn-md btn-yel">검색</button>
-                </div>
-			</div>
-			<div class="mgb0">
-				<div class="h300_auto">
-					<table class="list">
-						<colgroup>
-						<col style="width:70px">
-						<col style="width:80px">
-						<col style="width:150px">
-						<col style="">
-						<col style="">
-						<col style="">
-						<col style="">
-					</colgroup>
-						<thead>
-							<tr>
-								<th>
+<div id="pop_p_list" class="popup xl">
+    <div class="pop_header">
+        <h3 class="tit">상품일괄등록
+            <button class="pop_close fr b-close">닫기</button>
+        </h3>
+    </div>
+    <div class="pop_contents">
+        <h4>어니언 상품리스트</h4>
+        <div class="sch_wrap">
+            <table>
+                <colgroup>
+                    <col style="width:15%">
+                    <col style="width:35%">
+                    <col style="width:15%">
+                    <col style="width:35%">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>상품명</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <th>원수사</th>
+                    <td>
+                        <div class="select-box-w">
+                            <label for="">전체</label>
+                            <select>
+                                <option selected="">전체</option>
+                                <option>ooo</option>
+                                <option>ooo</option>
+                                <option>ooo</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="btn_wrap">
+                <button class="btn-md">초기화</button>
+                <button class="btn-md btn-yel">검색</button>
+            </div>
+        </div>
+        <div class="mgb0">
+            <div class="h300_auto">
+                <table class="list">
+                    <colgroup>
+                        <col style="width:70px">
+                        <col style="width:80px">
+                        <col style="width:150px">
+                        <col style="">
+                        <col style="">
+                        <col style="">
+                        <col style="">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</th>
-								<th>No</th>
-								<th>상품이미지</th>
-								<th>상품명</th>
-								<th>원수사</th>
-								<th>상품유형</th>
-								<th>권면가</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
+                        </th>
+                        <th>No</th>
+                        <th>상품이미지</th>
+                        <th>상품명</th>
+                        <th>원수사</th>
+                        <th>상품유형</th>
+                        <th>권면가</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-                <div class="paging_area">
-                    <nav>
-                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
-                        <button class="page prev" href="#" >이전으로 이동</button>
-                        <a href="#">1</a>
-                        <a href="#" class="on">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <button class="page next" href="#">다음으로 이동</button>
-                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
-                    </nav>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging_area">
+                <nav>
+                    <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                    <button class="page prev" href="#">이전으로 이동</button>
+                    <a href="#">1</a>
+                    <a href="#" class="on">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <button class="page next" href="#">다음으로 이동</button>
+                    <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                </nav>
+            </div>
+        </div>
+        <div class="mgb0">
+            <h4>선택한 상품 리스트
+                <div class="btn_area">
+                    <button class="btn-sm btn-dark">버튼</button>
+                    <button class="btn-sm btn-gray mgl5">버튼</button>
                 </div>
-			</div>
-			<div class="mgb0">
-				<h4>선택한 상품 리스트<div class="btn_area"><button class="btn-sm btn-dark">버튼</button><button class="btn-sm btn-gray mgl5">버튼</button></div></h4>
-                
-				<div class="h300_auto mgt10">
-					
-					<table class="list">
-						<colgroup>
-						<col style="width:70px">
-						<col style="width:80px">
-						<col style="width:150px">
-						<col style="">
-						<col style="">
-						<col style="">
-						<col style="">
-					</colgroup>
-						<thead>
-							<tr>
-								<th>
-									
-								</th>
-								<th>No</th>
-								<th>상품이미지</th>
-								<th>상품명</th>
-								<th>원수사</th>
-								<th>상품유형</th>
-								<th>권면가</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<button class="btn-xs btn-gray">삭제</button>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+            </h4>
+
+            <div class="h300_auto mgt10">
+
+                <table class="list">
+                    <colgroup>
+                        <col style="width:70px">
+                        <col style="width:80px">
+                        <col style="width:150px">
+                        <col style="">
+                        <col style="">
+                        <col style="">
+                        <col style="">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>No</th>
+                        <th>상품이미지</th>
+                        <th>상품명</th>
+                        <th>원수사</th>
+                        <th>상품유형</th>
+                        <th>권면가</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn-xs btn-gray">삭제</button>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>128</td>
-								<td>
-									<div class="thumbnail_s"></div>
-								</td>
-								<td class="tal">좋은날 보험</td>
-								<td>KB</td>
-								<td>정액형</td>
-								<td class="tar">25,000</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-                <div class="paging_area">
-                    <nav>
-                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
-                        <button class="page prev" href="#" >이전으로 이동</button>
-                        <a href="#">1</a>
-                        <a href="#" class="on">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <button class="page next" href="#">다음으로 이동</button>
-                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
-                    </nav>
-                </div>
-			</div>
-		</div>
-		<div class="pop_footer">
-			<div class="btn_wrap">
-				<button class="btn-md b-close">취소</button>
-				<button class="btn-md btn-dark">수정</button>
-			</div>
-		</div>
-	</div>
-	
+                        </td>
+                        <td>128</td>
+                        <td>
+                            <div class="thumbnail_s"></div>
+                        </td>
+                        <td class="tal">좋은날 보험</td>
+                        <td>KB</td>
+                        <td>정액형</td>
+                        <td class="tar">25,000</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging_area">
+                <nav>
+                    <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                    <button class="page prev" href="#">이전으로 이동</button>
+                    <a href="#">1</a>
+                    <a href="#" class="on">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <button class="page next" href="#">다음으로 이동</button>
+                    <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="pop_footer">
+        <div class="btn_wrap">
+            <button class="btn-md b-close">취소</button>
+            <button class="btn-md btn-dark">수정</button>
+        </div>
+    </div>
+</div>
 
 
 </body>

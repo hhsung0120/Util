@@ -1,26 +1,27 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<title>어니언 서비스 관리자</title>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../css/font.css">
-<link rel="stylesheet" href="../css/jquery-ui.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/jquery.bpopup.min.js"></script>
-<script src="../js/common.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>어니언 서비스 관리자</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery.bpopup.min.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 <body>
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
 <!-- wrapper -->
 <div id="wrapper">
-	<div id="header">
+    <div id="header">
         <div class="header_top">
             <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
             <div class="admin_box ">
@@ -29,7 +30,7 @@
                 </div>
             </div>
         </div>
-         <div id="gnb">
+        <div id="gnb">
             <ul class="depth_01">
                 <li class=""><a href="#">전시상품관리</a></li>
                 <li class=""><a href="#">메인관리</a></li>
@@ -37,166 +38,166 @@
                 <li class=""><a href="#">정산</a></li>
                 <li class=""><a href="#">고객지원(CS)</a></li>
                 <li class="active"><a href="#">환경설정</a></li>
-             </ul>
+            </ul>
         </div>
-	</div>
-    
-	<div id="container">
+    </div>
+
+    <div id="container">
         <div id="lnb" class="side_menu open">
             <div class="tit_box">
                 <h5>환경설정</h5>
             </div>
-			 <!-- 전시상품 관리 lnb 
+            <!-- 전시상품 관리 lnb
+           <ul class="depth_none">
+               <li class="open">
+                   <a href="#">상품</a>
+               </li>
+           </ul>
+           <!-- //전시상품 관리 lnb -->
+
+            <!-- 메인관리 lnb
             <ul class="depth_none">
-            	<li class="open">
-                    <a href="#">상품</a>
-                </li>
-			</ul>
-			<!-- //전시상품 관리 lnb -->
-				
-			<!-- 메인관리 lnb 
-			<ul class="depth_none">
                 <li class="">
                     <a href="#">베너</a>
                 </li>
-			</ul>
-				<!-- //메인관리 lnb -->
-				
-				<!-- 통계 lnb --
-			<ul class="depth_none">
+            </ul>
+                <!-- //메인관리 lnb -->
+
+            <!-- 통계 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">구매현황</a>
+            </li>
+        </ul>
+            <!-- //통계 lnb -->
+
+            <!-- 정산 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">정산</a>
+            </li>
+        </ul>
+            <!-- //정산 lnb -->
+
+
+            <!-- 고객지원 lnb
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">CS상담관리</a>
+            </li>
+            <li class="open">
+                <a href="#">상담이력관리</a>
+            </li>
+            <li class="">
+                <a href="#">CS문자관리</a>
+            </li>
+        </ul>
+            <!-- //고객지원 lnb -->
+
+            <!-- 환경설정 lnb -->
+            <ul class="depth_02">
                 <li class="">
-                    <a href="#">구매현황</a>
-                </li>
-			</ul>
-				<!-- //통계 lnb -->
-				
-				<!-- 정산 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">정산</a>
-                </li>
-			</ul>
-				<!-- //정산 lnb -->
-			
-			
-				<!-- 고객지원 lnb 
-			<ul class="depth_none">
-				<li class="">
-                    <a href="#">CS상담관리</a>
-                </li>
-				<li class="open">
-                    <a href="#">상담이력관리</a>
-                </li>
-				<li class="">
-                    <a href="#">CS문자관리</a>
-                </li>
-			</ul>
-				<!-- //고객지원 lnb -->
-				
-				<!-- 환경설정 lnb -->
-			<ul class="depth_02">
-				<li class="">
                     <a href="#">시스템 환경설정</a>
                     <ul class="depth_03">
                         <li class=""><a href="#">메뉴관리</a></li>
-						<li class=""><a href="#">계정</a></li>
-						<li class=""><a href="#">DB설정</a></li>
-						<li class=""><a href="#">수신 API</a></li>
-						<li class=""><a href="#">발신 API</a></li>
-						<li class=""><a href="#">PG관리</a></li>
+                        <li class=""><a href="#">계정</a></li>
+                        <li class=""><a href="#">DB설정</a></li>
+                        <li class=""><a href="#">수신 API</a></li>
+                        <li class=""><a href="#">발신 API</a></li>
+                        <li class=""><a href="#">PG관리</a></li>
                     </ul>
                 </li>
-				<li class="active open">
+                <li class="active open">
                     <a href="#">서비스 환경설정</a>
                     <ul class="depth_03">
                         <li><a href="#">서비스관리</a></li>
                         <li><a href="#">공지사항</a></li>
-						<li class="active"><a href="#">FAQ</a></li>
-						<li><a href="#">카테고리</a></li>
-						<li><a href="#">약관관리</a></li>
-						<li><a href="#">동기화</a></li>
-						<li><a href="#">개인정보열람이력</a></li>
-						<li><a href="#">이력조회</a></li>
+                        <li class="active"><a href="#">FAQ</a></li>
+                        <li><a href="#">카테고리</a></li>
+                        <li><a href="#">약관관리</a></li>
+                        <li><a href="#">동기화</a></li>
+                        <li><a href="#">개인정보열람이력</a></li>
+                        <li><a href="#">이력조회</a></li>
                     </ul>
                 </li>
-			</ul>
-			<!-- //환경설정 lnb -->
+            </ul>
+            <!-- //환경설정 lnb -->
             <a class="left_btn" href="#">이동</a>
         </div>
-        <div class="content open"> 
-             <ul id="nav">
+        <div class="content open">
+            <ul id="nav">
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">환경설정</a></li>
                 <li><a href="#">서비스 환경설정</a></li>
-				<li class="active"><a href="#">FAQ</a></li>
-            </ul>     
+                <li class="active"><a href="#">FAQ</a></li>
+            </ul>
             <h3 class="tit">FAQ 등록</h3>
             <div class="sch_wrap">
                 <table class="reg">
-					<colgroup>
-						<col style="width:15%">
-						<col style="width:35%">
+                    <colgroup>
                         <col style="width:15%">
-						<col style="width:35%">
-				    </colgroup>
+                        <col style="width:35%">
+                        <col style="width:15%">
+                        <col style="width:35%">
+                    </colgroup>
                     <tbody>
-                        <tr>
-                            <th><span class="point">노출여부</span></th>
-                            <td colspan="3">
-                                <div class="radio_box">
-                                    <input type="radio" name="ra1" id="ra1_1" checked/>
-                                    <label for="ra1_1">노출</label>
-                                </div>
-                                <div class="radio_box">
-                                    <input type="radio" name="ra1" id="ra1_2"/>
-                                    <label for="ra1_2">비노출</label>
-                                </div>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <th><span class="point">카테고리</span></th>
-                            <td colspan="3">
-                                <div class="select-box-t w-sm">
-                                    <label for="">00분</label>
-                                    <select>
-                                        <option selected="">00분</option>
-                                        <option>ooo</option>
-                                        <option>ooo</option>
-                                        <option>ooo</option>
-                                        </select>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><span class="point">질문</span></th>
-                            <td colspan="3"><input type="text" class="w-xxl">
-                                <span class="tc_red">* 82자 이내로 입력해 주세요</span>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-							<th><span class="point">내용</span></th>
-                            <td colspan="3">
-                                에디터 영역
-                            </td>
-							
-						</tr>
-                        
-				    </tbody>
+                    <tr>
+                        <th><span class="point">노출여부</span></th>
+                        <td colspan="3">
+                            <div class="radio_box">
+                                <input type="radio" name="ra1" id="ra1_1" checked/>
+                                <label for="ra1_1">노출</label>
+                            </div>
+                            <div class="radio_box">
+                                <input type="radio" name="ra1" id="ra1_2"/>
+                                <label for="ra1_2">비노출</label>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th><span class="point">카테고리</span></th>
+                        <td colspan="3">
+                            <div class="select-box-t w-sm">
+                                <label for="">00분</label>
+                                <select>
+                                    <option selected="">00분</option>
+                                    <option>ooo</option>
+                                    <option>ooo</option>
+                                    <option>ooo</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="point">질문</span></th>
+                        <td colspan="3"><input type="text" class="w-xxl">
+                            <span class="tc_red">* 82자 이내로 입력해 주세요</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th><span class="point">내용</span></th>
+                        <td colspan="3">
+                            에디터 영역
+                        </td>
+
+                    </tr>
+
+                    </tbody>
                 </table>
-                
-                
+
+
                 <div class="btn_wrap">
                     <button class="btn-md">취소</button>
                     <button class="btn-md btn-yel">등록</button>
                 </div>
             </div>
-            
+
 
         </div>
-	</div>
+    </div>
 </div>
-    
+
 </body>
 </html>

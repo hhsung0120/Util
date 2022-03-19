@@ -4,186 +4,186 @@
 <head th:include="/common/fragment::head"></head>
 <body>
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
 <!-- wrapper -->
 <div id="wrapper">
-	<div id="header">
-		<div class="header_top">
-			<h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
-			<div class="admin_box ">
-				<div class="admin_info">
-					<div class="selectbox">
+    <div id="header">
+        <div class="header_top">
+            <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
+            <div class="admin_box ">
+                <div class="admin_info">
+                    <div class="selectbox">
 
-					</div>
+                    </div>
 
-				</div>
-			</div>
-		</div>
-		<div id="gnb">
-			<ul class="depth_01">
-				<li class="active"><a href="#">게시판</a></li>
-			</ul>
-		</div>
-	</div>
+                </div>
+            </div>
+        </div>
+        <div id="gnb">
+            <ul class="depth_01">
+                <li class="active"><a href="#">게시판</a></li>
+            </ul>
+        </div>
+    </div>
 
-	<div id="container">
-		<div id="lnb" class="side_menu open">
-			<div class="tit_box">
-				<h5>게시판</h5>
-			</div>
-			<ul class="depth_none">
-				<li class="open">
-					<a href="#">게시판</a>
-				</li>
-			</ul>
-			<a class="left_btn" href="#">이동</a>
-		</div>
-		<div class="content open">
-			<ul id="nav">
-				<li><a href="#">HOME</a></li>
-				<li><a href="#">게시판</a></li>
-				<li class="active"><a href="#">게시판</a></li>
-			</ul>
-			<h3 class="tit">게시판 <span>게시판을 등록하고 관리합니다.</span></h3>
-			<div class="sch_wrap">
-				<form id="searchForm">
-					<table>
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<tbody>
-						<tr>
-							<th>제목</th>
-							<td>
-								<input type="text" name="searchTitle">
-							</td>
+    <div id="container">
+        <div id="lnb" class="side_menu open">
+            <div class="tit_box">
+                <h5>게시판</h5>
+            </div>
+            <ul class="depth_none">
+                <li class="open">
+                    <a href="#">게시판</a>
+                </li>
+            </ul>
+            <a class="left_btn" href="#">이동</a>
+        </div>
+        <div class="content open">
+            <ul id="nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">게시판</a></li>
+                <li class="active"><a href="#">게시판</a></li>
+            </ul>
+            <h3 class="tit">게시판 <span>게시판을 등록하고 관리합니다.</span></h3>
+            <div class="sch_wrap">
+                <form id="searchForm">
+                    <table>
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>제목</th>
+                            <td>
+                                <input type="text" name="searchTitle">
+                            </td>
 
-							<th>내용</th>
-							<td>
-								<input type="text" name="searchContents">
-							</td>
-						</tr>
+                            <th>내용</th>
+                            <td>
+                                <input type="text" name="searchContents">
+                            </td>
+                        </tr>
 
-						</tbody>
-					</table>
-					<div class="btn_wrap">
-						<button type="button" class="btn-md">초기화</button>
-						<button type="button" class="btn-md btn-yel" onclick="goSearch();">검색</button>
-					</div>
-				</form>
-			</div>
-			<div class="list_wrap">
-				<div class="list_info">
-					<dl class="fl">
-						<dd th:text="|전체 ${paging.totalCount}개|"></dd>
-					</dl>
+                        </tbody>
+                    </table>
+                    <div class="btn_wrap">
+                        <button type="button" class="btn-md">초기화</button>
+                        <button type="button" class="btn-md btn-yel" onclick="goSearch();">검색</button>
+                    </div>
+                </form>
+            </div>
+            <div class="list_wrap">
+                <div class="list_info">
+                    <dl class="fl">
+                        <dd th:text="|전체 ${paging.totalCount}개|"></dd>
+                    </dl>
 
-					<div class="fr">
-						<div class="select-box-t">
-							<label for="" th:text="${paging.pageSize}"></label>
-							<select th:onchange="setChangePageSize(this)" th:field="${paging.pageSize}">
-								<option value="10">10</option>
-								<option value="20">20</option>
-								<option value="30">30</option>
-							</select>
-						</div>
-						<button type="button" class="btn-sm btn-dark" id="btn_add">등록</button>
-						<button type="button" class="btn-sm btn-dark" id="btn_excel">엑셀다운</button>
-					</div>
-				</div>
-				<table class="list">
+                    <div class="fr">
+                        <div class="select-box-t">
+                            <label for="" th:text="${paging.pageSize}"></label>
+                            <select th:onchange="setChangePageSize(this)" th:field="${paging.pageSize}">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-sm btn-dark" id="btn_add">등록</button>
+                        <button type="button" class="btn-sm btn-dark" id="btn_excel">엑셀다운</button>
+                    </div>
+                </div>
+                <table class="list">
 
-					<thead>
-					<tr>
-						<th>idx</th>
-						<th>제목</th>
-						<th>내용</th>
-						<th>작성자</th>
-						<th>등록일시</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr th:each="item:${boardList}">
-						<td th:text="${item.idx}"></td>
-						<td><a th:href="|javascript:goEdit(${item.idx})|" th:text="${item.title}"></a></td>
-						<td th:text="${item.contents}"></td>
-						<td th:text="${item.registrant}"></td>
-						<td th:text="${item.regDate}"></td>
-					</tr>
-					</tbody>
-				</table>
-				<!-- 페이징 -->
-				<div th:include="/common/fragment::paging" class="paging_area" th:if="${paging.totalCount > 0}"></div>
-			</div>
-		</div>
-	</div>
+                    <thead>
+                    <tr>
+                        <th>idx</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>작성자</th>
+                        <th>등록일시</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item:${boardList}">
+                        <td th:text="${item.idx}"></td>
+                        <td><a th:href="|javascript:goEdit(${item.idx})|" th:text="${item.title}"></a></td>
+                        <td th:text="${item.contents}"></td>
+                        <td th:text="${item.registrant}"></td>
+                        <td th:text="${item.regDate}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- 페이징 -->
+                <div th:include="/common/fragment::paging" class="paging_area" th:if="${paging.totalCount > 0}"></div>
+            </div>
+        </div>
+    </div>
 </div>
 <form id="dataForm">
-	<input hidden="hidden" name="currentPage" th:value="${paging.currentPage}"/>
-	<input hidden="hidden" name="pageSize" th:value="${paging.pageSize}"/>
-	<input hidden="hidden" name="idx" value=""/>
+    <input hidden="hidden" name="currentPage" th:value="${paging.currentPage}"/>
+    <input hidden="hidden" name="pageSize" th:value="${paging.pageSize}"/>
+    <input hidden="hidden" name="idx" value=""/>
 </form>
 <script type="text/javascript">
-	$(function(){
-		var $dataForm = $("#dataForm");
-		var $searchForm = $("#searchForm");
+    $(function () {
+        var $dataForm = $("#dataForm");
+        var $searchForm = $("#searchForm");
 
-		$searchForm.find("input").keydown(function(e) {
-			if(e.keyCode == 13) {
-				goSearch();
-			}
-		});
+        $searchForm.find("input").keydown(function (e) {
+            if (e.keyCode == 13) {
+                goSearch();
+            }
+        });
 
-		goSearch = function(){
-			$searchForm.attr({"action":"/board/list","target":"_self","method":"get"}).submit();
-		};
+        goSearch = function () {
+            $searchForm.attr({"action": "/board/list", "target": "_self", "method": "get"}).submit();
+        };
 
-		$('#btn_add').click(function () {
-			$dataForm.find("input[name='idx']").val(0);
-			$dataForm.attr({"action": "/board/form", "target":"_self", "method":"get"}).submit();
-		});
+        $('#btn_add').click(function () {
+            $dataForm.find("input[name='idx']").val(0);
+            $dataForm.attr({"action": "/board/form", "target": "_self", "method": "get"}).submit();
+        });
 
-		$('#btn_excel').click(function () {
-			$dataForm.attr({"action": "/excel/download", "target":"_self", "method":"get"}).submit();
-		});
-		// 검색 초기화
-		searchClear = function() {
-			$searchForm.find("input[type=text]").val("");
-			$searchForm.find(".select_box").find("option:eq(0)").prop("selected",true);
-			goSearch();
-		};
-		// 페이지 이동
-		goPage = function (page) {
-			$dataForm.find("input[name='currentPage']").val(page);
-			$dataForm.attr({"action":"/board/list","target":"_self","method":"get"}).submit();
-		};
-		// 상세
-		goEdit = function (idx) {
-			$dataForm.find("input[name='pageSize']").val(10);
-			$dataForm.find("input[name='currentPage']").val(1);
-			$dataForm.find("input[name='idx']").val(idx);
-			$dataForm.attr({"action": "/board/form", "target":"_self", "method":"get"}).submit();
-		};
+        $('#btn_excel').click(function () {
+            $dataForm.attr({"action": "/excel/download", "target": "_self", "method": "get"}).submit();
+        });
+        // 검색 초기화
+        searchClear = function () {
+            $searchForm.find("input[type=text]").val("");
+            $searchForm.find(".select_box").find("option:eq(0)").prop("selected", true);
+            goSearch();
+        };
+        // 페이지 이동
+        goPage = function (page) {
+            $dataForm.find("input[name='currentPage']").val(page);
+            $dataForm.attr({"action": "/board/list", "target": "_self", "method": "get"}).submit();
+        };
+        // 상세
+        goEdit = function (idx) {
+            $dataForm.find("input[name='pageSize']").val(10);
+            $dataForm.find("input[name='currentPage']").val(1);
+            $dataForm.find("input[name='idx']").val(idx);
+            $dataForm.attr({"action": "/board/form", "target": "_self", "method": "get"}).submit();
+        };
 
-		//페이지 사이즈 셋팅
-		setChangePageSize = function(obj){
-			var pageSize = $(obj).val();
-			if(pageSize != ''){
-				$dataForm.find("input[name='pageSize']").val(pageSize);
-				goPage(1);
-			}
-		}
-	});
+        //페이지 사이즈 셋팅
+        setChangePageSize = function (obj) {
+            var pageSize = $(obj).val();
+            if (pageSize != '') {
+                $dataForm.find("input[name='pageSize']").val(pageSize);
+                goPage(1);
+            }
+        }
+    });
 </script>
 </body>
 </html>

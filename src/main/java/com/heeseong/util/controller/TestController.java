@@ -17,12 +17,12 @@ public class TestController {
 
     @ResponseBody
     @GetMapping("/date")
-    public String date(@ModelAttribute Board board){
+    public String date(@ModelAttribute Board board) {
         String result = "실패";
-        try{
-            Object value = DateUtil.getCalculatorDateAndTime("2020-0d7-23T23:59:58",1,1,1,1,1,1 );
+        try {
+            Object value = DateUtil.getCalculatorDateAndTime("2020-0d7-23T23:59:58", 1, 1, 1, 1, 1, 1);
             return value.toString();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return e.getMessage();
         }

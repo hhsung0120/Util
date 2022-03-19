@@ -34,13 +34,13 @@ public class ExcelController {
     private BoardService boardService;
 
     @GetMapping("/download")
-    public void download(@ModelAttribute Board board, HttpServletRequest request, HttpServletResponse response){
+    public void download(@ModelAttribute Board board, HttpServletRequest request, HttpServletResponse response) {
         board.setPageSize(Integer.MAX_VALUE);
         List<Board> boardList = boardService.getBoardList(board);
 
         List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
 
-        for(int i=0; i<boardList.size(); i++){
+        for (int i = 0; i < boardList.size(); i++) {
             Map<String, Object> data = new HashMap<String, Object>();
             data.put("boardType", boardList.get(i).getBoardType());
             data.put("contents", boardList.get(i).getContents());
@@ -49,22 +49,22 @@ public class ExcelController {
             dataList.add(data);
         }
 
-        String [] rowTitle = {"타입","내용","제목","등록자"};
-        String [] dataName = {"boardType","contents","title","registrant"};
-        String fileName = "게시판엑셀"+DateUtil.getTodayAndNowTime("yyyy_MM_dd_HH_mm_ss");
-        ExcelUtil.executeExcelDownload(request,response,rowTitle,dataList,dataName,fileName,"");
+        String[] rowTitle = {"타입", "내용", "제목", "등록자"};
+        String[] dataName = {"boardType", "contents", "title", "registrant"};
+        String fileName = "게시판엑셀" + DateUtil.getTodayAndNowTime("yyyy_MM_dd_HH_mm_ss");
+        ExcelUtil.executeExcelDownload(request, response, rowTitle, dataList, dataName, fileName, "");
     }
 
     @ResponseBody
     @GetMapping("/read")
     public String read() throws Throwable {
-        String path = defaultUploadPath+"test2.xlsx";
+        String path = defaultUploadPath + "test2.xlsx";
         System.out.println(path);
         XExcelFileReader excelRead = new XExcelFileReader(path);
 
         List<Map<String, Object>> result = excelRead.readRows();
 
-        for(Map<String, Object> map : result){
+        for (Map<String, Object> map : result) {
             System.out.println(map.get("0"));
         }
         System.out.println("중복");

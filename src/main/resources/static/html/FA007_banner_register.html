@@ -1,26 +1,27 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<title>어니언 서비스 관리자</title>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../css/font.css">
-<link rel="stylesheet" href="../css/jquery-ui.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/jquery.bpopup.min.js"></script>
-<script src="../js/common.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>어니언 서비스 관리자</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery.bpopup.min.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 <body>
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
 <!-- wrapper -->
 <div id="wrapper">
-	<div id="header">
+    <div id="header">
         <div class="header_top">
             <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
             <div class="admin_box ">
@@ -29,7 +30,7 @@
                 </div>
             </div>
         </div>
-         <div id="gnb">
+        <div id="gnb">
             <ul class="depth_01">
                 <li><a href="#">전시상품관리</a></li>
                 <li class="active"><a href="#">메인관리</a></li>
@@ -37,170 +38,170 @@
                 <li class=""><a href="#">정산</a></li>
                 <li class=""><a href="#">고객지원(CS)</a></li>
                 <li class=""><a href="#">환경설정</a></li>
-             </ul>
+            </ul>
         </div>
-	</div>
-    
-	<div id="container">
+    </div>
+
+    <div id="container">
         <div id="lnb" class="side_menu open">
             <div class="tit_box">
                 <h5>메인관리</h5>
             </div>
-			 <!-- 전시상품 관리 lnb 
+            <!-- 전시상품 관리 lnb
+           <ul class="depth_none">
+               <li class="open">
+                   <a href="#">상품</a>
+               </li>
+           </ul>
+           <!-- //전시상품 관리 lnb -->
+
+            <!-- 메인관리 lnb  -->
             <ul class="depth_none">
-            	<li class="open">
-                    <a href="#">상품</a>
-                </li>
-			</ul>
-			<!-- //전시상품 관리 lnb -->
-				
-			<!-- 메인관리 lnb  -->
-			<ul class="depth_none">
                 <li class="">
                     <a href="#">베너</a>
                 </li>
-			</ul>
-				<!-- //메인관리 lnb -->
-				
-				<!-- 통계 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">구매현황</a>
-                </li>
-			</ul>
-				<!-- //통계 lnb -->
-				
-				<!-- 정산 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">정산</a>
-                </li>
-			</ul>
-				<!-- //정산 lnb -->
-			
-			
-				<!-- 고객지원 lnb --
-			<ul class="depth_02">
-				<li class="">
-                    <a href="#">CS상담관리</a>
-                </li>
-				<li class="">
-                    <a href="#">상담이력관리</a>
-                </li>
-			</ul>
-				<!-- //고객지원 lnb --
-				
-				<!-- 환경설정 lnb --
-			<ul class="depth_02">
-				<li class="">
-                    <a href="#">시스템 환경설정</a>
-                    <ul class="depth_03">
-                        <li><a href="#">메뉴관리</a></li>
-						<li><a href="#">계정</a></li>
-						<li><a href="#">서비스 구분</a></li>
-						<li><a href="#">수신 API</a></li>
-						<li><a href="#">발신 API</a></li>
-						<li><a href="#">PG관리</a></li>
-                    </ul>
-                </li>
-				<li class="">
-                    <a href="#">서비스 환경설정</a>
-                    <ul class="depth_03">
-                        <li><a href="#">공지사항</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">카테고리</a></li>
-						<li><a href="#">약관관리</a></li>
-						<li><a href="#">동기화</a></li>
-						<li><a href="#">개인정보열람이력</a></li>
-						<li><a href="#">이력조회</a></li>
-                    </ul>
-                </li>
-			</ul>
-			<!-- //환경설정 lnb -->
+            </ul>
+            <!-- //메인관리 lnb -->
+
+            <!-- 통계 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">구매현황</a>
+            </li>
+        </ul>
+            <!-- //통계 lnb -->
+
+            <!-- 정산 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">정산</a>
+            </li>
+        </ul>
+            <!-- //정산 lnb -->
+
+
+            <!-- 고객지원 lnb --
+        <ul class="depth_02">
+            <li class="">
+                <a href="#">CS상담관리</a>
+            </li>
+            <li class="">
+                <a href="#">상담이력관리</a>
+            </li>
+        </ul>
+            <!-- //고객지원 lnb --
+
+            <!-- 환경설정 lnb --
+        <ul class="depth_02">
+            <li class="">
+                <a href="#">시스템 환경설정</a>
+                <ul class="depth_03">
+                    <li><a href="#">메뉴관리</a></li>
+                    <li><a href="#">계정</a></li>
+                    <li><a href="#">서비스 구분</a></li>
+                    <li><a href="#">수신 API</a></li>
+                    <li><a href="#">발신 API</a></li>
+                    <li><a href="#">PG관리</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="#">서비스 환경설정</a>
+                <ul class="depth_03">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">카테고리</a></li>
+                    <li><a href="#">약관관리</a></li>
+                    <li><a href="#">동기화</a></li>
+                    <li><a href="#">개인정보열람이력</a></li>
+                    <li><a href="#">이력조회</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- //환경설정 lnb -->
             <a class="left_btn" href="#">이동</a>
         </div>
-        <div class="content open"> 
-             <ul id="nav">
+        <div class="content open">
+            <ul id="nav">
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">메인관리</a></li>
-				<li class="active"><a href="#">베너</a></li>
-            </ul>     
+                <li class="active"><a href="#">베너</a></li>
+            </ul>
             <h3 class="tit">베너 등록</h3>
             <div class="reg">
                 <table>
-					<colgroup>
-						<col style="width:15%">
-						<col style="width:75%">
-					</colgroup>
+                    <colgroup>
+                        <col style="width:15%">
+                        <col style="width:75%">
+                    </colgroup>
                     <tbody>
-                        <tr>
-                            <th><span class="point">제목</span></th>
-                            <td class="tal">
-								<div class="w-helf">
-                            		<input type="text">
-								</div>
-								<span class="tc_red">* 30자 이내로 입력해 주세요</span>
-							</td>
-						</tr>
-						<tr>
-							<th><span class="point">유형</span></th>
-                            <td class="tal">
-								<div class="w-helf">
-                                	<input type="text" >
-								</div>
-								<button class="btn-td btn-gray2 mgl5 mgr5" id="btn_Shproduct">상품</button>
-								<button class="btn-td btn-gray2" id="btn_Cate">카테고리</button>
-                            </td>
-						</tr>
-						<tr>
-							<th><span class="point">베너이미지</span></th>
-                            <td class="tal">
-								<div class="inner">
-									<!--button-->
-									<div class="upload-btn_wrap">
-									  <button type="button" title="파일찾기">
-									   <span>파일찾기</span>  
-									  </button>
-									  <input type="file" class="input_file" title="파일찾기">
-									</div>
-									<!--input box-->
-									<input type="text" class="upload_text" readonly="readonly">
-								</div>
-								<p class="tc_red mgt10">* PNG 혹은 JPG, 사이즈 1040*500, 1MB이하로 등록해주세요.</p>
-							</td>
-						</tr>
-                        <tr>
-							<th><span class="point">게시기간</span></th>
-                            <td class="tal">
-                                <div class="datepicker_box">
-                                    <input class="datepicker w-sm" type="text" >
+                    <tr>
+                        <th><span class="point">제목</span></th>
+                        <td class="tal">
+                            <div class="w-helf">
+                                <input type="text">
+                            </div>
+                            <span class="tc_red">* 30자 이내로 입력해 주세요</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="point">유형</span></th>
+                        <td class="tal">
+                            <div class="w-helf">
+                                <input type="text">
+                            </div>
+                            <button class="btn-td btn-gray2 mgl5 mgr5" id="btn_Shproduct">상품</button>
+                            <button class="btn-td btn-gray2" id="btn_Cate">카테고리</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="point">베너이미지</span></th>
+                        <td class="tal">
+                            <div class="inner">
+                                <!--button-->
+                                <div class="upload-btn_wrap">
+                                    <button type="button" title="파일찾기">
+                                        <span>파일찾기</span>
+                                    </button>
+                                    <input type="file" class="input_file" title="파일찾기">
                                 </div>
-								<div class="select-box-w w-xs_i mgl5 mgr5">
-									<label for="">선택</label>
-									<select>
-										<option selected="">선택</option>
-										<option>ooo</option>
-										<option>ooo</option>
-										<option>ooo</option>
-									</select>
-								</div>
-                                <span class="fs16">~</span>
-                                <div class="datepicker_box mgl5">
-                                    <input class="w-sm datepicker" type="text" >
-                                </div>
-								
-								<div class="select-box-w w-xs_i mgl5">
-									<label for="">선택</label>
-									<select>
-										<option selected="">선택</option>
-										<option>ooo</option>
-										<option>ooo</option>
-										<option>ooo</option>
-									</select>
-								</div>
-                            </td>
-                        </tr>
-						
+                                <!--input box-->
+                                <input type="text" class="upload_text" readonly="readonly">
+                            </div>
+                            <p class="tc_red mgt10">* PNG 혹은 JPG, 사이즈 1040*500, 1MB이하로 등록해주세요.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="point">게시기간</span></th>
+                        <td class="tal">
+                            <div class="datepicker_box">
+                                <input class="datepicker w-sm" type="text">
+                            </div>
+                            <div class="select-box-w w-xs_i mgl5 mgr5">
+                                <label for="">선택</label>
+                                <select>
+                                    <option selected="">선택</option>
+                                    <option>ooo</option>
+                                    <option>ooo</option>
+                                    <option>ooo</option>
+                                </select>
+                            </div>
+                            <span class="fs16">~</span>
+                            <div class="datepicker_box mgl5">
+                                <input class="w-sm datepicker" type="text">
+                            </div>
+
+                            <div class="select-box-w w-xs_i mgl5">
+                                <label for="">선택</label>
+                                <select>
+                                    <option selected="">선택</option>
+                                    <option>ooo</option>
+                                    <option>ooo</option>
+                                    <option>ooo</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
                     </tbody>
                 </table>
                 <div class="btn_wrap">
@@ -209,172 +210,192 @@
                 </div>
             </div>
         </div>
-	</div>
+    </div>
 </div>
 
 <!-- 상품검색 팝업 -->
-	<div id="pop_ShProduct" class="popup sm">
-		<div class="pop_header">
-			<h3 class="tit">상품 검색
-				<button class="pop_close fr b-close">닫기</button>
-			</h3>
-		</div>
-		<div class="pop_contents">
-			<div class="sh_ar">
-				<div class="sh_input">
-					<input type="search">
-				</div>
-				<button class="btn_sh btn-dark btn-sm">검색하기</button>
-			</div>
-			<div class="tbl_wrap mgt20">
-				<table class="list">
-					<colgroup>
-						<col style="width:50px">
-						<col style="width:auto">
-						<col style="width:110px">
-					</colgroup>
-					<thead>
-						<th>No</th>
-						<th>상품명</th>
-						<th>선택</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="paging_area">
-                    <nav>
-                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
-                        <button class="page prev" href="#">이전으로 이동</button>
-                        <a href="#">1</a>
-                        <a href="#" class="on">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <button class="page next" href="#">다음으로 이동</button>
-                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
-                    </nav>
-                </div>
-			</div>
-		</div>
-		<div class="pop_footer">
-			<div class="btn_wrap">
-				<button class="btn-md b-close">취소</button>
-				<button class="btn-md btn-dark">승인요청</button>
-			</div>
-		</div>
-	</div>	
-	
-	<!-- 카테고리 팝업 -->
-	<div id="pop_Cate" class="popup sm">
-		<div class="pop_header">
-			<h3 class="tit">카테고리
-				<button class="pop_close fr b-close">닫기</button>
-			</h3>
-		</div>
-		<div class="pop_contents">
-			<div class="sh_ar">
-				<div class="sh_input">
-					<input type="search">
-				</div>
-				<button class="btn_sh btn-dark btn-sm">검색하기</button>
-			</div>
-			<div class="tbl_wrap mgt20">
-				<table class="list">
-					<colgroup>
-						<col style="width:50px">
-						<col style="width:auto">
-						<col style="width:110px">
-					</colgroup>
-					<thead>
-						<th>No</th>
-						<th>카테고리명</th>
-						<th>선택</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>선물세트</td>
-							<td><button class="btn-sm btn-gray2">선택</button></td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="paging_area">
-                    <nav>
-                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
-                        <button class="page prev" href="#">이전으로 이동</button>
-                        <a href="#">1</a>
-                        <a href="#" class="on">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <button class="page next" href="#">다음으로 이동</button>
-                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
-                    </nav>
-                </div>
-			</div>
-		</div>
-		<div class="pop_footer">
-			<div class="btn_wrap">
-				<button class="btn-md b-close">취소</button>
-				<button class="btn-md btn-dark">승인요청</button>
-			</div>
-		</div>
-	</div>	
-	
+<div id="pop_ShProduct" class="popup sm">
+    <div class="pop_header">
+        <h3 class="tit">상품 검색
+            <button class="pop_close fr b-close">닫기</button>
+        </h3>
+    </div>
+    <div class="pop_contents">
+        <div class="sh_ar">
+            <div class="sh_input">
+                <input type="search">
+            </div>
+            <button class="btn_sh btn-dark btn-sm">검색하기</button>
+        </div>
+        <div class="tbl_wrap mgt20">
+            <table class="list">
+                <colgroup>
+                    <col style="width:50px">
+                    <col style="width:auto">
+                    <col style="width:110px">
+                </colgroup>
+                <thead>
+                <th>No</th>
+                <th>상품명</th>
+                <th>선택</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="paging_area">
+                <nav>
+                    <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                    <button class="page prev" href="#">이전으로 이동</button>
+                    <a href="#">1</a>
+                    <a href="#" class="on">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <button class="page next" href="#">다음으로 이동</button>
+                    <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="pop_footer">
+        <div class="btn_wrap">
+            <button class="btn-md b-close">취소</button>
+            <button class="btn-md btn-dark">승인요청</button>
+        </div>
+    </div>
+</div>
+
+<!-- 카테고리 팝업 -->
+<div id="pop_Cate" class="popup sm">
+    <div class="pop_header">
+        <h3 class="tit">카테고리
+            <button class="pop_close fr b-close">닫기</button>
+        </h3>
+    </div>
+    <div class="pop_contents">
+        <div class="sh_ar">
+            <div class="sh_input">
+                <input type="search">
+            </div>
+            <button class="btn_sh btn-dark btn-sm">검색하기</button>
+        </div>
+        <div class="tbl_wrap mgt20">
+            <table class="list">
+                <colgroup>
+                    <col style="width:50px">
+                    <col style="width:auto">
+                    <col style="width:110px">
+                </colgroup>
+                <thead>
+                <th>No</th>
+                <th>카테고리명</th>
+                <th>선택</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>선물세트</td>
+                    <td>
+                        <button class="btn-sm btn-gray2">선택</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="paging_area">
+                <nav>
+                    <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                    <button class="page prev" href="#">이전으로 이동</button>
+                    <a href="#">1</a>
+                    <a href="#" class="on">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <button class="page next" href="#">다음으로 이동</button>
+                    <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="pop_footer">
+        <div class="btn_wrap">
+            <button class="btn-md b-close">취소</button>
+            <button class="btn-md btn-dark">승인요청</button>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

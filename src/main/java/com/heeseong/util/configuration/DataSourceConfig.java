@@ -15,7 +15,7 @@ import com.zaxxer.hikari.HikariDataSource;
  * DB 관련 설정
  */
 @Configuration
-@MapperScan(basePackages="com.heeseong.util", sqlSessionFactoryRef="sqlSessionFactory", sqlSessionTemplateRef="sqlSessionTemplate")
+@MapperScan(basePackages = "com.heeseong.util", sqlSessionFactoryRef = "sqlSessionFactory", sqlSessionTemplateRef = "sqlSessionTemplate")
 @EnableTransactionManagement
 public class DataSourceConfig {
 

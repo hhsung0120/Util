@@ -16,59 +16,59 @@ jindo.Component = jindo.$Class({
     },
     option: function (sName, vValue) {
         switch (typeof sName) {
-        case "undefined":
-            return this._htOption;
-        case "string":
-            if (typeof vValue != "undefined") {
-                if (sName == "htCustomEventHandler") {
-                    if (typeof this._htOption[sName] == "undefined") {
-                        this.attach(vValue);
-                    } else {
-                        return this;
+            case "undefined":
+                return this._htOption;
+            case "string":
+                if (typeof vValue != "undefined") {
+                    if (sName == "htCustomEventHandler") {
+                        if (typeof this._htOption[sName] == "undefined") {
+                            this.attach(vValue);
+                        } else {
+                            return this;
+                        }
+                    }
+                    this._htOption[sName] = vValue;
+                    if (typeof this._htOption._htSetter[sName] == "function") {
+                        this._htOption._htSetter[sName](vValue);
+                    }
+                } else {
+                    return this._htOption[sName];
+                }
+                break;
+            case "object":
+                for (var sKey in sName) {
+                    if (sKey == "htCustomEventHandler") {
+                        if (typeof this._htOption[sKey] == "undefined") {
+                            this.attach(sName[sKey]);
+                        } else {
+                            continue;
+                        }
+                    }
+                    this._htOption[sKey] = sName[sKey];
+                    if (typeof this._htOption._htSetter[sKey] == "function") {
+                        this._htOption._htSetter[sKey](sName[sKey]);
                     }
                 }
-                this._htOption[sName] = vValue;
-                if (typeof this._htOption._htSetter[sName] == "function") {
-                    this._htOption._htSetter[sName](vValue);
-                }
-            } else {
-                return this._htOption[sName];
-            }
-            break;
-        case "object":
-            for (var sKey in sName) {
-                if (sKey == "htCustomEventHandler") {
-                    if (typeof this._htOption[sKey] == "undefined") {
-                        this.attach(sName[sKey]);
-                    } else {
-                        continue;
-                    }
-                }
-                this._htOption[sKey] = sName[sKey];
-                if (typeof this._htOption._htSetter[sKey] == "function") {
-                    this._htOption._htSetter[sKey](sName[sKey]);
-                }
-            }
-            break;
+                break;
         }
         return this;
     },
     optionSetter: function (sName, fSetter) {
         switch (typeof sName) {
-        case "undefined":
-            return this._htOption._htSetter;
-        case "string":
-            if (typeof fSetter != "undefined") {
-                this._htOption._htSetter[sName] = jindo.$Fn(fSetter, this).bind();
-            } else {
-                return this._htOption._htSetter[sName];
-            }
-            break;
-        case "object":
-            for (var sKey in sName) {
-                this._htOption._htSetter[sKey] = jindo.$Fn(sName[sKey], this).bind();
-            }
-            break;
+            case "undefined":
+                return this._htOption._htSetter;
+            case "string":
+                if (typeof fSetter != "undefined") {
+                    this._htOption._htSetter[sName] = jindo.$Fn(fSetter, this).bind();
+                } else {
+                    return this._htOption._htSetter[sName];
+                }
+                break;
+            case "object":
+                for (var sKey in sName) {
+                    this._htOption._htSetter[sKey] = jindo.$Fn(sName[sKey], this).bind();
+                }
+                break;
         }
         return this;
     },
@@ -106,7 +106,7 @@ jindo.Component = jindo.$Class({
         if (bHasHandlerList) {
             var fHandler;
             for (i = 0, fHandler;
-            (fHandler = aHandlerList[i]); i++) {
+                 (fHandler = aHandlerList[i]); i++) {
                 fHandler.apply(this, aArg);
             }
         }
@@ -136,7 +136,7 @@ jindo.Component = jindo.$Class({
         var aHandler = this._htEventHandler[sEvent];
         if (aHandler) {
             for (var i = 0, fHandler;
-            (fHandler = aHandler[i]); i++) {
+                 (fHandler = aHandler[i]); i++) {
                 if (fHandler === fHandlerToDetach) {
                     aHandler = aHandler.splice(i, 1);
                     break;
@@ -167,7 +167,7 @@ jindo.Component.factory = function (aObject, htOption) {
         htOption = {};
     }
     for (var i = 0, el;
-    (el = aObject[i]); i++) {
+         (el = aObject[i]); i++) {
         oInstance = new this(el, htOption);
         aReturn[aReturn.length] = oInstance;
     }
@@ -315,7 +315,7 @@ jindo.FileUploader = jindo.$Class({
             this._aHiddenInput.length = 0;
             this._removeIframe();
         }, this).bind();
-        
+
         elForm.submit();
         if (this.option("bAutoReset")) {
             this.reset();

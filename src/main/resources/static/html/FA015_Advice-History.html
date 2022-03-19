@@ -1,28 +1,29 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<title>Onion 관리자</title>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../css/font.css">
-<link rel="stylesheet" href="../css/jquery-ui.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/jquery.bpopup.min.js"></script>
-<script src="../js/common.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Onion 관리자</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery.bpopup.min.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 <body>
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
 
-	
+
 <!-- wrapper -->
 <div id="wrapper">
-	<div id="header">
+    <div id="header">
         <div class="header_top">
             <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
             <div class="admin_box ">
@@ -31,7 +32,7 @@
                 </div>
             </div>
         </div>
-         <div id="gnb">
+        <div id="gnb">
             <ul class="depth_01">
                 <li class=""><a href="#">전시상품관리</a></li>
                 <li class=""><a href="#">메인관리</a></li>
@@ -39,147 +40,149 @@
                 <li class=""><a href="#">정산</a></li>
                 <li class="active"><a href="#">고객지원(CS)</a></li>
                 <li class=""><a href="#">환경설정</a></li>
-             </ul>
+            </ul>
         </div>
-	</div>
-    
-	<div id="container">
+    </div>
+
+    <div id="container">
         <div id="lnb" class="side_menu open">
             <div class="tit_box">
                 <h5>고객지원(CS)</h5>
             </div>
-			 <!-- 전시상품 관리 lnb 
+            <!-- 전시상품 관리 lnb
+           <ul class="depth_none">
+               <li class="open">
+                   <a href="#">상품</a>
+               </li>
+           </ul>
+           <!-- //전시상품 관리 lnb -->
+
+            <!-- 메인관리 lnb
             <ul class="depth_none">
-            	<li class="open">
-                    <a href="#">상품</a>
-                </li>
-			</ul>
-			<!-- //전시상품 관리 lnb -->
-				
-			<!-- 메인관리 lnb 
-			<ul class="depth_none">
                 <li class="">
                     <a href="#">베너</a>
                 </li>
-			</ul>
-				<!-- //메인관리 lnb -->
-				
-				<!-- 통계 lnb --
-			<ul class="depth_none">
+            </ul>
+                <!-- //메인관리 lnb -->
+
+            <!-- 통계 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">구매현황</a>
+            </li>
+        </ul>
+            <!-- //통계 lnb -->
+
+            <!-- 정산 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">정산</a>
+            </li>
+        </ul>
+            <!-- //정산 lnb -->
+
+
+            <!-- 고객지원 lnb -->
+            <ul class="depth_none">
                 <li class="">
-                    <a href="#">구매현황</a>
-                </li>
-			</ul>
-				<!-- //통계 lnb -->
-				
-				<!-- 정산 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">정산</a>
-                </li>
-			</ul>
-				<!-- //정산 lnb -->
-			
-			
-				<!-- 고객지원 lnb -->
-			<ul class="depth_none">
-				<li class="">
                     <a href="#">CS상담관리</a>
                 </li>
-				<li class="open">
+                <li class="open">
                     <a href="#">상담이력관리</a>
                 </li>
-				<li class="">
+                <li class="">
                     <a href="#">CS문자관리</a>
                 </li>
-			</ul>
-				<!-- //고객지원 lnb -->
-				
-				<!-- 환경설정 lnb --
-			<ul class="depth_02">
-				<li class="">
-                    <a href="#">시스템 환경설정</a>
-                    <ul class="depth_03">
-                        <li><a href="#">메뉴관리</a></li>
-						<li><a href="#">계정</a></li>
-						<li><a href="#">서비스 구분</a></li>
-						<li><a href="#">수신 API</a></li>
-						<li><a href="#">발신 API</a></li>
-						<li><a href="#">PG관리</a></li>
-                    </ul>
-                </li>
-				<li class="">
-                    <a href="#">서비스 환경설정</a>
-                    <ul class="depth_03">
-                        <li><a href="#">공지사항</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">카테고리</a></li>
-						<li><a href="#">약관관리</a></li>
-						<li><a href="#">동기화</a></li>
-						<li><a href="#">개인정보열람이력</a></li>
-						<li><a href="#">이력조회</a></li>
-                    </ul>
-                </li>
-			</ul>
-			<!-- //환경설정 lnb -->
+            </ul>
+            <!-- //고객지원 lnb -->
+
+            <!-- 환경설정 lnb --
+        <ul class="depth_02">
+            <li class="">
+                <a href="#">시스템 환경설정</a>
+                <ul class="depth_03">
+                    <li><a href="#">메뉴관리</a></li>
+                    <li><a href="#">계정</a></li>
+                    <li><a href="#">서비스 구분</a></li>
+                    <li><a href="#">수신 API</a></li>
+                    <li><a href="#">발신 API</a></li>
+                    <li><a href="#">PG관리</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="#">서비스 환경설정</a>
+                <ul class="depth_03">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">카테고리</a></li>
+                    <li><a href="#">약관관리</a></li>
+                    <li><a href="#">동기화</a></li>
+                    <li><a href="#">개인정보열람이력</a></li>
+                    <li><a href="#">이력조회</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- //환경설정 lnb -->
             <a class="left_btn" href="#">이동</a>
         </div>
-        <div class="content open"> 
+        <div class="content open">
             <ul id="nav">
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">고객지원(CS)</a></li>
-				<li class="active"><a href="#">상담이력관리</a></li>
-            </ul>     
+                <li class="active"><a href="#">상담이력관리</a></li>
+            </ul>
             <h3 class="tit">상담이력관리 <span>상담이력을 조회합니다.</span></h3>
             <div class="sch_wrap">
                 <table>
-					<colgroup>
-						<col style="width:7%">
-						<col style="width:auto">
-						<col style="width:7%">
-						<col style="width:auto">
-						<col style="width:7%">
-						<col style="width:auto">
-						<col style="width:7%">
-						<col style="width:481px">
-					</colgroup>
+                    <colgroup>
+                        <col style="width:7%">
+                        <col style="width:auto">
+                        <col style="width:7%">
+                        <col style="width:auto">
+                        <col style="width:7%">
+                        <col style="width:auto">
+                        <col style="width:7%">
+                        <col style="width:481px">
+                    </colgroup>
                     <tbody>
-                        <tr>
-                            <th>주문번호</th>
-                            <td>
-                            	<input type="text">
-                            </td>
-							<th>쿠폰번호</th>
-                            <td>
-                                <input type="text">
-                            </td>
-							<th>구매자 H.P</th>
-                            <td>
-                                <input type="text">
-                            </td>
-							<th>처리일자</th>
-							<td class="tal">
-							    <div class="datepicker_box">
-                                    <input class="datepicker w-sm hasDatepicker" type="text" id="dp1587084821245"><img class="ui-datepicker-trigger" src="../images/icon_cal2.png" alt="..." title="...">
+                    <tr>
+                        <th>주문번호</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <th>쿠폰번호</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <th>구매자 H.P</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <th>처리일자</th>
+                        <td class="tal">
+                            <div class="datepicker_box">
+                                <input class="datepicker w-sm hasDatepicker" type="text" id="dp1587084821245"><img
+                                    class="ui-datepicker-trigger" src="../images/icon_cal2.png" alt="..." title="...">
+                            </div>
+                            <span class="fs16 mgl5">~</span>
+                            <div class="datepicker_box mgl5 mgr20">
+                                <input class="w-sm datepicker hasDatepicker" type="text" id="dp1587084821246"><img
+                                    class="ui-datepicker-trigger" src="../images/icon_cal2.png" alt="..." title="...">
+                            </div>
+                            <div class="radio_wrap">
+                                <div class="radio_box rect">
+                                    <input type="radio" name="ra3" id="ra3_1">
+                                    <label for="ra3_1">90일</label>
                                 </div>
-								<span class="fs16 mgl5">~</span>
-                                <div class="datepicker_box mgl5 mgr20">
-                                    <input class="w-sm datepicker hasDatepicker" type="text" id="dp1587084821246"><img class="ui-datepicker-trigger" src="../images/icon_cal2.png" alt="..." title="...">
+                                <div class="radio_box rect">
+                                    <input type="radio" name="ra3" id="ra3_2" checked="">
+                                    <label for="ra3_2">180일</label>
                                 </div>
-								<div class="radio_wrap">
-                                    <div class="radio_box rect">
-                                        <input type="radio" name="ra3" id="ra3_1">
-                                        <label for="ra3_1">90일</label>
-                                    </div>
-                                    <div class="radio_box rect">
-                                        <input type="radio" name="ra3" id="ra3_2" checked="">
-                                        <label for="ra3_2">180일</label>
-                                    </div>
-                                </div>
-								
-							</td>
-						</tr>
-					</tbody>
+                            </div>
+
+                        </td>
+                    </tr>
+                    </tbody>
                 </table>
                 <div class="btn_wrap">
                     <button class="btn-md">초기화</button>
@@ -189,164 +192,164 @@
             <div class="list_wrap">
                 <div class="list_info">
                     <dl class="fl">
-						<dt><h5>상담이력</h5></dt>
+                        <dt><h5>상담이력</h5></dt>
                     </dl>
                 </div>
                 <table class="list">
-					<colgroup>
-						<col style="width:50px">
-						<col style="width:80px">
-						<col style="width:80px">
-						<col style="width:80px">
-						<col style="width:120px">
-						<col style="width:150px">
-						<col style="width:auto">
-					</colgroup>
-				    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>CS코드</th>
-                            <th>CS유형</th>
-                            <th>처리자</th>
-                            <th>처리일자 ID</th>
-                            <th>처리일시</th>
-                            <th>메모</th>
-                         </tr>
+                    <colgroup>
+                        <col style="width:50px">
+                        <col style="width:80px">
+                        <col style="width:80px">
+                        <col style="width:80px">
+                        <col style="width:120px">
+                        <col style="width:150px">
+                        <col style="width:auto">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>CS코드</th>
+                        <th>CS유형</th>
+                        <th>처리자</th>
+                        <th>처리일자 ID</th>
+                        <th>처리일시</th>
+                        <th>메모</th>
+                    </tr>
                     </thead>
-				</table>
-				<div class="sc">
-					<table class="sc_list">
-						<colgroup>
-							<col style="width:50px">
-							<col style="width:80px">
-							<col style="width:80px">
-							<col style="width:80px">
-							<col style="width:120px">
-							<col style="width:150px">
-							<col style="width:auto">
-						</colgroup>
-						<tbody>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>CS2245678</td>
-								<td>CS1147556</td>
-								<td>홍길동</td>
-								<td>KKKSSESAA</td>
-								<td>2020-12-01 09:22:13</td>
-								<td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+                </table>
+                <div class="sc">
+                    <table class="sc_list">
+                        <colgroup>
+                            <col style="width:50px">
+                            <col style="width:80px">
+                            <col style="width:80px">
+                            <col style="width:80px">
+                            <col style="width:120px">
+                            <col style="width:150px">
+                            <col style="width:auto">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>CS2245678</td>
+                            <td>CS1147556</td>
+                            <td>홍길동</td>
+                            <td>KKKSSESAA</td>
+                            <td>2020-12-01 09:22:13</td>
+                            <td class="tal"><a class="memo_a">메모메모메모메모메모</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
-	<!-- memo POP -->
-	<div id="pop_memo" class="popup sm">
-		<div class="pop_header">
-			<h3 class="tit">메모
-				<button class="pop_close fr b-close">닫기</button>
-			</h3>
-		</div>
-		<div class="pop_contents">
-			<div class="tbl_wrap">
-				<table class="info_table">
-					<colgroup>
-						<col style="width:15%">
-						<col style="width:auto">
-					</colgroup>
-					
-					<tbody>
-						<tr>
-							<th><span class="point">메모</span></th>
-							<td>
-								<div class="memo2"> 메모내용</div>
-							</td>
-						</tr>
-						
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="pop_footer">
-			<div class="btn_wrap">
-				<button class="btn-md btn-dark b-close">닫기</button>
-			</div>
-		</div>
-	</div>
+<!-- memo POP -->
+<div id="pop_memo" class="popup sm">
+    <div class="pop_header">
+        <h3 class="tit">메모
+            <button class="pop_close fr b-close">닫기</button>
+        </h3>
+    </div>
+    <div class="pop_contents">
+        <div class="tbl_wrap">
+            <table class="info_table">
+                <colgroup>
+                    <col style="width:15%">
+                    <col style="width:auto">
+                </colgroup>
+
+                <tbody>
+                <tr>
+                    <th><span class="point">메모</span></th>
+                    <td>
+                        <div class="memo2"> 메모내용</div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="pop_footer">
+        <div class="btn_wrap">
+            <button class="btn-md btn-dark b-close">닫기</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -5,6 +5,7 @@ public class FormatUtil {
 
     /**
      * 천 단위 콤마
+     *
      * @param source 입력 값
      * @return String
      */
@@ -17,6 +18,7 @@ public class FormatUtil {
 
     /**
      * 문자열 내부의 콤마 모두 제거
+     *
      * @param source 입력 문자열
      * @return String
      */

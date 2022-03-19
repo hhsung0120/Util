@@ -27,18 +27,19 @@ public class BoardService {
      * 게시판 저장
      * idx > 0 수정
      * idx == null 저장
+     *
      * @param board
      * @return boolean
      * @throws Exception
      */
     @Transactional
     public boolean saveBoard(Board board, List<MultipartFile> fileList) throws Exception {
-        if(board.getIdx() == null){
+        if (board.getIdx() == null) {
             this.insertBoard(board);
-            if(board.getIdx() > 0){
+            if (board.getIdx() > 0) {
                 this.fileSave(board.getIdx(), fileList, defaultUploadPath);
             }
-        }else{
+        } else {
 
         }
 
@@ -47,6 +48,7 @@ public class BoardService {
 
     /**
      * 게시판 저장
+     *
      * @param board
      * @return
      */
@@ -67,15 +69,16 @@ public class BoardService {
 
     /**
      * 드라이브 파일 저장 및 DB 파일 정보 저장
-     * @param boardIdx 보드 IDX
-     * @param fileList 파일 리스트
+     *
+     * @param boardIdx   보드 IDX
+     * @param fileList   파일 리스트
      * @param uploadPath 업로드패스
      * @throws Exception
      */
-    private void fileSave(Integer boardIdx, List<MultipartFile> fileList, String uploadPath) throws Exception{
-        for(MultipartFile file : fileList){
+    private void fileSave(Integer boardIdx, List<MultipartFile> fileList, String uploadPath) throws Exception {
+        for (MultipartFile file : fileList) {
             CommonFile commonFile = FileUtil.executeFileUpload(file, uploadPath);
-            if(commonFile != null){
+            if (commonFile != null) {
                 commonFile.setBoardIdx(boardIdx);
                 commonFile.setRegistrant("하니성");
                 boardMapper.insertFileInfo(commonFile);
@@ -85,6 +88,7 @@ public class BoardService {
 
     /**
      * 리스트
+     *
      * @param board
      * @return List<Board>
      */
@@ -94,12 +98,13 @@ public class BoardService {
 
     /**
      * 게시판 상세
+     *
      * @param idx
      * @return
      */
     public Board getBoard(Integer idx) {
         Board board = boardMapper.selectBoard(idx);
-        if(board != null){
+        if (board != null) {
             board.setFileList(boardMapper.selectCommonFileList(board.getIdx()));
         }
         return board;

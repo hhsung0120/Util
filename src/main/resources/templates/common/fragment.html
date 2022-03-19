@@ -3,7 +3,8 @@
 
 <head th:fragment="head">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <title>util project</title>
     <link rel="stylesheet" href="/css/reset.css">
@@ -22,24 +23,33 @@
 
 <div th:fragment="paging">
     <nav>
-        <button type="button" class="page first" th:if="${paging.startPage} > 1" th:onclick="|goPage('1'); return false;|">맨 앞으로 이동</button>
-        <button type="button" class="page prev" th:if="${paging.startPage} > ${paging.blockSize}" th:onclick="|goPage(${paging.startPage - paging.blockSize}); return false;|">이전으로 이동</button>
-        <a href="#" th:each="i:${#numbers.sequence(paging.startPage,paging.endPage)}" th:class="${paging.currentPage==i} ? 'on'" th:text="${i}" th:onclick="|goPage(${i}); return false;|"></a>
-        <button type="button" class="page next" th:if="${paging.totalPageCount} < ${paging.totalPageCount}" th:onclick="|goPage(${paging.startPage + paging.blockSize}); return false;|">다음으로 이동</button>
-        <button type="button" class="page last" th:if="${paging.totalPageCount} > ${paging.totalPageCount}" th:onclick="|goPage(${paging.totalPageCount}); return false;|">맨 뒤로 이동</button>
+        <button type="button" class="page first" th:if="${paging.startPage} > 1"
+                th:onclick="|goPage('1'); return false;|">맨 앞으로 이동
+        </button>
+        <button type="button" class="page prev" th:if="${paging.startPage} > ${paging.blockSize}"
+                th:onclick="|goPage(${paging.startPage - paging.blockSize}); return false;|">이전으로 이동
+        </button>
+        <a href="#" th:each="i:${#numbers.sequence(paging.startPage,paging.endPage)}"
+           th:class="${paging.currentPage==i} ? 'on'" th:text="${i}" th:onclick="|goPage(${i}); return false;|"></a>
+        <button type="button" class="page next" th:if="${paging.totalPageCount} < ${paging.totalPageCount}"
+                th:onclick="|goPage(${paging.startPage + paging.blockSize}); return false;|">다음으로 이동
+        </button>
+        <button type="button" class="page last" th:if="${paging.totalPageCount} > ${paging.totalPageCount}"
+                th:onclick="|goPage(${paging.totalPageCount}); return false;|">맨 뒤로 이동
+        </button>
     </nav>
 </div>
 
 <div th:fragment="editor">
-<script type="text/javascript" src="/smartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript">
-var oEditors = [];
-nhn.husky.EZCreator.createInIFrame({
-    oAppRef: oEditors, elPlaceHolder: "[[${content}]]",sSkinURI: "/smartEditor/SmartEditor2Skin.html",
-    htParams:{bUseToolbar:true,bUseVerticalResizer:true,bUseModeChanger:true},
-    fCreator:"createSEditor2"
-});
-</script>
+    <script type="text/javascript" src="/smartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var oEditors = [];
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: oEditors, elPlaceHolder: "[[${content}]]", sSkinURI: "/smartEditor/SmartEditor2Skin.html",
+            htParams: {bUseToolbar: true, bUseVerticalResizer: true, bUseModeChanger: true},
+            fCreator: "createSEditor2"
+        });
+    </script>
 </div>
 
 </body>

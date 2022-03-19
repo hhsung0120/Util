@@ -6,7 +6,9 @@ import lombok.ToString;
 
 import java.time.LocalDateTime;
 
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 public class CommonFile {
     private Integer idx;
     private Integer boardIdx;

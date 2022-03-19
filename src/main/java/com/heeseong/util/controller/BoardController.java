@@ -29,12 +29,12 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("/list")
-    public ModelAndView list(@ModelAttribute Board board){
+    public ModelAndView list(@ModelAttribute Board board) {
         ModelAndView mav = new ModelAndView("/board/list");
 
         board.setTotalCount(boardService.getBoardListCount(board));
 
-        if(board.getTotalCount() > 0){
+        if (board.getTotalCount() > 0) {
             List<Board> boardList = boardService.getBoardList(board);
             mav.addObject("boardList", boardList);
             mav.addObject("paging", board);
@@ -45,11 +45,11 @@ public class BoardController {
     }
 
     @GetMapping("/form")
-    public ModelAndView form(@RequestParam(value="idx", required = false, defaultValue = "0")Integer idx){
+    public ModelAndView form(@RequestParam(value = "idx", required = false, defaultValue = "0") Integer idx) {
         ModelAndView mav = new ModelAndView("/board/form");
 
         Board board = new Board();
-        if(idx > 0){
+        if (idx > 0) {
             board = boardService.getBoard(idx);
         }
         mav.addObject("board", board);
@@ -59,28 +59,28 @@ public class BoardController {
     @ResponseBody
     @PostMapping("/form")
     public boolean form(@ModelAttribute Board board,
-                        @RequestParam("fileList")List<MultipartFile> fileList) throws Exception{
+                        @RequestParam("fileList") List<MultipartFile> fileList) throws Exception {
         return boardService.saveBoard(board, fileList);
     }
 
     @ResponseBody
     @PostMapping("/fileDownload")
-    public FileSystemResource fileDownload(@RequestParam(value="fileName", required = false, defaultValue = "")String fileName
-                                         , HttpServletRequest request
-                                         , HttpServletResponse response){
-        return FileUtil.executeFileDownload(fileName,defaultUploadPath,request,response);
+    public FileSystemResource fileDownload(@RequestParam(value = "fileName", required = false, defaultValue = "") String fileName
+            , HttpServletRequest request
+            , HttpServletResponse response) {
+        return FileUtil.executeFileDownload(fileName, defaultUploadPath, request, response);
     }
 
     @ResponseBody
     @PostMapping("/fileDelete")
-    public String fileDelete(@RequestParam(value="fileName", required = false, defaultValue = "")String fileName){
+    public String fileDelete(@RequestParam(value = "fileName", required = false, defaultValue = "") String fileName) {
         FileUtil.executeFileDelete(defaultUploadPath, fileName);
         return "성공";
     }
 
     @ResponseBody
     @GetMapping("/fileTest")
-    public String fileTest(@RequestParam(value="fileName", required = false, defaultValue = "")String fileName){
+    public String fileTest(@RequestParam(value = "fileName", required = false, defaultValue = "") String fileName) {
         System.out.println("들어왔음");
         FileUtil.executeFileReName(defaultUploadPath, defaultUploadPath, fileName, fileName);
         return "성공";

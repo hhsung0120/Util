@@ -4,151 +4,154 @@
 <head th:include="/common/fragment::head"></head>
 <body>
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
 <!-- wrapper -->
 <div id="wrapper">
-	<div id="header">
-		<div class="header_top">
-			<h1 class="logo_tx"><a href="#"><strong>Util</strong></a></h1>
-			<div class="admin_box ">
-				<div class="admin_info">
-				</div>
-			</div>
-		</div>
-		<div id="gnb">
-			<ul class="depth_01">
-				<li class="active"><a href="#">게시판</a></li>
-			</ul>
-		</div>
-	</div>
+    <div id="header">
+        <div class="header_top">
+            <h1 class="logo_tx"><a href="#"><strong>Util</strong></a></h1>
+            <div class="admin_box ">
+                <div class="admin_info">
+                </div>
+            </div>
+        </div>
+        <div id="gnb">
+            <ul class="depth_01">
+                <li class="active"><a href="#">게시판</a></li>
+            </ul>
+        </div>
+    </div>
 
-	<div id="container">
-		<div id="lnb" class="side_menu open">
-			<div class="tit_box">
-				<h5>게시판</h5>
-			</div>
-			<ul class="depth_none">
-				<li class="open">
-					<a href="#">게시판</a>
-				</li>
-			</ul>
-			<a class="left_btn" href="#">이동</a>
-		</div>
-		<div class="content open">
-			<ul id="nav">
-				<li><a href="#">HOME</a></li>
-				<li><a href="#">게시판</a></li>
-				<li class="active"><a href="#">게시판</a></li>
-			</ul>
-			<h3 class="tit">게시판 <span>게시판을 등록하고 관리합니다.</span></h3>
-			<div class="sch_wrap">
-				<form id="dataForm" name="dataForm" enctype="multipart/form-data">
-					<input type="hidden" name="idx" th:value="${board.idx}"/>
-					<table>
-						<colgroup>
-							<col style="width:15%">
-							<col style="width:35%">
-							<col style="width:15%">
-							<col style="width:35%">
-						</colgroup>
-						<tbody>
-						<tr>
-							<th><span class="point">제목</span></th>
-							<td colspan="3">
-								<input type="text" name="title" th:value="${board.title}"
-								   data-rule-required="true" data-msg-required="제목을 입력해주세요"
-								   data-rule-maxlength="50" data-msg-maxlength="50자 이하로 입력해주세요"/>
-							</td>
-						</tr>
-						<tr>
-							<th><span class="point">내용</span></th>
-							<td colspan="3">
-								<textarea class="memo" name="contents" id="contents" th:text="${board.contents}"></textarea>
-							</td>
-						</tr>
-						<tr>
-							<th><span class="point">파일</span></th>
-							<td colspan="3">
-								<input type="file" name="fileList" multiple/>
-							</td>
-						</tr>
-						<tr>
-							<th><span class="point">첨부파일</span></th>
-							<td colspan="3">
-								<div th:each="row:${board.getFileList()}">
-									<a href="javascript:void(0)" th:attr="fileName=${row.uuid}+'.'+${row.extension}" th:text="${row.getOriginalFileName()}" onclick="goFileDownload(this); return false;"></a>
-								</div>
-							</td>
-						</tr>
-						</tbody>
-					</table>
-					<div class="btn_wrap">
-						<button type="reset" class="btn-md">취소</button>
-						<button type="button" class="btn-md btn-yel" onclick="goSave();">등록</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+    <div id="container">
+        <div id="lnb" class="side_menu open">
+            <div class="tit_box">
+                <h5>게시판</h5>
+            </div>
+            <ul class="depth_none">
+                <li class="open">
+                    <a href="#">게시판</a>
+                </li>
+            </ul>
+            <a class="left_btn" href="#">이동</a>
+        </div>
+        <div class="content open">
+            <ul id="nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">게시판</a></li>
+                <li class="active"><a href="#">게시판</a></li>
+            </ul>
+            <h3 class="tit">게시판 <span>게시판을 등록하고 관리합니다.</span></h3>
+            <div class="sch_wrap">
+                <form id="dataForm" name="dataForm" enctype="multipart/form-data">
+                    <input type="hidden" name="idx" th:value="${board.idx}"/>
+                    <table>
+                        <colgroup>
+                            <col style="width:15%">
+                            <col style="width:35%">
+                            <col style="width:15%">
+                            <col style="width:35%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th><span class="point">제목</span></th>
+                            <td colspan="3">
+                                <input type="text" name="title" th:value="${board.title}"
+                                       data-rule-required="true" data-msg-required="제목을 입력해주세요"
+                                       data-rule-maxlength="50" data-msg-maxlength="50자 이하로 입력해주세요"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="point">내용</span></th>
+                            <td colspan="3">
+                                <textarea class="memo" name="contents" id="contents"
+                                          th:text="${board.contents}"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="point">파일</span></th>
+                            <td colspan="3">
+                                <input type="file" name="fileList" multiple/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="point">첨부파일</span></th>
+                            <td colspan="3">
+                                <div th:each="row:${board.getFileList()}">
+                                    <a href="javascript:void(0)" th:attr="fileName=${row.uuid}+'.'+${row.extension}"
+                                       th:text="${row.getOriginalFileName()}"
+                                       onclick="goFileDownload(this); return false;"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_wrap">
+                        <button type="reset" class="btn-md">취소</button>
+                        <button type="button" class="btn-md btn-yel" onclick="goSave();">등록</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- 에디터 설정 -->
 <div th:include="/common/fragment::editor(content='contents')"></div>
 
 <form id="fileForm">
-	<input type="hidden" name="fileName" value=""/>
+    <input type="hidden" name="fileName" value=""/>
 </form>
 
 <script>
-	var $dataForm = $("#dataForm");
-	var $fileForm = $("#fileForm");
+    var $dataForm = $("#dataForm");
+    var $fileForm = $("#fileForm");
 
-	// 폼체크
-	$dataForm.validate({
-		focusInvalid: false,onkeyup: false,onclick: false,onfocusout: false,
-		showErrors: function(errorMap,errorList){
-			if(this.numberOfInvalids()){
-				alert(errorList[0].message);
-				errorList[0].element.focus();
-				return false;
-			}
-		}
-	});
+    // 폼체크
+    $dataForm.validate({
+        focusInvalid: false, onkeyup: false, onclick: false, onfocusout: false,
+        showErrors: function (errorMap, errorList) {
+            if (this.numberOfInvalids()) {
+                alert(errorList[0].message);
+                errorList[0].element.focus();
+                return false;
+            }
+        }
+    });
 
-	goSave = function(){
-		if($dataForm.valid()){
-			// 에디터 폼체크
-			oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD",[]);
-			var editorCont = $.trim($("#contents").val());
+    goSave = function () {
+        if ($dataForm.valid()) {
+            // 에디터 폼체크
+            oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
+            var editorCont = $.trim($("#contents").val());
 
-			if(editorCont == "" || editorCont == null || editorCont=='&nbsp;' || editorCont=='<p>&nbsp;</p>'){
-				alert("글 내용을 입력해주세요.");
-				oEditors.getById["contents"].exec("FOCUS");
-				return;
-			}
+            if (editorCont == "" || editorCont == null || editorCont == '&nbsp;' || editorCont == '<p>&nbsp;</p>') {
+                alert("글 내용을 입력해주세요.");
+                oEditors.getById["contents"].exec("FOCUS");
+                return;
+            }
 
-			$dataForm.ajaxSubmit({
-				type:"POST"
-				, dataType:'text'
-				, url:"/board/form"
-				, success : function(data){
-					if(data == 'true'){
-						alert('성공');
-					}else{
-						alert('실패');
-					}
-				},error:function(x,error){
-					alert("처리중 오류가 발생했습니다.");
-				}
-			});
-		}
-	}
+            $dataForm.ajaxSubmit({
+                type: "POST"
+                , dataType: 'text'
+                , url: "/board/form"
+                , success: function (data) {
+                    if (data == 'true') {
+                        alert('성공');
+                    } else {
+                        alert('실패');
+                    }
+                }, error: function (x, error) {
+                    alert("처리중 오류가 발생했습니다.");
+                }
+            });
+        }
+    }
 
-	goFileDownload = function(obj){
-		var fileName = $(obj).attr('fileName');
-		$fileForm.find("input[name='fileName']").val(fileName);
-		$fileForm.attr({"action": "/board/fileDownload", "target":"_self", "method":"post"}).submit();
-	}
+    goFileDownload = function (obj) {
+        var fileName = $(obj).attr('fileName');
+        $fileForm.find("input[name='fileName']").val(fileName);
+        $fileForm.attr({"action": "/board/fileDownload", "target": "_self", "method": "post"}).submit();
+    }
 </script>
 </body>
 </html>

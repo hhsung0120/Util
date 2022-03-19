@@ -1,83 +1,84 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<title>Onion 관리자</title>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../css/font.css">
-<link rel="stylesheet" href="../css/jquery-ui.css">
-<link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/style.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/jquery.bpopup.min.js"></script>
-<script src="../js/common.js"></script>
-<script src="../js/jstree.js"></script>
-<script>
-	$(function () {
-		
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Onion 관리자</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery.bpopup.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/jstree.js"></script>
+    <script>
+        $(function () {
 
-    // 6 create an instance when the DOM is ready
-		$('#jstree').jstree({
-			"core" : {
-			"check_callback" : true,
-			"expand_select_onlonad" : true
-			},
-			
-			
-			 "plugins" : [
-							"contextmenu",
-							"dnd",
-							"sort",
-							"state",
-							"types",
-							"unique",
-							"changed",
-							"conditionalselect",
-				 			"themes",
-				 			"html_data",
-				 			"ui",
-				 			"crrm",
-				 			"sort"
-						]
-		});
-		
-		// 7 bind to events triggered on the tree
-		
-		
-		// 8 interact with the tree - either way is OK
-		$('button').on('click', function () {
-		  $('#jstree').jstree(true).select_node('child_node_1');
-		  $('#jstree').jstree('select_node', 'child_node_1');
-		  $.jstree.reference('#jstree').select_node('child_node_1');
-		});
-		$('#jstree').on('ready.jstree', function() {
-			$("#jstree").jstree("close_all");          
-		});
-		$('#jstree').on('click', '.jstree-anchor', function (e) {
-            $(this).jstree(true).toggle_node(e.target);
-        })
-        
-        $('#openall').on('click', function () {
-		  $("#jstree").jstree("open_all");   
-		});
-        $('#closeall').on('click', function () {
-		  $("#jstree").jstree("close_all");   
-		});
-  });
-	
 
-</script>
+            // 6 create an instance when the DOM is ready
+            $('#jstree').jstree({
+                "core": {
+                    "check_callback": true,
+                    "expand_select_onlonad": true
+                },
+
+
+                "plugins": [
+                    "contextmenu",
+                    "dnd",
+                    "sort",
+                    "state",
+                    "types",
+                    "unique",
+                    "changed",
+                    "conditionalselect",
+                    "themes",
+                    "html_data",
+                    "ui",
+                    "crrm",
+                    "sort"
+                ]
+            });
+
+            // 7 bind to events triggered on the tree
+
+
+            // 8 interact with the tree - either way is OK
+            $('button').on('click', function () {
+                $('#jstree').jstree(true).select_node('child_node_1');
+                $('#jstree').jstree('select_node', 'child_node_1');
+                $.jstree.reference('#jstree').select_node('child_node_1');
+            });
+            $('#jstree').on('ready.jstree', function () {
+                $("#jstree").jstree("close_all");
+            });
+            $('#jstree').on('click', '.jstree-anchor', function (e) {
+                $(this).jstree(true).toggle_node(e.target);
+            })
+
+            $('#openall').on('click', function () {
+                $("#jstree").jstree("open_all");
+            });
+            $('#closeall').on('click', function () {
+                $("#jstree").jstree("close_all");
+            });
+        });
+
+
+    </script>
 </head>
 <body class="jstree_wrap">
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
 <!-- wrapper -->
 <div id="wrapper">
-	<div id="header">
+    <div id="header">
         <div class="header_top">
             <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
             <div class="admin_box ">
@@ -86,7 +87,7 @@
                 </div>
             </div>
         </div>
-         <div id="gnb">
+        <div id="gnb">
             <ul class="depth_01">
                 <li class=""><a href="#">전시상품관리</a></li>
                 <li class=""><a href="#">메인관리</a></li>
@@ -94,102 +95,102 @@
                 <li class=""><a href="#">정산</a></li>
                 <li class=""><a href="#">고객지원(CS)</a></li>
                 <li class="active"><a href="#">환경설정</a></li>
-             </ul>
+            </ul>
         </div>
-	</div>
-    
-	<div id="container">
+    </div>
+
+    <div id="container">
         <div id="lnb" class="side_menu open">
             <div class="tit_box">
                 <h5>환경설정</h5>
             </div>
-			 <!-- 전시상품 관리 lnb -
+            <!-- 전시상품 관리 lnb -
+           <ul class="depth_none">
+               <li class="open">
+                   <a href="#">상품</a>
+               </li>
+           </ul>
+           <!-- //전시상품 관리 lnb -->
+
+            <!-- 메인관리 lnb
             <ul class="depth_none">
-            	<li class="open">
-                    <a href="#">상품</a>
-                </li>
-			</ul>
-			<!-- //전시상품 관리 lnb -->
-				
-			<!-- 메인관리 lnb 
-			<ul class="depth_none">
                 <li class="">
                     <a href="#">베너</a>
                 </li>
-			</ul>
-				<!-- //메인관리 lnb -->
-				
-				<!-- 통계 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">구매현황</a>
-                </li>
-			</ul>
-				<!-- //통계 lnb -->
-				
-				<!-- 정산 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">정산</a>
-                </li>
-			</ul>
-				<!-- //정산 lnb -->
-			
-			
-				<!-- 고객지원 lnb 
-			<ul class="depth_none">
-				<li class="">
-                    <a href="#">CS상담관리</a>
-                </li>
-				<li class="">
-                    <a href="#">상담이력관리</a>
-                </li>
-				<li class="open">
-                    <a href="#">CS문자관리</a>
-                </li>
-			</ul>
-				<!-- //고객지원 lnb -->
-				
-				<!-- 환경설정 lnb -->
-			<ul class="depth_02">
-				<li class="active open">
+            </ul>
+                <!-- //메인관리 lnb -->
+
+            <!-- 통계 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">구매현황</a>
+            </li>
+        </ul>
+            <!-- //통계 lnb -->
+
+            <!-- 정산 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">정산</a>
+            </li>
+        </ul>
+            <!-- //정산 lnb -->
+
+
+            <!-- 고객지원 lnb
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">CS상담관리</a>
+            </li>
+            <li class="">
+                <a href="#">상담이력관리</a>
+            </li>
+            <li class="open">
+                <a href="#">CS문자관리</a>
+            </li>
+        </ul>
+            <!-- //고객지원 lnb -->
+
+            <!-- 환경설정 lnb -->
+            <ul class="depth_02">
+                <li class="active open">
                     <a href="#">시스템 환경설정</a>
                     <ul class="depth_03">
                         <li class=""><a href="#">메뉴관리</a></li>
-						<li class=""><a href="#">계정</a></li>
-						<li class=""><a href="#">서비스 구분</a></li>
-						<li class=""><a href="#">수신 API</a></li>
-						<li class=""><a href="#">발신 API</a></li>
-						<li class=""><a href="#">PG관리</a></li>
+                        <li class=""><a href="#">계정</a></li>
+                        <li class=""><a href="#">서비스 구분</a></li>
+                        <li class=""><a href="#">수신 API</a></li>
+                        <li class=""><a href="#">발신 API</a></li>
+                        <li class=""><a href="#">PG관리</a></li>
                     </ul>
                 </li>
-				<li class="">
+                <li class="">
                     <a href="#">서비스 환경설정</a>
                     <ul class="depth_03">
                         <li class=""><a href="#">공지사항</a></li>
-						<li class=""><a href="#">FAQ</a></li>
-						<li class="active"><a href="#" class="on">카테고리</a></li>
-						<li class=""><a href="#">약관관리</a></li>
-						<li class=""><a href="#">동기화</a></li>
-						<li class=""><a href="#">개인정보열람이력</a></li>
-						<li class=""><a href="#">이력조회</a></li>
+                        <li class=""><a href="#">FAQ</a></li>
+                        <li class="active"><a href="#" class="on">카테고리</a></li>
+                        <li class=""><a href="#">약관관리</a></li>
+                        <li class=""><a href="#">동기화</a></li>
+                        <li class=""><a href="#">개인정보열람이력</a></li>
+                        <li class=""><a href="#">이력조회</a></li>
                     </ul>
                 </li>
-			</ul>
-			<!-- //환경설정 lnb -->
+            </ul>
+            <!-- //환경설정 lnb -->
             <a class="left_btn" href="#">이동</a>
         </div>
-        <div class="content open"> 
-             <ul id="nav">
+        <div class="content open">
+            <ul id="nav">
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">환경설정</a></li>
-				<li><a href="#">시스템 환경설정</a></li>
-				<li class="active"><a href="#">카테고리</a></li>
-            </ul>     
+                <li><a href="#">시스템 환경설정</a></li>
+                <li class="active"><a href="#">카테고리</a></li>
+            </ul>
             <h3 class="tit">카테고리<span>카테고리를 등록하고 관리합니다.</span></h3>
             <div class="col_warp">
-				<div class="col-2-left">
-					<!--tree menu-->
+                <div class="col-2-left">
+                    <!--tree menu-->
                     <nav class="tree-menu">
                         <button class="btn-md" id="openall">열기</button>
                         <button class="btn-md" id="closeall">닫기</button>
@@ -199,63 +200,63 @@
                             <ul>
                                 <li>암보험
                                     <ul>
-                                  <li>보험1</li>
-                                </ul>
+                                        <li>보험1</li>
+                                    </ul>
                                 </li>
                                 <li>자전거보험
                                     <ul>
-                                  <li>보험2</li>
-                                </ul>
+                                        <li>보험2</li>
+                                    </ul>
                                 </li>
                                 <li>여행보험
                                     <ul>
-                                  <li>보험3</li>
-                                </ul>
+                                        <li>보험3</li>
+                                    </ul>
                                 </li>
                             </ul>
-                          </div>
+                        </div>
                     </nav>
                     <!--//tree menu-->
-				
-				</div>
-				<div class="col-2-right">
-                    
+
                 </div>
-			</div>
+                <div class="col-2-right">
+
+                </div>
+            </div>
         </div>
-	</div>
+    </div>
     <!-- 신규등록 POP -->
-	<div id="pop_addnew" class="popup sm">
-		<div class="pop_header">
-			<h3 class="tit">신규
-				<button class="pop_close fr b-close">닫기</button>
-			</h3>
-		</div>
-		<div class="pop_contents">
-			
-			<div class="tbl_wrap">
-				<table class="info_table">
-					<colgroup>
-						<col style="width:30%">
-						<col style="width:auto">
-					</colgroup>
-					
-					<tbody>
-						<tr>
-							<th><span class="point">수신자 휴대폰번호</span></th>
-							<td><input type="text"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="pop_footer">
-			<div class="btn_wrap">
+    <div id="pop_addnew" class="popup sm">
+        <div class="pop_header">
+            <h3 class="tit">신규
+                <button class="pop_close fr b-close">닫기</button>
+            </h3>
+        </div>
+        <div class="pop_contents">
+
+            <div class="tbl_wrap">
+                <table class="info_table">
+                    <colgroup>
+                        <col style="width:30%">
+                        <col style="width:auto">
+                    </colgroup>
+
+                    <tbody>
+                    <tr>
+                        <th><span class="point">수신자 휴대폰번호</span></th>
+                        <td><input type="text"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="pop_footer">
+            <div class="btn_wrap">
                 <button class="btn-md btn-gray b-close">취소</button>
-				<button class="btn-md btn-dark">등록</button>
-			</div>
-		</div>
-	</div>
+                <button class="btn-md btn-dark">등록</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

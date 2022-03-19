@@ -22,8 +22,8 @@ public class DatabaseUtilController {
 
     @ResponseBody
     @GetMapping("getTableCoulumList")
-    public String getColums(@RequestParam(value="tableName",required = false, defaultValue = "")String tableName){
-        databaseService.getPrintObjectFromTableCoulumList("","board", "private");
+    public String getColums(@RequestParam(value = "tableName", required = false, defaultValue = "") String tableName) {
+        databaseService.getPrintObjectFromTableCoulumList("", "board", "private");
         String test = DateUtil.getToday("-");
         return "콘솔 확인!!!";
     }
@@ -40,13 +40,10 @@ public class DatabaseUtilController {
         board.setRegDate(DateUtil.getTodayAndNowTime());
         board.setModDate(board.getRegDate());
 
-        int count = databaseService.autoInsertIncludeAutoincrement("","board", board);
+        int count = databaseService.autoInsertIncludeAutoincrement("", "board", board);
         System.out.println(count);
         return "콘솔 확인!!!";
     }
-
-
-
 
 
 }

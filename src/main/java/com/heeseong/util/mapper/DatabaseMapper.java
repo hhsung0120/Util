@@ -13,10 +13,10 @@ import java.util.Map;
 public interface DatabaseMapper {
 
     @Select("SELECT *  FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=#{tableName} AND table_schema = DATABASE() ORDER BY ORDINAL_POSITION")
-    List<Map<String, String>> selectTableCoulumList(@Param("tableName")String tableName);
+    List<Map<String, String>> selectTableCoulumList(@Param("tableName") String tableName);
 
     @Select("SELECT *  FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=#{tableName} AND table_schema = #{tableSchema} ORDER BY ORDINAL_POSITION")
-    List<Map<String, String>> selectTableCoulumListOfTableSchema(@Param("tableSchema")String tableSchema, @Param("tableName")String tableName);
+    List<Map<String, String>> selectTableCoulumListOfTableSchema(@Param("tableSchema") String tableSchema, @Param("tableName") String tableName);
 
     @Options(useGeneratedKeys = true, keyProperty = "autoIncrementKey")
     @Insert("INSERT INTO ${tableName}(${insertColumn})VALUES(${insertValue})")

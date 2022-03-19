@@ -13,10 +13,11 @@ import java.net.URLEncoder;
 import java.util.UUID;
 
 @Slf4j
-public class FileUtil{
+public class FileUtil {
 
     /**
      * 업로드 경로에 폴더 존재하지 않을 시 폴더생성
+     *
      * @param uploadPath 폴더 경로
      */
     public static void makeUploadPathDirectory(String uploadPath) {
@@ -28,6 +29,7 @@ public class FileUtil{
 
     /**
      * 파일 확장자
+     *
      * @param fileName
      * @return String
      */
@@ -37,20 +39,22 @@ public class FileUtil{
 
     /**
      * UUID 생성
+     *
      * @param fileName
      * @return UUID + 확장자
      */
-    public static String getUuidFileName(String fileName){
+    public static String getUuidFileName(String fileName) {
         return UUID.randomUUID().toString().replace("-", "");
     }
 
     /**
      * 파일 업로드 실행메서드
-     * @param file multipartFile data
+     *
+     * @param file       multipartFile data
      * @param uploadPath 업로드 디렉토리(풀경롤 default + custom)
      * @return CommonFile
      */
-    public static CommonFile executeFileUpload(MultipartFile file, String uploadPath){
+    public static CommonFile executeFileUpload(MultipartFile file, String uploadPath) {
         try {
             CommonFile commonFile = new CommonFile();
 
@@ -73,7 +77,7 @@ public class FileUtil{
             fos.close();*/
 
             return commonFile;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
         return null;
@@ -81,6 +85,7 @@ public class FileUtil{
 
     /**
      * 파일 다운로드
+     *
      * @param fileName   파일이름
      * @param uploadPath 파일경로
      * @param request
@@ -88,13 +93,13 @@ public class FileUtil{
      * @return FileSystemResource
      */
     public static FileSystemResource executeFileDownload(String fileName
-                                                        , String uploadPath
-                                                        , HttpServletRequest request
-                                                        , HttpServletResponse response){
-        try{
-            File file = new File(uploadPath+fileName);
+            , String uploadPath
+            , HttpServletRequest request
+            , HttpServletResponse response) {
+        try {
+            File file = new File(uploadPath + fileName);
 
-            if(file.exists()){
+            if (file.exists()) {
                 String downloadFileName = fileName;
 
                 String browser = request.getHeader("User-Agent");
@@ -104,11 +109,10 @@ public class FileUtil{
                 } else {
                     downloadFileName = new String(downloadFileName.getBytes("UTF-8"), "ISO-8859-1");
                 }
-                response.setHeader("Content-Disposition","attachment; filename="+downloadFileName);
+                response.setHeader("Content-Disposition", "attachment; filename=" + downloadFileName);
                 return new FileSystemResource(file);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
         return null;
@@ -117,18 +121,19 @@ public class FileUtil{
 
     /**
      * 파일삭제 실행 메서드
+     *
      * @param filePath 파일경로
      * @param fileName 파일이름
      * @return boolean
      */
-    public static boolean executeFileDelete(String filePath, String fileName){
+    public static boolean executeFileDelete(String filePath, String fileName) {
         boolean result = false;
-        try{
-            File file = new File(filePath+fileName);
-            if(file.exists()){
+        try {
+            File file = new File(filePath + fileName);
+            if (file.exists()) {
                 result = file.delete();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
         return result;
@@ -136,25 +141,26 @@ public class FileUtil{
 
     /**
      * 피일 이동(원본 보존 X)
+     *
      * @param sorucePath 원본파일
      * @param targetPath 파일이 이동할 곳
-     * @param fileName 파일 이름
+     * @param fileName   파일 이름
      * @return boolean
      */
-    public static boolean executeFileMove(String sorucePath, String targetPath, String fileName){
+    public static boolean executeFileMove(String sorucePath, String targetPath, String fileName) {
         boolean result = false;
-        try{
-            File sourcefile = new File(sorucePath+fileName);
-            if(sourcefile.exists()){
-                String moveDirectory = targetPath+"move"+File.separator;
+        try {
+            File sourcefile = new File(sorucePath + fileName);
+            if (sourcefile.exists()) {
+                String moveDirectory = targetPath + "move" + File.separator;
 
                 makeUploadPathDirectory(moveDirectory);
 
-                File targetFile = new File(moveDirectory+fileName);
+                File targetFile = new File(moveDirectory + fileName);
 
                 result = sourcefile.renameTo(targetFile);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
         return result;
@@ -163,26 +169,27 @@ public class FileUtil{
     /**
      * 피일 이름 변경(원본 보존 X)
      * targetPath에 같은 파일이(이름) 존재하면 false
+     *
      * @param sorucePath 원본파일
      * @param targetPath 이동할 경로
-     * @param fileName 원본파일이름
-     * @param reName 변경할 파일이름
+     * @param fileName   원본파일이름
+     * @param reName     변경할 파일이름
      * @return boolean
      */
-    public static boolean executeFileReName(String sorucePath, String targetPath, String fileName, String reName){
+    public static boolean executeFileReName(String sorucePath, String targetPath, String fileName, String reName) {
         boolean result = false;
-        try{
-            File sourcefile = new File(sorucePath+fileName);
-            if(sourcefile.exists()){
-                String moveDirectory = targetPath+"move"+File.separator;
+        try {
+            File sourcefile = new File(sorucePath + fileName);
+            if (sourcefile.exists()) {
+                String moveDirectory = targetPath + "move" + File.separator;
 
                 makeUploadPathDirectory(moveDirectory);
 
-                File targetFile = new File(moveDirectory+reName);
+                File targetFile = new File(moveDirectory + reName);
 
                 result = sourcefile.renameTo(targetFile);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
         return result;

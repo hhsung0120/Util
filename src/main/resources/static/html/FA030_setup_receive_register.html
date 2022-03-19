@@ -1,26 +1,27 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<title>어니언 서비스 관리자</title>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../css/font.css">
-<link rel="stylesheet" href="../css/jquery-ui.css">
-<link rel="stylesheet" href="../css/common.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/jquery.bpopup.min.js"></script>
-<script src="../js/common.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>어니언 서비스 관리자</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery.bpopup.min.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 <body>
 <!-- 로딩 -->
-<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..." /></div>
+<div id="loading"><img id="loading-image" src="../images/loading.gif" alt="Loading..."/></div>
 <!-- 로딩 -->
 <!-- wrapper -->
 <div id="wrapper">
-	<div id="header">
+    <div id="header">
         <div class="header_top">
             <h1 class="logo_tx"><a href="#"><strong>Onion</strong> Administrator</a></h1>
             <div class="admin_box ">
@@ -29,7 +30,7 @@
                 </div>
             </div>
         </div>
-         <div id="gnb">
+        <div id="gnb">
             <ul class="depth_01">
                 <li class="active"><a href="#">전시상품관리</a></li>
                 <li class=""><a href="#">메인관리</a></li>
@@ -37,129 +38,131 @@
                 <li class=""><a href="#">정산</a></li>
                 <li class=""><a href="#">고객지원(CS)</a></li>
                 <li class=""><a href="#">환경설정</a></li>
-             </ul>
+            </ul>
         </div>
-	</div>
-    
-	<div id="container">
+    </div>
+
+    <div id="container">
         <div id="lnb" class="side_menu open">
             <div class="tit_box">
                 <h5>환경설정</h5>
             </div>
-			 <!-- 전시상품 관리 lnb 
+            <!-- 전시상품 관리 lnb
+           <ul class="depth_none">
+               <li class="open">
+                   <a href="#">상품</a>
+               </li>
+           </ul>
+           <!-- //전시상품 관리 lnb -->
+
+            <!-- 메인관리 lnb
             <ul class="depth_none">
-            	<li class="open">
-                    <a href="#">상품</a>
-                </li>
-			</ul>
-			<!-- //전시상품 관리 lnb -->
-				
-			<!-- 메인관리 lnb 
-			<ul class="depth_none">
                 <li class="">
                     <a href="#">베너</a>
                 </li>
-			</ul>
-				<!-- //메인관리 lnb -->
-				
-				<!-- 통계 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">구매현황</a>
-                </li>
-			</ul>
-				<!-- //통계 lnb -->
-				
-				<!-- 정산 lnb --
-			<ul class="depth_none">
-                <li class="">
-                    <a href="#">정산</a>
-                </li>
-			</ul>
-				<!-- //정산 lnb -->
-			
-			
-				<!-- 고객지원 lnb 
-			<ul class="depth_none">
-				<li class="">
-                    <a href="#">CS상담관리</a>
-                </li>
-				<li class="open">
-                    <a href="#">상담이력관리</a>
-                </li>
-				<li class="">
-                    <a href="#">CS문자관리</a>
-                </li>
-			</ul>
-				<!-- //고객지원 lnb -->
-				
-				<!-- 환경설정 lnb -->
-			<ul class="depth_02">
-				<li class="active open">
+            </ul>
+                <!-- //메인관리 lnb -->
+
+            <!-- 통계 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">구매현황</a>
+            </li>
+        </ul>
+            <!-- //통계 lnb -->
+
+            <!-- 정산 lnb --
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">정산</a>
+            </li>
+        </ul>
+            <!-- //정산 lnb -->
+
+
+            <!-- 고객지원 lnb
+        <ul class="depth_none">
+            <li class="">
+                <a href="#">CS상담관리</a>
+            </li>
+            <li class="open">
+                <a href="#">상담이력관리</a>
+            </li>
+            <li class="">
+                <a href="#">CS문자관리</a>
+            </li>
+        </ul>
+            <!-- //고객지원 lnb -->
+
+            <!-- 환경설정 lnb -->
+            <ul class="depth_02">
+                <li class="active open">
                     <a href="#">시스템 환경설정</a>
                     <ul class="depth_03">
                         <li class=""><a href="#">메뉴관리</a></li>
-						<li class=""><a href="#">계정</a></li>
-						<li class=""><a href="#">DB설정</a></li>
-						<li class="active"><a href="#" class="on">수신 API</a></li>
-						<li class=""><a href="#">발신 API</a></li>
-						<li class=""><a href="#">PG관리</a></li>
+                        <li class=""><a href="#">계정</a></li>
+                        <li class=""><a href="#">DB설정</a></li>
+                        <li class="active"><a href="#" class="on">수신 API</a></li>
+                        <li class=""><a href="#">발신 API</a></li>
+                        <li class=""><a href="#">PG관리</a></li>
                     </ul>
                 </li>
-				<li class="">
+                <li class="">
                     <a href="#">서비스 환경설정</a>
                     <ul class="depth_03">
                         <li><a href="#">공지사항</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">카테고리</a></li>
-						<li><a href="#">약관관리</a></li>
-						<li><a href="#">동기화</a></li>
-						<li><a href="#">개인정보열람이력</a></li>
-						<li><a href="#">이력조회</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">카테고리</a></li>
+                        <li><a href="#">약관관리</a></li>
+                        <li><a href="#">동기화</a></li>
+                        <li><a href="#">개인정보열람이력</a></li>
+                        <li><a href="#">이력조회</a></li>
                     </ul>
                 </li>
-			</ul>
-			<!-- //환경설정 lnb -->
+            </ul>
+            <!-- //환경설정 lnb -->
             <a class="left_btn" href="#">이동</a>
         </div>
-        <div class="content open"> 
-             <ul id="nav">
+        <div class="content open">
+            <ul id="nav">
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">환경설정</a></li>
                 <li><a href="#">시스템환경설정</a></li>
-				<li class="active"><a href="#">수신 API</a></li>
-            </ul>     
+                <li class="active"><a href="#">수신 API</a></li>
+            </ul>
             <h3 class="tit">수신 API 등록</h3>
             <div class="sch_wrap">
                 <table>
-					<colgroup>
-						<col style="width:11%">
-						<col style="width:22%">
-						<col style="width:11%">
-						<col style="width:22%">
+                    <colgroup>
                         <col style="width:11%">
-						<col style="width:auto">
-					</colgroup>
+                        <col style="width:22%">
+                        <col style="width:11%">
+                        <col style="width:22%">
+                        <col style="width:11%">
+                        <col style="width:auto">
+                    </colgroup>
                     <tbody>
-                        <tr>
-                            <th><span class="point">API 유형</span></th>
-                            <td><input type="text"></td>
-                            <th><span class="point">API 명</span></th>
-                            <td><input type="text"></td>
-                            <th><span class="point">API 코드</span></th>
-                            <td><input type="text"></td>
-						</tr>
-                        <tr>
-                            <th><span class="point">API 설명</span></th>
-                            <td><input type="text"></td>
-                            <th><span class="point">서비스명</span></th>
-                            <td><input type="text" disabled class="sh_inp"><button class="btn_sh" id="btn_service">검색</button></td>
-                            <th><span class="point">URL</span></th>
-                            <td><input type="text"></td>
-						</tr>
-				    </tbody>
+                    <tr>
+                        <th><span class="point">API 유형</span></th>
+                        <td><input type="text"></td>
+                        <th><span class="point">API 명</span></th>
+                        <td><input type="text"></td>
+                        <th><span class="point">API 코드</span></th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th><span class="point">API 설명</span></th>
+                        <td><input type="text"></td>
+                        <th><span class="point">서비스명</span></th>
+                        <td><input type="text" disabled class="sh_inp">
+                            <button class="btn_sh" id="btn_service">검색</button>
+                        </td>
+                        <th><span class="point">URL</span></th>
+                        <td><input type="text"></td>
+                    </tr>
+                    </tbody>
                 </table>
-                
+
                 <div class="btn_list">
                     <h4> REQUEST API</h4>
                     <table class="list">
@@ -174,48 +177,50 @@
                             <col style="width:9">
                         </colgroup>
                         <thead>
-                            <tr>
-                                <th>연동정보수신API<br>정보일련번호</th>
-                                <th>서비스<br>컬럼명_한글</th>
-                                <th>서비스<br>컬럼명_영문</th>
-                                <th>컬럼데이터<br>타입코드</th>
-                                <th>컬럼데이터<br>길이</th>
-                                <th>필수</th>
-                                <th>컬럼 설명</th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>연동정보수신API<br>정보일련번호</th>
+                            <th>서비스<br>컬럼명_한글</th>
+                            <th>서비스<br>컬럼명_영문</th>
+                            <th>컬럼데이터<br>타입코드</th>
+                            <th>컬럼데이터<br>길이</th>
+                            <th>필수</th>
+                            <th>컬럼 설명</th>
+                            <th></th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr name="trStaff">
-                                <td>1</td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td>
-                                    <div class="select-box-w">
-                                        <label for="">선택</label>
-                                        <select>
-                                            <option selected="">선택</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <td><input type="text"></td>
-                                <td>
-                                    <div class="select-box-w">
-                                        <label for="">선택</label>
-                                        <select>
-                                            <option selected="">선택</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <td><input type="text"></td>
-                                <td><button class="btn-sm btn-gray" name="delStaff">삭제</button></td>
-                            </tr>
+                        <tr name="trStaff">
+                            <td>1</td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td>
+                                <div class="select-box-w">
+                                    <label for="">선택</label>
+                                    <select>
+                                        <option selected="">선택</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td><input type="text"></td>
+                            <td>
+                                <div class="select-box-w">
+                                    <label for="">선택</label>
+                                    <select>
+                                        <option selected="">선택</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td><input type="text"></td>
+                            <td>
+                                <button class="btn-sm btn-gray" name="delStaff">삭제</button>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                     <button name="addStaff" class="btn-full btn-yel mgt10">추가</button>
@@ -234,48 +239,50 @@
                             <col style="width:9">
                         </colgroup>
                         <thead>
-                            <tr>
-                                <th>연동정보수신API<br>정보일련번호</th>
-                                <th>서비스<br>컬럼명_한글</th>
-                                <th>서비스<br>컬럼명_영문</th>
-                                <th>컬럼데이터<br>타입코드</th>
-                                <th>컬럼데이터<br>길이</th>
-                                <th>필수</th>
-                                <th>컬럼 설명</th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>연동정보수신API<br>정보일련번호</th>
+                            <th>서비스<br>컬럼명_한글</th>
+                            <th>서비스<br>컬럼명_영문</th>
+                            <th>컬럼데이터<br>타입코드</th>
+                            <th>컬럼데이터<br>길이</th>
+                            <th>필수</th>
+                            <th>컬럼 설명</th>
+                            <th></th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr name="trStaff2">
-                                <td>1</td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td>
-                                    <div class="select-box-w">
-                                        <label for="">선택</label>
-                                        <select>
-                                            <option selected="">선택</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <td><input type="text"></td>
-                                <td>
-                                    <div class="select-box-w">
-                                        <label for="">선택</label>
-                                        <select>
-                                            <option selected="">선택</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                            <option>ooo</option>
-                                        </select>
-                                    </div>
-                                </td>
-                                <td><input type="text"></td>
-                                <td><button class="btn-sm btn-gray" name="delStaff2">삭제</button></td>
-                            </tr>
+                        <tr name="trStaff2">
+                            <td>1</td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td>
+                                <div class="select-box-w">
+                                    <label for="">선택</label>
+                                    <select>
+                                        <option selected="">선택</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td><input type="text"></td>
+                            <td>
+                                <div class="select-box-w">
+                                    <label for="">선택</label>
+                                    <select>
+                                        <option selected="">선택</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                        <option>ooo</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td><input type="text"></td>
+                            <td>
+                                <button class="btn-sm btn-gray" name="delStaff2">삭제</button>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                     <button name="addStaff2" class="btn-full btn-yel mgt10">추가</button>
@@ -285,276 +292,277 @@
                     <button class="btn-md btn-yel">등록</button>
                 </div>
             </div>
-            
+
 
         </div>
-	</div>
+    </div>
 </div>
-    <div id="pop_service" class="popup w-xxl">
-		<div class="pop_header">
-			<h3 class="tit">서비스 분류
-				<button class="pop_close fr b-close">닫기</button>
-			</h3>
-		</div>
-		<div class="pop_contents h_sc">
-			<h4>추가할 서비스 목록 (전체 6개)</h4>
-			<div class="sch_wrap">
-				<table>
-					<colgroup>
-						<col style="width:12%">
-						<col style="width:21%">
-						<col style="width:12%">
-						<col style="width:21%">
-                        <col style="width:12%">
-						<col style="width:auto">
-					</colgroup>
-                    <tbody>
-                        <tr>
-                            <th>판매채널명</th>
-                            <td>
-                            	<input type="text">
-                            </td>
-							<th>서비스명</th>
-                            <td>
-                                <input type="text">
-                            </td>
-                            <th>서비스 코드</th>
-                            <td>
-                                <input type="text">
-                            </td>
-						</tr>
-                        
-                    </tbody>
-                </table>
-                <div class="btn_wrap">
-                    <button class="btn-md">초기화</button>
-                    <button class="btn-md btn-yel">검색</button>
-                </div>
-			</div>
-			<div class="mgb0">
-				<div class="h300_auto">
-					<table class="list">
-						<colgroup>
-						<col style="width:70px">
-						<col style="width:200px">
-						<col style="">
+<div id="pop_service" class="popup w-xxl">
+    <div class="pop_header">
+        <h3 class="tit">서비스 분류
+            <button class="pop_close fr b-close">닫기</button>
+        </h3>
+    </div>
+    <div class="pop_contents h_sc">
+        <h4>추가할 서비스 목록 (전체 6개)</h4>
+        <div class="sch_wrap">
+            <table>
+                <colgroup>
+                    <col style="width:12%">
+                    <col style="width:21%">
+                    <col style="width:12%">
+                    <col style="width:21%">
+                    <col style="width:12%">
+                    <col style="width:auto">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>판매채널명</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <th>서비스명</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <th>서비스 코드</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="btn_wrap">
+                <button class="btn-md">초기화</button>
+                <button class="btn-md btn-yel">검색</button>
+            </div>
+        </div>
+        <div class="mgb0">
+            <div class="h300_auto">
+                <table class="list">
+                    <colgroup>
+                        <col style="width:70px">
+                        <col style="width:200px">
+                        <col style="">
                         <col style="width:150px">
-					</colgroup>
-						<thead>
-							<tr>
-								<th>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</th>
-								<th>판매채널명</th>
-								<th>서비스명</th>
-								<th>서비스코드</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
+                        </th>
+                        <th>판매채널명</th>
+                        <th>서비스명</th>
+                        <th>서비스코드</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-							<tr>
-								<td>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
 									<span class="checkbox_s">
 										<label class="checkbox-wrap_s">
 										<input type="checkbox" name="" value="" checked="">
 										<i class="check-icon"></i>  
 										</label>
 									</span>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-                <div class="paging_area bm_btn">
-                    <nav>
-                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
-                        <button class="page prev" href="#" >이전으로 이동</button>
-                        <a href="#">1</a>
-                        <a href="#" class="on">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <button class="page next" href="#">다음으로 이동</button>
-                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
-                    </nav>
-                </div>
-                <div class="btn_ar mgb30">
-                    <button class="btn-sm btn-gray">추가</button><button class="btn-sm btn-gray2 mgl5">전체추가</button>
-                </div>
-			</div>
-			<div class="mgb0">
-				<h4>추가된 서비스 목록 (전체 6개)</h4>
-				<div class="h300_auto mgt10">
-					<table class="list">
-						<colgroup>
-						<col style="width:70px">
-						<col style="width:200px">
-						<col style="">
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging_area bm_btn">
+                <nav>
+                    <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                    <button class="page prev" href="#">이전으로 이동</button>
+                    <a href="#">1</a>
+                    <a href="#" class="on">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <button class="page next" href="#">다음으로 이동</button>
+                    <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                </nav>
+            </div>
+            <div class="btn_ar mgb30">
+                <button class="btn-sm btn-gray">추가</button>
+                <button class="btn-sm btn-gray2 mgl5">전체추가</button>
+            </div>
+        </div>
+        <div class="mgb0">
+            <h4>추가된 서비스 목록 (전체 6개)</h4>
+            <div class="h300_auto mgt10">
+                <table class="list">
+                    <colgroup>
+                        <col style="width:70px">
+                        <col style="width:200px">
+                        <col style="">
                         <col style="width:150px">
-					</colgroup>
-						<thead>
-							<tr>
-								<th>삭제</th>
-								<th>판매채널명</th>
-								<th>서비스명</th>
-								<th>서비스코드</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<button class="btn-xs">삭제</button>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn-xs">삭제</button>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
-									<button class="btn-xs">삭제</button>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
-									<button class="btn-xs">삭제</button>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
-									<button class="btn-xs">삭제</button>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-                            <tr>
-								<td>
-									<button class="btn-xs">삭제</button>
-								</td>
-								<td>한화</td>
-								<td>한화생명</td>
-								<td>20933</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-                <div class="paging_area bm_btn">
-                    <nav>
-                        <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
-                        <button class="page prev" href="#" >이전으로 이동</button>
-                        <a href="#">1</a>
-                        <a href="#" class="on">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <button class="page next" href="#">다음으로 이동</button>
-                        <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
-                    </nav>
-                </div>
-			</div>
-		</div>
-		<div class="pop_footer">
-			<div class="btn_wrap">
-				<button class="btn-md b-close">취소</button>
-				<button class="btn-md btn-dark">수정</button>
-			</div>
-		</div>
-	</div>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>삭제</th>
+                        <th>판매채널명</th>
+                        <th>서비스명</th>
+                        <th>서비스코드</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn-xs">삭제</button>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn-xs">삭제</button>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn-xs">삭제</button>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn-xs">삭제</button>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn-xs">삭제</button>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn-xs">삭제</button>
+                        </td>
+                        <td>한화</td>
+                        <td>한화생명</td>
+                        <td>20933</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging_area bm_btn">
+                <nav>
+                    <button class="page first" href="#" disabled="">맨 앞으로 이동</button>
+                    <button class="page prev" href="#">이전으로 이동</button>
+                    <a href="#">1</a>
+                    <a href="#" class="on">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <button class="page next" href="#">다음으로 이동</button>
+                    <button class="page last" href="#" disabled="">맨 뒤로 이동</button>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="pop_footer">
+        <div class="btn_wrap">
+            <button class="btn-md b-close">취소</button>
+            <button class="btn-md btn-dark">수정</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

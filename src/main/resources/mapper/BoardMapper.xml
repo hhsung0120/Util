@@ -13,34 +13,34 @@
         </where>
     </sql>
     <insert id="insertBoard" parameterType="Board" useGeneratedKeys="true" keyProperty="idx">
-    /* BoardMapper.insertBoard */
+        /* BoardMapper.insertBoard */
         INSERT INTO board (
-            board_type
-            , contents
-            , title
-            , registrant
-            , modifier
-            , reg_date
-            , mod_date
+        board_type
+        , contents
+        , title
+        , registrant
+        , modifier
+        , reg_date
+        , mod_date
         ) VALUES (
-            '1'
-            , #{contents}
-            , #{title}
-            , #{registrant}
-            , #{modifier}
-            , #{regDate}
-            , #{modDate}
+        '1'
+        , #{contents}
+        , #{title}
+        , #{registrant}
+        , #{modifier}
+        , #{regDate}
+        , #{modDate}
         )
     </insert>
 
     <select id="selectBoardListCount" parameterType="Board" resultType="int">
-       SELECT COUNT(*)
-         FROM board
-         <include refid="searchOption"/>
+        SELECT COUNT(*)
+        FROM board
+        <include refid="searchOption"/>
     </select>
 
     <select id="selectBoardList" parameterType="Board" resultType="Board">
-    /* BoardMapper.insertBoard */
+        /* BoardMapper.insertBoard */
         SELECT *
         FROM board
         <include refid="searchOption"/>
@@ -49,39 +49,39 @@
     </select>
 
     <insert id="insertFileInfo" parameterType="CommonFile">
-    /* BoardMapper.insertBoard */
+        /* BoardMapper.insertBoard */
         INSERT INTO file (
-            board_idx
-            , uuid
-            , upload_path
-            , original_file_name
-            , extension
-            , registrant
-            , regDate
-            , modifier
-            , modDate
+        board_idx
+        , uuid
+        , upload_path
+        , original_file_name
+        , extension
+        , registrant
+        , regDate
+        , modifier
+        , modDate
         ) VALUES (
-             #{boardIdx}
-            , #{uuid}
-            , #{uploadPath}
-            , #{originalFileName}
-            , #{extension}
-            , #{registrant}
-            , NOW()
-            , #{registrant}
-            , NOW()
+        #{boardIdx}
+        , #{uuid}
+        , #{uploadPath}
+        , #{originalFileName}
+        , #{extension}
+        , #{registrant}
+        , NOW()
+        , #{registrant}
+        , NOW()
         )
     </insert>
 
     <select id="selectBoard" parameterType="Integer" resultType="Board">
         SELECT *
-          FROM board
-         WHERE idx = #{idx}
+        FROM board
+        WHERE idx = #{idx}
     </select>
 
     <select id="selectCommonFileList" parameterType="Integer" resultType="CommonFile">
         SELECT *
-          FROM file
-	     WHERE board_idx = #{idx}
+        FROM file
+        WHERE board_idx = #{idx}
     </select>
 </mapper>
